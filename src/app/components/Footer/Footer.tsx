@@ -1,8 +1,16 @@
+'use client';
+
 import Image from "next/image";
 import './Footer.scss'
 import Link from "next/link";
 
 export default function Footer() {
+  const backToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
   return (
     <footer className="footer">
       <div>
@@ -39,7 +47,10 @@ export default function Footer() {
         </a>
       </div>
 
-      <div className="footer--back">
+      <div
+        className="footer--back"
+        onClick={backToTop}
+      >
         <p className="footer--back--text">
           Back to top
         </p>

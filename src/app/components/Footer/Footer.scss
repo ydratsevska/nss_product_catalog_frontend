@@ -1,8 +1,8 @@
 .footer {
-  // width: 100%;
+  margin: 0;
   box-sizing: border-box;
-  position: absolute;
-  bottom: 0;
+  position: sticky;
+  top: 100%;
   width: 100%;
   min-width: 320px;
   background-color: #bae1ed; //delete later
@@ -41,6 +41,7 @@
       text-transform: uppercase;
       color: #89939A;
       font-weight: 700;
+      cursor: pointer;
     }
   }
 }
