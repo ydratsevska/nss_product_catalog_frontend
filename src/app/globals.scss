@@ -1,7 +1,7 @@
 @import "variables";
 
 * {
-  font-weight: 400;
+  font-weight: $regular-weight;
   font-size: 14px;
   line-height: 21px;
   box-sizing: border-box;
@@ -12,26 +12,26 @@ button {
 }
 
 h1 {
-  font-weight: 700;
+  font-weight: $accent-weight;
   font-size: 32px;
   line-height: 41px;
   letter-spacing: -0.01em;
 }
 
 h2 {
-  font-weight: 700;
+  font-weight: $accent-weight;
   font-size: 22px;
   line-height: 31px;
 }
 
 h3 {
-  font-weight: 600;
+  font-weight: $semi-accent-weight;
   font-size: 20px;
   line-height: 26px;
 }
 
 h4 {
-  font-weight: 600;
+  font-weight: $semi-accent-weight;
   font-size: 16px;
   line-height: 20px;
 }
@@ -42,7 +42,7 @@ body {
 }
 
 button {
-  font-weight: 600;
+  font-weight: $semi-accent-weight;
   font-size: 14px;
   line-height: 21px;
 }
