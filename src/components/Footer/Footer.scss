@@ -1,3 +1,6 @@
+@import "../../app/variables.scss";
+@import "../../app/mixins.scss";
+
 .footer {
   margin: 0;
   box-sizing: border-box;
@@ -6,12 +9,19 @@
   width: 100%;
   min-width: 320px;
   background-color: #bae1ed; //delete later
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  align-content: space-between;
-  justify-content: space-between;
-  padding: 32px 152px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 32px 16px;
+  row-gap: 32px;
+
+  @include onTablet {
+    display: grid;
+    // flex-direction: row;
+    grid-template-columns: 1fr 1fr 1fr;
+    // column-gap: 40px;
+    padding: 32px 24px;
+  }
 
   &--logo {
     display: inline-block;
@@ -19,29 +29,44 @@
 
   &--links {
     display: flex;
+    flex-direction: column;
+    row-gap: 16px;
     width: 100%;
-    column-gap: 10px;
     justify-content: space-between;
-    color: #89939A;
+    color: $secondary-color;
+
+    @include onTablet {
+      flex-direction: row;
+      align-items: center;
+    }
 
     &--element {
       text-decoration: none;
       text-transform: uppercase;
-      color: #89939A;
+      width: min-content;
+      color: $secondary-color;
       font-weight: 800;
-      padding: -10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
     }
   }
 
   &--back {
     display: flex;
-    justify-content: flex-end;
+    align-self: center;
+    justify-self: center;
+    cursor: pointer;
+
+    @include onTablet {
+      justify-self: flex-end;
+    }
 
     &--text {
       text-transform: uppercase;
-      color: #89939A;
+      color: $secondary-color;
       font-weight: 700;
-      cursor: pointer;
+      font-size: 12px;
+      margin: 0;
     }
   }
 }
