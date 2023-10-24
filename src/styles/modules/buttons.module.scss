@@ -1,0 +1,120 @@
+@import "../../app/variables";
+
+%selectedBase {
+  pointer-events: none;
+  cursor: auto;
+}
+
+%buttonBase {
+  font-weight: 400;
+  width: $button-small-size;
+  height: $button-small-size;
+}
+
+.small {
+  @extend %buttonBase;
+  border-color: $elements-color;
+  background-color: $white-color;
+  transition-duration: $button-hover-effect;
+
+  &_selected {
+    @extend %selectedBase;
+    border-color: $primary-color;
+    color: $white-color;
+    background-color: $primary-color;
+  }
+
+  &:hover {
+    border-color: $primary-color;
+  }
+
+  &:disabled {
+    color: $elements-color;
+  }
+}
+
+%roundedBase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: $button-small-size;
+  height: $button-small-size;
+  background-color: $white-color;
+
+  &:before {
+    content: '';
+    flex-shrink: 0;
+    background-color: $body-color;
+    border-radius: inherit;
+    width: calc($button-small-size - 4px);
+    height: calc($button-small-size - 4px);
+  }
+
+  &:hover {
+    border-color: $elements-color;
+  }
+}
+
+.rounded {
+  @extend %roundedBase;
+  border-color: $elements-color;
+  transition-duration: $button-hover-effect;
+
+  &:hover {
+    border-color: $icons-color;
+  }
+
+  &_selected {
+    @extend %selectedBase;
+    border-color: $primary-color;
+
+    &:hover {
+      border-color: $primary-color;
+    }
+  }
+}
+
+.favorite {
+  height: $button-favorite-size;
+  width: $button-favorite-size;
+  border-color: $elements-color;
+  background: url("../../../public/icons/Favourites.svg") no-repeat center center;
+  transition-duration: 0.3s;
+
+  &_selected {
+    background: url("../../../public/icons/Favourites-filled.svg") no-repeat center center;
+    transition-duration: $button-hover-effect;
+  }
+
+  &:hover {
+    border-color: $primary-color;
+  }
+}
+
+.primary {
+  height: 40px;
+  font-weight: 500;
+  width: 100%;
+  border-color: $primary-color;
+  background-color: $primary-color;
+  color: $white-color;
+  transition-duration: $button-hover-effect;
+
+  &:hover {
+    box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.40);
+  }
+
+  &_selected {
+    @extend %selectedBase;
+    border-color: $elements-color;
+    background-color: $white-color;
+    color: $green-color;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+
