@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import './Footer.scss'
+import './Footer.scss';
 import Link from "next/link";
 
 export default function Footer() {
