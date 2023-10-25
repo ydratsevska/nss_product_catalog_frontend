@@ -1,6 +1,7 @@
 import phoneImage from './phoneImage.png';
 import Image from 'next/image';
 import styles from './ProductCard.module.scss';
+import button from '../../styles/modules/buttons.module.scss'
 
 export const ProductCard = () => {
   return (
@@ -37,33 +38,32 @@ export const ProductCard = () => {
 
         <div className={styles.card__pair}>
           <span className={styles.card__parameter}>
-            Screen
+            Capacity
           </span>
 
           <span className={`${styles.card__parameter} ${styles.card__parameter_value}`}>
-            5.8” OLED
+            64 GB
           </span>
         </div>
 
         <div className={styles.card__pair}>
           <span className={styles.card__parameter}>
-            Screen
+            RAM
           </span>
 
           <span className={`${styles.card__parameter} ${styles.card__parameter_value}`}>
-            5.8” OLED
+            4 GB
           </span>
         </div>
       </div>
 
       <div className={styles.card__buttons}>
-        <button className={styles.card__add}>
+        <button className={button.primary}>
           Add to cart
         </button>
 
-        <div className={styles.card__favorite}>
-          <span className={`${styles.icon} ${styles.icon_heart}`}></span>
-        </div>
+        <button className={button.favorite}>
+        </button>
       </div>
     </div>
   );
