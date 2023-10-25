@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 8px;
+  margin-bottom: 24px;
+  grid-column: 1 / -1;
+}
+
+.homeLink {
+  display: flex;
+  align-items: center;
+}

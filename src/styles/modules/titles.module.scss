@@ -1,0 +1,8 @@
+@import "src/app/variables";
+
+.main {
+  grid-column: 1 / -1;
+  color: $primary-color;
+  font-size: 32px;
+  font-weight: 800;
+}
