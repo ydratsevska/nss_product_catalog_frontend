@@ -7,7 +7,7 @@ import phones from './page.module.scss'
 export default function Home() {
   return (
     <div className={grid.template}>
-      <BreadCrumbs/>
+      <BreadCrumbs category={'phones'}/>
       <h1 className={titles.main}>Mobile phones</h1>
       <p className={phones.title_sub}>95 Models</p>
 
