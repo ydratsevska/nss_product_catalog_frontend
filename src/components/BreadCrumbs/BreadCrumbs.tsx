@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import style from './BreadCrumbs.module.scss'
+import style from "./BreadCrumbs.module.scss";
 import Link from "next/link";
 import Image from "next/image";
 import homeIcon from "../../../public/icons/Home.svg";
@@ -12,34 +12,32 @@ interface Props {
   productName?: string;
 }
 
-export default function BreadCrumbs ({ category, productName }: Props) {
+export default function BreadCrumbs({ category, productName }: Props) {
   return (
     <div className={style.wrapper}>
-      <Link href={'/'} className={style.link__home}>
-        <Image src={homeIcon} alt={'home link'} />
+      <Link href={"/"} className={style.link__home}>
+        <Image src={homeIcon} alt={"home link"} />
       </Link>
-      <Image src={arrowRight} alt={'arrow right'} />
+      <Image src={arrowRight} alt={"arrow right"} />
       <Link
         href={`/${category}`}
-        className={classNames(
-          {
-            [`${style.link_current}`]: category
-          }
-        )}
+        className={classNames({
+          [`${style.link__category}`]: category && !productName,
+        })}
       >
         {category}
       </Link>
       {productName && (
         <>
-          <Image src={arrowRight} alt={'arrow right'} />
+          <Image src={arrowRight} alt={"arrow right"} />
           <Link
             href={`/${category}/${productName}`}
-            className={style.link__current}
+            className={style.link__product}
           >
             {productName}
           </Link>
         </>
       )}
     </div>
-  )
+  );
 }

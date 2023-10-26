@@ -14,7 +14,14 @@
   align-items: center;
 }
 
-.link__current {
+.link__category {
+  color: $secondary-color;
+  pointer-events: none;
+  cursor: auto;
+  text-transform: capitalize;
+}
+
+.link__product {
   color: $secondary-color;
   pointer-events: none;
   cursor: auto;
