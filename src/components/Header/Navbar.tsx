@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import './Header.scss';
-import { navigation } from './../../utils/constants';
+import { navigation } from '@/utils/constants';
 
 export const Navbar = () => {
   const pathName = usePathname();
