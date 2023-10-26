@@ -7,7 +7,7 @@ import Logo from './../../../public/Logo.png';
 import FavoriteIcon from './../../../public/icons/Favourites.svg';
 import ShoppingBagIcon from './../../../public/icons/Shopping-bag.svg';
 import closeIcon from './../../../public/icons/Close.svg';
-import burgerMenuIcon from './../../../public/icons/Menu.svg'
+import burgerMenuIcon from '../../../public/icons/Menu.svg'
 
 import './Header.scss';
 import './Navbar.scss';
