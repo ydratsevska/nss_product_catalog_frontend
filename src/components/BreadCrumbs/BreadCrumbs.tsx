@@ -1,13 +1,13 @@
 'use client'
 
+import style from './BreadCrumbs.module.scss'
 import Link from "next/link";
 import Image from "next/image";
 import homeIcon from "../../../public/icons/Home.svg";
 import arrowRight from "../../../public/icons/Arrow-right.svg";
-import style from './backLink.module.scss'
 import { usePathname } from "next/navigation";
 
-export default function BackLink () {
+export default function BreadCrumbs () {
   const params = usePathname() || null;
 
   if (typeof params !== "string") {
