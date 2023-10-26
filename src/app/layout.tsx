@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={mont.className}>
-        <div className={'header'}></div> {/* add header component*/}
+        <Header /> {/* add header component*/}
         <main className={layout.main}>
           {children}
         </main>
