@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import layout from './layout.module.scss';
 import { Montserrat } from 'next/font/google'
-import { Header } from './../components/Header/Header'
 import './variables.scss'
 import './globals.scss'
 import Footer from "@/components/Footer/Footer";
