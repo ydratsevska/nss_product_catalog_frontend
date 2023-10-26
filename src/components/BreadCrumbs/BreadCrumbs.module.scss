@@ -1,3 +1,5 @@
+@import "src/app/variables";
+
 .wrapper {
   display: flex;
   align-items: center;
@@ -7,7 +9,13 @@
   grid-column: 1 / -1;
 }
 
-.homeLink {
+.link_home {
   display: flex;
   align-items: center;
+}
+
+.link_current {
+  color: $secondary-color;
+  pointer-events: none;
+  cursor: auto;
 }

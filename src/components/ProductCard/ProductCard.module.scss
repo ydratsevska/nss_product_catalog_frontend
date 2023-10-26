@@ -9,11 +9,11 @@
   background-color: #fff;
   border: 1px solid $elements-color;
   width: 272px;
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   gap: 8px;
 
   &__name {
-    font-family: Mont;
+    font-family: Mont, sans-serif;
     font-size: 14px;
     font-weight: 600;
     line-height: 21px;

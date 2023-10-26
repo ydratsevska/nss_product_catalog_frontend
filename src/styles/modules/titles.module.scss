@@ -1,8 +1,18 @@
 @import "src/app/variables";
+@import "src/utils/mixins";
 
 .main {
-  grid-column: 1 / -1;
+  grid-column: span $mobile-columns-quantity;
   color: $primary-color;
   font-size: 32px;
   font-weight: 800;
+  padding-bottom: 8px;
+
+  @include onTablet {
+    grid-column: span $tablet-columns-quantity;
+  }
+
+  @include onTablet {
+    grid-column: span $desktop-columns-quantity;
+  }
 }

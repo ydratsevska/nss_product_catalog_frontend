@@ -1,7 +1,7 @@
 @import 'src/app/variables';
 @import "../../utils/mixins";
 
-.gridTemplate {
+.template {
   display: grid;
   grid-template-columns: repeat($mobile-columns-quantity, 1fr);
   padding-inline: 16px;
