@@ -34,7 +34,7 @@ export default function BreadCrumbs ({ category, productName }: Props) {
           <Image src={arrowRight} alt={'arrow right'} />
           <Link
             href={`/${category}/${productName}`}
-            className={style.link_current}
+            className={style.link__current}
           >
             {productName}
           </Link>

@@ -9,12 +9,12 @@
   grid-column: 1 / -1;
 }
 
-.link_home {
+.link__home {
   display: flex;
   align-items: center;
 }
 
-.link_current {
+.link__current {
   color: $secondary-color;
   pointer-events: none;
   cursor: auto;
