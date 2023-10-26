@@ -41,7 +41,6 @@
       }
     }
 
-
     &--active {
       position: relative;
       font-size: 12px;
@@ -58,40 +57,35 @@
         }
       }
 
-
-      &::after{
+      &::after {
         content: "";
-          position: absolute;
-          display: block;
-          height: 4px;
-          width: 100%;
-          background: $primary-color;
-          bottom: 8;
-
-          @include onDesktop {
-            bottom: 0;
-          }
-
-          @include onTablet {
-            bottom: 0;
-          }
-      }
-    }
-  }
-
-}
-
-
-.nav__link:hover::after{
-  @include onDesktop {
-    content: "";
         position: absolute;
         display: block;
         height: 4px;
         width: 100%;
         background: $primary-color;
-        bottom: 0;
+        bottom: 8;
+
+        @include onDesktop {
+          bottom: 0;
+        }
+
+        @include onTablet {
+          bottom: 0;
+        }
+      }
+    }
   }
 }
 
-
+.nav__link:hover::after {
+  @include onDesktop {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: $primary-color;
+    bottom: 0;
+  }
+}

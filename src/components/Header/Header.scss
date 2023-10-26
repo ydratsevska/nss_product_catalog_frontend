@@ -2,11 +2,11 @@
 @import "../../utils/mixins.scss";
 
 .header {
-    position: sticky;
-    top: 0px;
-    background-color: white;
-    z-index: 4;
-    width: 100%;
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 4;
+  width: 100%;
 
   &__container {
     display: flex;
@@ -35,7 +35,6 @@
     margin: 0;
     height: 100vh;
     box-sizing: border-box;
-
 
     z-index: 3;
 
@@ -132,7 +131,7 @@
     }
 
     @include onTablet {
-     display: none;
+      display: none;
     }
   }
 
@@ -167,7 +166,8 @@
         width: 100%;
         background: $primary-color;
         bottom: 0;
-    }}
+      }
+    }
 
     @include onDesktop {
       display: flex;
@@ -184,7 +184,7 @@
           width: 100%;
           background: $primary-color;
           bottom: 0;
-      }
+        }
       }
     }
 
@@ -195,4 +195,3 @@
     }
   }
 }
-
