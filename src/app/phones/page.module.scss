@@ -1,7 +1,7 @@
 @import "src/app/variables";
 @import "src/utils/mixins";
 
-.main__title {
+.title_main {
   grid-column: span $mobile-columns-quantity;
   font-weight: 800;
   margin-bottom: 8px;
@@ -15,7 +15,7 @@
   }
 }
 
-.subTitle {
+.title_sub {
   color: $secondary-color;
   font-weight: 600;
   font-size: 14px;

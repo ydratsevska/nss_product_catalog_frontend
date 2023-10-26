@@ -16,7 +16,7 @@ export default function BreadCrumbs () {
 
   return (
     <div className={style.wrapper}>
-      <Link href={'/'} className={style.homeLink}>
+      <Link href={'/'} className={style.link__home}>
         <Image src={homeIcon} alt={'home link'} />
       </Link>
       <Image src={arrowRight} alt={'home link'} />
