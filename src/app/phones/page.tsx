@@ -3,6 +3,7 @@ import titles from 'src/styles/modules/titles.module.scss';
 import paragraphs from 'src/styles/modules/paragraphs.module.scss';
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
 import phones from './page.module.scss'
+import {ProductCard} from "@/components/ProductCard";
 
 export default function Home() {
   return (
@@ -25,6 +26,14 @@ export default function Home() {
         <select>
           <option>16</option>
         </select>
+      </div>
+
+      <div className={phones.products}>
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
       </div>
     </div>
   )
