@@ -2,10 +2,12 @@
 @import "../../utils/mixins.scss";
 
 .header {
-  position: sticky;
+    position: sticky;
     top: 0px;
     background-color: white;
     z-index: 4;
+    width: 100%;
+
   &__container {
     display: flex;
     justify-content: space-between;
@@ -219,6 +221,7 @@
   }
 
   &__link {
+    display: block;
     position: relative;
     font-size: 12px;
     color: $secondary-color;
@@ -236,27 +239,30 @@
 
 
     &--active {
+      position: relative;
       font-size: 12px;
       color: $primary-color;
+      text-decoration: none;
+      padding-block: 13.5px;
+      font-weight: $bold-weight;
+      font-style: normal;
 
       @include onDesktop {
-        content: "";
-            position: absolute;
-            display: block;
-            height: 4px;
-            width: 100%;
-            background: $primary-color;
-            bottom: 0;
+        padding-block: 21.5px;
+        &:hover {
+          color: $primary-color;
+        }
       }
 
-      @include onTablet {
+
+      &::after{
         content: "";
-            position: absolute;
-            display: block;
-            height: 4px;
-            width: 100%;
-            background: $primary-color;
-            bottom: 0;
+          position: absolute;
+          display: block;
+          height: 4px;
+          width: 100%;
+          background: $primary-color;
+          bottom: 0;
       }
     }
   }
