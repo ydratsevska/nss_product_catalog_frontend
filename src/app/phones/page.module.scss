@@ -1,20 +1,6 @@
 @import "src/app/variables";
 @import "src/utils/mixins";
 
-.title_main {
-  grid-column: span $mobile-columns-quantity;
-  font-weight: 800;
-  margin-bottom: 8px;
-
-  @include onTablet {
-    grid-column: span $tablet-columns-quantity;
-  }
-
-  @include onTablet {
-    grid-column: span $desktop-columns-quantity;
-  }
-}
-
 .title_sub {
   color: $secondary-color;
   font-weight: 600;

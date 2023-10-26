@@ -1,4 +1,4 @@
-import grid from 'src/styles/modules/gridTemplate.module.scss'
+import grid from 'src/styles/modules/grid.module.scss'
 import titles from 'src/styles/modules/titles.module.scss';
 import paragraphs from 'src/styles/modules/paragraphs.module.scss';
 import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
@@ -6,10 +6,10 @@ import phones from './page.module.scss'
 
 export default function Home() {
   return (
-    <div className={grid.gridTemplate}>
+    <div className={grid.template}>
       <BreadCrumbs/>
       <h1 className={titles.main}>Mobile phones</h1>
-      <p className={phones.subTitle}>95 Models</p>
+      <p className={phones.title_sub}>95 Models</p>
 
       <div className={phones.sort}>
         <p className={paragraphs.parameter}>Sort by</p>
