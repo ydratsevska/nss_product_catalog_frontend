@@ -1,0 +1,22 @@
+@import 'src/app/variables';
+@import "../../utils/mixins";
+
+.gridTemplate {
+  display: grid;
+  grid-template-columns: repeat($mobile-columns-quantity, 1fr);
+  padding-inline: 16px;
+  column-gap: $columns-gap;
+  justify-content: space-around;
+
+  @include onTablet {
+    grid-template-columns: repeat($tablet-columns-quantity, 1fr);
+    padding-inline: 24px;
+  }
+
+  @include onDesktop {
+    max-width: calc($desktop-columns-quantity * $desktop-columns-width + ($columns-gap * ($desktop-columns-quantity - 1)));
+    margin: 0 auto;
+    padding-inline: 0;
+    grid-template-columns: repeat($desktop-columns-quantity, $desktop-columns-width);
+  }
+}

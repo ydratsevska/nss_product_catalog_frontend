@@ -9,13 +9,13 @@
   font-weight: 400;
   width: $button-small-size;
   height: $button-small-size;
+  transition-duration: $button-hover-effect-duration;
 }
 
 .small {
   @extend %buttonBase;
   border-color: $elements-color;
   background-color: $white-color;
-  transition-duration: $button-hover-effect;
 
   &_selected {
     @extend %selectedBase;
@@ -59,7 +59,6 @@
 .rounded {
   @extend %roundedBase;
   border-color: $elements-color;
-  transition-duration: $button-hover-effect;
 
   &:hover {
     border-color: $icons-color;
@@ -80,11 +79,10 @@
   width: $button-favorite-size;
   border-color: $elements-color;
   background: url("../../../public/icons/Favourites.svg") no-repeat center center;
-  transition-duration: 0.3s;
+  transition-duration: $button-hover-effect-duration;
 
   &_selected {
-    background: url("../../../public/icons/Favourites-filled.svg") no-repeat center center;
-    transition-duration: $button-hover-effect;
+    background: url("../../../public/icons/Favourites-filled.svg") no-repeat center center
   }
 
   &:hover {
@@ -99,7 +97,7 @@
   border-color: $primary-color;
   background-color: $primary-color;
   color: $white-color;
-  transition-duration: $button-hover-effect;
+  transition-duration: $button-hover-effect-duration;
 
   &:hover {
     box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.40);
