@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import homeIcon from "../../../public/icons/Home.svg";
 import arrowRight from "../../../public/icons/Arrow-right.svg";
-import { usePathname } from "next/navigation";
 import classNames from "classnames";
 
 interface Props {
