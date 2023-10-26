@@ -157,7 +157,7 @@
       cursor: pointer;
     }
 
-    &:active {
+    &--active {
       &::after {
         content: "";
         position: absolute;

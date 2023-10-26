@@ -11,9 +11,12 @@ import burgerMenuIcon from "./../../../public/icons/Menu.svg";
 
 import "./Header.scss";
 import "./Navbar.scss";
+import classNames from "classnames";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
   const [isActive, setIsActive] = useState(false);
+  const pathName = usePathname();
 
   return (
     <header className='header'>
@@ -28,7 +31,10 @@ export const Header = () => {
         <div className='header__icons'>
           <Link
             href='/favourites'
-            className='header__icon header__icon--favorite'
+            className={classNames('header__icon',
+              'header__icon--favorite',
+              { 'header__icon--active': pathName === '/favourites' }
+            )}
           >
             <Image
               src={FavoriteIcon}
@@ -38,7 +44,13 @@ export const Header = () => {
             />
           </Link>
 
-          <Link href='/cart' className='header__icon header__icon--basket'>
+          <Link
+            href='/cart'
+            className={classNames('header__icon',
+              'header__icon--basket',
+              { 'header__icon--active': pathName === '/cart' }
+            )}
+          >
             <Image
               src={ShoppingBagIcon}
               width={16}
