@@ -6,6 +6,7 @@ import Image from "next/image";
 import homeIcon from "../../../public/icons/Home.svg";
 import arrowRight from "../../../public/icons/Arrow-right.svg";
 import { usePathname } from "next/navigation";
+import classNames from "classnames";
 
 interface Props {
   category: string;
@@ -13,12 +14,6 @@ interface Props {
 }
 
 export default function BreadCrumbs ({ category, productName }: Props) {
-  const params = usePathname() || null;
-
-  if (typeof params !== "string") {
-    throw new Error('Params is not a string')
-  }
-
   return (
     <div className={style.wrapper}>
       <Link href={'/'} className={style.link__home}>
@@ -27,7 +22,11 @@ export default function BreadCrumbs ({ category, productName }: Props) {
       <Image src={arrowRight} alt={'arrow right'} />
       <Link
         href={`/${category}`}
-        className={category && style.link_current}
+        className={classNames(
+          {
+            [`${style.link_current}`]: category
+          }
+        )}
       >
         {category}
       </Link>
