@@ -1,0 +1,93 @@
+@import "../../app/variables.scss";
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  min-width: 136px;
+
+  &__trigger {
+    text-decoration: none;
+    color: $primary-color;
+    padding: 12px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    border: 1px solid $elements-color;
+    background-color: $white-color;
+    width: 100%;
+    text-align: left;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__arrow {
+      width: 16px;
+      height: 16px;
+      background-image: url('/icons/Arrow-down.svg');
+      background-repeat: no-repeat;
+
+      &_active {
+        background-image: url('/icons/Arrow-up.svg');
+      }
+    }
+
+    &:hover {
+      border-color: $secondary-color;
+    }
+
+    &.dropdown__trigger_active {
+      border-color: $primary-color;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    background-color: $white-color;
+    padding: 10px 0;
+    margin: 0;
+    z-index: 1;
+    box-sizing: border-box;
+    width: 100%;
+
+    position: absolute;
+    z-index: 1;
+
+    top: 52px;
+
+    box-shadow: 0px 2px 15px 0px #0000000D;
+    border: 1px solid $elements-color;
+  }
+
+  &__element {
+    display: block;
+    position: relative;
+    color: inherit;
+
+    display: block;
+    color: $secondary-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $primary-color;
+      background-color: $bg-and-hover-color;
+    }
+
+    &__button {
+      background-color: $white-color;
+      color: inherit;
+      border: none;
+      display: block;
+      width: 100%;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 21px;
+      padding: 12px 10px;
+      cursor: pointer;
+    }
+  }
+}
