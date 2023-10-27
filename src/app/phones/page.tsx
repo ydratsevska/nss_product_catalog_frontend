@@ -1,13 +1,14 @@
-import grid from "src/styles/modules/grid.module.scss";
-import titles from "src/styles/modules/titles.module.scss";
-import paragraphs from "src/styles/modules/paragraphs.module.scss";
-import BreadCrumbs from "../../components/BreadCrumbs/BreadCrumbs";
-import phones from "../../styles/modules/page.module.scss";
+import grid from 'src/styles/modules/grid.module.scss';
+import titles from 'src/styles/modules/titles.module.scss';
+import paragraphs from 'src/styles/modules/paragraphs.module.scss';
+import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
+import phones from '../../styles/modules/page.module.scss';
+import { ProductCard } from '@/components/ProductCard';
 
 export default function Home() {
   return (
     <div className={grid.template}>
-      <BreadCrumbs category={"phones"} />
+      <BreadCrumbs category={'phones'} />
       <h1 className={titles.main}>Mobile phones</h1>
       <p className={phones.title_sub}>95 Models</p>
 
@@ -25,6 +26,14 @@ export default function Home() {
         <select>
           <option>16</option>
         </select>
+      </div>
+
+      <div className={phones.products}>
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
+        <ProductCard />
       </div>
     </div>
   );
