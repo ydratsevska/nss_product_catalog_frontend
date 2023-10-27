@@ -1,5 +1,5 @@
 @import "../../app/variables";
-
+@import "../../utils/mixins.scss";
 
 .card {
 
@@ -8,12 +8,18 @@
   padding: 32px;
   background-color: #fff;
   border: 1px solid $elements-color;
-  width: 272px;
-  font-family: Mont, sans-serif;
+  width: 212px;
   gap: 8px;
 
+  @include onTablet () {
+    width: 237px;
+  }
+
+  @include onDesktop () {
+    width: 272px;
+  }
+
   &__name {
-    font-family: Mont, sans-serif;
     font-size: 14px;
     font-weight: 600;
     line-height: 21px;

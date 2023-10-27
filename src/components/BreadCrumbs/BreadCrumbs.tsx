@@ -15,8 +15,8 @@ interface Props {
 export default function BreadCrumbs({ category, productName }: Props) {
   return (
     <div className={style.wrapper}>
-      <Link href={"/"} className={style.link__home}>
-        <Image src={homeIcon} alt={"home link"} />
+      <Link href={'/'} className={style.link_home}>
+        <Image src={homeIcon} alt={'home link'} />
       </Link>
       <Image src={arrowRight} alt={"arrow right"} />
       <Link
