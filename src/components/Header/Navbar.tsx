@@ -1,6 +1,6 @@
-"use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import './Header.scss';
 import { navigation } from './../../utils/constants';
 
@@ -13,7 +13,7 @@ export const Navbar = () => {
         <Link
           key={id}
           href={path}
-          className={pathName === path ? "nav__link--active" : "nav__link"}
+          className={pathName === path ? 'nav__link--active' : 'nav__link'}
         >
           {title}
         </Link>

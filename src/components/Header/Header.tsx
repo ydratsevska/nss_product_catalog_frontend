@@ -1,16 +1,16 @@
-"use client";
-import {useState} from 'react';
-import Image from 'next/image'
+'use client';
+import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Navbar } from './Navbar';
 import Logo from './../../../public/Logo.png';
 import FavoriteIcon from './../../../public/icons/Favourites.svg';
 import ShoppingBagIcon from './../../../public/icons/Shopping-bag.svg';
 import closeIcon from './../../../public/icons/Close.svg';
-import burgerMenuIcon from './../../../public/icons/Menu.svg'
+import burgerMenuIcon from './../../../public/icons/Menu.svg';
 
-import "./Header.scss";
-import "./Navbar.scss";
+import './Header.scss';
+import './Navbar.scss';
 
 export const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -19,8 +19,16 @@ export const Header = () => {
     <header className='header'>
       <div className='header__container'>
         <div className='header__links'>
-          <Link href='/' className='header__logo'>
-            <Image src={Logo} width={80} height={28} alt='logo' />
+          <Link
+            href='/'
+            className='header__logo'
+          >
+            <Image
+              src={Logo}
+              width={80}
+              height={28}
+              alt='logo'
+            />
           </Link>
           <div className='header__navbar'>{<Navbar />}</div>
         </div>
@@ -38,7 +46,10 @@ export const Header = () => {
             />
           </Link>
 
-          <Link href='/cart' className='header__icon header__icon--basket'>
+          <Link
+            href='/cart'
+            className='header__icon header__icon--basket'
+          >
             <Image
               src={ShoppingBagIcon}
               width={16}
@@ -60,7 +71,12 @@ export const Header = () => {
               alt='Favorite Icon'
             />
           ) : (
-            <Image src={closeIcon} width={16} height={16} alt='close icon' />
+            <Image
+              src={closeIcon}
+              width={16}
+              height={16}
+              alt='close icon'
+            />
           )}
         </div>
       </div>
@@ -68,7 +84,7 @@ export const Header = () => {
       {isActive && (
         <div
           className={
-            isActive ? "header__burger-menu--active" : "header__burger-menu"
+            isActive ? 'header__burger-menu--active' : 'header__burger-menu'
           }
         >
           {<Navbar />}
@@ -85,7 +101,10 @@ export const Header = () => {
                 alt='Favorite Icon'
               />
             </Link>
-            <Link href='/cart' className='header__burger-menu-icon-bottom'>
+            <Link
+              href='/cart'
+              className='header__burger-menu-icon-bottom'
+            >
               <Image
                 src={ShoppingBagIcon}
                 width={16}
