@@ -1,0 +1,10 @@
+@import "src/app/variables.scss";
+
+.title {
+  grid-column: 1 / -1;
+  color: $primary-color;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 140%; /* 30.8px */
+}

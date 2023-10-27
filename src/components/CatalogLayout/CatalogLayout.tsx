@@ -15,7 +15,7 @@ export default function CatalogLayout({ category }: Props) {
 
   return (
     <div className={grid.template}>
-      <BreadCrumbs category={category}/>
+      <BreadCrumbs category={formattedHeader}/>
       <h1 className={titles.main}>{formattedHeader}</h1>
       <p className={phones.title_sub}>95 Models</p>
 
@@ -32,7 +32,6 @@ export default function CatalogLayout({ category }: Props) {
       </div>
 
       <div className={phones.products}>
-        <ProductCard />
         <ProductCard />
         <ProductCard />
         <ProductCard />
