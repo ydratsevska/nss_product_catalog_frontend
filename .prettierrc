@@ -1,4 +1,5 @@
 {
+  "singleQuote": true,
   "bracketSpacing": true,
   "jsxSingleQuote": true,
   "semi": true,
