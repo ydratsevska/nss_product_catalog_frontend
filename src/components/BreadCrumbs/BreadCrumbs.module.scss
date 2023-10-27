@@ -1,4 +1,4 @@
-@import "src/app/variables";
+@import 'src/app/variables';
 
 .wrapper {
   display: flex;
@@ -14,7 +14,14 @@
   align-items: center;
 }
 
-.link_current {
+.link_category {
+  color: $secondary-color;
+  pointer-events: none;
+  cursor: auto;
+  text-transform: capitalize;
+}
+
+.link_product {
   color: $secondary-color;
   pointer-events: none;
   cursor: auto;
