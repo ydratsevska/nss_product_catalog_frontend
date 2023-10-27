@@ -11,24 +11,19 @@ import burgerMenuIcon from './../../../public/icons/Menu.svg';
 
 import './Header.scss';
 import './Navbar.scss';
+import classNames from 'classnames';
+import { usePathname } from 'next/navigation';
 
-export const Header = () => {
+export default function Header() {
   const [isActive, setIsActive] = useState(false);
+  const pathName = usePathname();
 
   return (
     <header className='header'>
       <div className='header__container'>
         <div className='header__links'>
-          <Link
-            href='/'
-            className='header__logo'
-          >
-            <Image
-              src={Logo}
-              width={80}
-              height={28}
-              alt='logo'
-            />
+          <Link href='/' className='header__logo'>
+            <Image src={Logo} width={80} height={28} alt='logo' />
           </Link>
           <div className='header__navbar'>{<Navbar />}</div>
         </div>
@@ -36,7 +31,9 @@ export const Header = () => {
         <div className='header__icons'>
           <Link
             href='/favourites'
-            className='header__icon header__icon--favorite'
+            className={classNames('header__icon', 'header__icon--favorite', {
+              'header__icon--active': pathName === '/favourites',
+            })}
           >
             <Image
               src={FavoriteIcon}
@@ -48,7 +45,9 @@ export const Header = () => {
 
           <Link
             href='/cart'
-            className='header__icon header__icon--basket'
+            className={classNames('header__icon', 'header__icon--basket', {
+              'header__icon--active': pathName === '/cart',
+            })}
           >
             <Image
               src={ShoppingBagIcon}
@@ -71,12 +70,7 @@ export const Header = () => {
               alt='Favorite Icon'
             />
           ) : (
-            <Image
-              src={closeIcon}
-              width={16}
-              height={16}
-              alt='close icon'
-            />
+            <Image src={closeIcon} width={16} height={16} alt='close icon' />
           )}
         </div>
       </div>
@@ -92,7 +86,10 @@ export const Header = () => {
           <div className='header__burger-menu-icons-bottom'>
             <Link
               href='/favourites'
-              className='header__burger-menu-icon-bottom'
+              className={classNames('header__burger-menu-icon-bottom', {
+                'header__burger-menu-icon-bottom--active':
+                  pathName === '/favourites',
+              })}
             >
               <Image
                 src={FavoriteIcon}
@@ -103,7 +100,9 @@ export const Header = () => {
             </Link>
             <Link
               href='/cart'
-              className='header__burger-menu-icon-bottom'
+              className={classNames('header__burger-menu-icon-bottom', {
+                'header__burger-menu-icon-bottom--active': pathName === '/cart',
+              })}
             >
               <Image
                 src={ShoppingBagIcon}
@@ -117,4 +116,4 @@ export const Header = () => {
       )}
     </header>
   );
-};
+}

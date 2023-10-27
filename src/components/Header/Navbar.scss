@@ -66,10 +66,6 @@
         background: $primary-color;
         bottom: 8;
 
-        @include onDesktop {
-          bottom: 0;
-        }
-
         @include onTablet {
           bottom: 0;
         }
