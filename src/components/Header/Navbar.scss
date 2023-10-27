@@ -1,5 +1,5 @@
-@import '../../app/variables.scss';
-@import '../../utils/mixins.scss';
+@import "../../app/variables.scss";
+@import "../../utils/mixins.scss";
 
 .nav {
   display: flex;
@@ -58,7 +58,7 @@
       }
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         display: block;
         height: 4px;
@@ -76,7 +76,7 @@
 
 .nav__link:hover::after {
   @include onDesktop {
-    content: '';
+    content: "";
     position: absolute;
     display: block;
     height: 4px;
