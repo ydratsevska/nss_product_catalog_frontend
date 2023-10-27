@@ -1,4 +1,4 @@
-@import "src/app/variables";
+@import 'src/app/variables';
 
 .wrapper {
   display: flex;
@@ -9,19 +9,19 @@
   grid-column: 1 / -1;
 }
 
-.link__home {
+.link_home {
   display: flex;
   align-items: center;
 }
 
-.link__category {
+.link_category {
   color: $secondary-color;
   pointer-events: none;
   cursor: auto;
   text-transform: capitalize;
 }
 
-.link__product {
+.link_product {
   color: $secondary-color;
   pointer-events: none;
   cursor: auto;

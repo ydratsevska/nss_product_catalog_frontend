@@ -4,7 +4,7 @@
 .template {
   display: grid;
   grid-template-columns: repeat($mobile-columns-quantity, 1fr);
-  padding-inline: 16px;
+  padding-inline: $columns-gap;
   column-gap: $columns-gap;
   justify-content: space-around;
 
