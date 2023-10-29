@@ -50,7 +50,7 @@ export default function Home() {
 
             <div className={styles.category_card}>
               <div className={styles.category_img}></div>
-              <Link href="/accessories" className={styles.categroy__title}>
+              <Link href="/accessories" className={styles.category__title}>
                 Accessories
               </Link>
               <p className={styles.category__description}>100 models</p>

@@ -105,12 +105,22 @@
   }
 }
 
-.category_title {
+.category__title {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+
   &:hover {
-    color: blue;
+    color: violet;
   }
 }
-.category__description {}
+.category__description {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 21px;
+  color: $secondary-color;
+}
 
 .category__cards {
   display: flex;
@@ -134,7 +144,6 @@
 .category_card {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-direction: column;
 
 
