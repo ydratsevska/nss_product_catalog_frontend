@@ -1,5 +1,6 @@
 import phoneImage from './phoneImage.png';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './ProductCard.module.scss';
 import button from '../../styles/modules/buttons.module.scss'
 import { Product } from '@/types/Product';
@@ -10,6 +11,7 @@ type Props = {
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
   const {
+    itemId,
     name,
     fullPrice,
     price,
@@ -20,14 +22,16 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   } = product;
   return (
     <div className={styles.card}>
-      <Image
-        alt='Phone Image'
-        src={`https://nss-product-catalog-api.onrender.com/${image}`}
-        className={styles.card__image}
-        width={ 250 }
-        height={ 250 }
-        // layout="responsive"
-      />
+      <Link href="/phones/[id]" as={`/phones/${itemId}`}>
+        <Image
+          alt='Phone Image'
+          src={`https://nss-product-catalog-api.onrender.com/${image}`}
+          className={styles.card__image}
+          width={ 250 }
+          height={ 250 }
+        />
+      </Link>
+
       <span className={styles.card__name}>
         {name}
       </span>
