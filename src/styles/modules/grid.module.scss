@@ -1,5 +1,5 @@
 @import 'src/app/variables';
-@import "../../utils/mixins";
+@import '../../utils/mixins';
 
 .template {
   display: grid;
@@ -14,9 +14,15 @@
   }
 
   @include onDesktop {
-    max-width: calc($desktop-columns-quantity * $desktop-columns-width + ($columns-gap * ($desktop-columns-quantity - 1)));
+    max-width: calc(
+      $desktop-columns-quantity * $desktop-columns-width +
+        ($columns-gap * ($desktop-columns-quantity - 1))
+    );
     margin: 0 auto;
     padding-inline: 0;
-    grid-template-columns: repeat($desktop-columns-quantity, $desktop-columns-width);
+    grid-template-columns: repeat(
+      $desktop-columns-quantity,
+      $desktop-columns-width
+    );
   }
 }
