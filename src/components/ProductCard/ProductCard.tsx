@@ -1,17 +1,21 @@
 import phoneImage from './phoneImage.png';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './ProductCard.module.scss';
 import button from '../../styles/modules/buttons.module.scss'
+
 
 export const ProductCard = () => {
   return (
     <div className={styles.card}>
-      <Image
-        alt='Phone Image'
-        src={phoneImage}
-        className={styles.card__image}
-        layout="responsive"
-      />
+      <Link href="/phones/[id]" as={`/phones/${1}`}>
+        <Image
+          alt='Phone Image'
+          src={phoneImage}
+          className={styles.card__image}
+          layout="responsive"
+        />
+      </Link>
       <span className={styles.card__name}>
         Apple iPhone Xs 64GB Silver (iMT9G2FS/A)
       </span>
