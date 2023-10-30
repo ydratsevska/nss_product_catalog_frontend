@@ -1,5 +1,5 @@
-@import "src/app/variables";
-@import "src/utils/mixins";
+@import 'src/app/variables';
+@import 'src/utils/mixins';
 
 .title_sub {
   color: $secondary-color;
@@ -12,7 +12,7 @@
     grid-column: span $tablet-columns-quantity;
   }
 
-  @include onTablet {
+  @include onDesktop {
     grid-column: span $desktop-columns-quantity;
   }
 }
@@ -35,10 +35,16 @@
 }
 
 .products {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-rows: min-content;
   column-gap: inherit;
-  row-gap: 40px;
+  row-gap: 8px;
   justify-content: space-around;
   grid-column: 1 / -1;
+  justify-items: center;
+
+  @include onTablet {
+    grid-template-columns: repeat(auto-fill, 260px);
+  }
 }

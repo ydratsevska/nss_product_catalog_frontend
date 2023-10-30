@@ -1,4 +1,4 @@
-@import "../../app/variables";
+@import '../../app/variables';
 
 %selectedBase {
   pointer-events: none;
@@ -78,11 +78,13 @@
   height: $button-favorite-size;
   width: $button-favorite-size;
   border-color: $elements-color;
-  background: url("../../../public/icons/Favourites.svg") no-repeat center center;
+  background: url('../../../public/icons/Favourites.svg') no-repeat center
+    center;
   transition-duration: $button-hover-effect-duration;
 
   &_selected {
-    background: url("../../../public/icons/Favourites-filled.svg") no-repeat center center
+    background: url('../../../public/icons/Favourites-filled.svg') no-repeat
+      center center;
   }
 
   &:hover {
@@ -100,7 +102,7 @@
   transition-duration: $button-hover-effect-duration;
 
   &:hover {
-    box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.40);
+    box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
   }
 
   &_selected {
@@ -114,5 +116,3 @@
     }
   }
 }
-
-

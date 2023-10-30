@@ -3,14 +3,17 @@ import titles from 'src/styles/modules/titles.module.scss';
 import paragraphs from 'src/styles/modules/paragraphs.module.scss';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import phones from '../../styles/modules/page.module.scss';
-import { ProductCard } from '@/components/ProductCard';
+import ProductList from '@/components/ProductList/ProductList';
+import getData from '@/utils/getData';
 
-export default function Home() {
+export default async function Phones() {
+  const data = await getData('phones');
+
   return (
     <div className={grid.template}>
       <BreadCrumbs category={'phones'} />
       <h1 className={titles.main}>Mobile phones</h1>
-      <p className={phones.title_sub}>95 Models</p>
+      <p className={phones.title_sub}>{data.count} Models</p>
 
       <div className={phones.sort}>
         <p className={paragraphs.parameter}>Sort by</p>
@@ -28,13 +31,7 @@ export default function Home() {
         </select>
       </div>
 
-      <div className={phones.products}>
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </div>
+      <ProductList products={data.products} />
     </div>
   );
 }

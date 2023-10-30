@@ -3,28 +3,44 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ProductCard.module.scss';
 import button from '../../styles/modules/buttons.module.scss'
+import { Product } from '@/types/Product';
 
+type Props = {
+  product: Product
+}
 
-export const ProductCard = () => {
+export const ProductCard: React.FC<Props> = ({ product }) => {
+  const {
+    itemId,
+    name,
+    fullPrice,
+    price,
+    screen,
+    capacity,
+    ram,
+    image,
+  } = product;
   return (
     <div className={styles.card}>
-      <Link href="/phones/[id]" as={`/phones/${1}`}>
+      <Link href="/phones/[id]" as={`/phones/${itemId}`}>
         <Image
           alt='Phone Image'
-          src={phoneImage}
+          src={`https://nss-product-catalog-api.onrender.com/${image}`}
           className={styles.card__image}
-          layout="responsive"
+          width={ 250 }
+          height={ 250 }
         />
       </Link>
+
       <span className={styles.card__name}>
-        Apple iPhone Xs 64GB Silver (iMT9G2FS/A)
+        {name}
       </span>
       <div className={styles.card__prices}>
         <span className={`${styles.card__price} ${styles.card__price_new}`}>
-          $799
+          ${price}
         </span>
         <span className={`${styles.card__price} ${styles.card__price_old}`}>
-          $799
+          ${fullPrice}
         </span>
       </div>
 
@@ -36,7 +52,7 @@ export const ProductCard = () => {
             Screen
           </span>
           <span className={`${styles.card__parameter} ${styles.card__parameter_value}`}>
-            5.8” OLED
+            {screen}
           </span>
         </div>
 
@@ -46,7 +62,7 @@ export const ProductCard = () => {
           </span>
 
           <span className={`${styles.card__parameter} ${styles.card__parameter_value}`}>
-            64 GB
+            {capacity}
           </span>
         </div>
 
@@ -56,7 +72,7 @@ export const ProductCard = () => {
           </span>
 
           <span className={`${styles.card__parameter} ${styles.card__parameter_value}`}>
-            4 GB
+            {ram}
           </span>
         </div>
       </div>
