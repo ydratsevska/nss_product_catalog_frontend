@@ -5,8 +5,8 @@ import Link from 'next/link';
 import styles from './ProductCard.module.scss';
 import button from '../../styles/modules/buttons.module.scss';
 import { Product } from '@/types/Product';
-import { useContext } from 'react'
-import { FavouritesContext } from '../FavouritesContextProvider/FavouritesContextProvider';
+import { useContext } from 'react';
+import { FavoritesContext } from '../FavoritesContextProvider/FavoritesContextProvider';
 import classNames from 'classnames';
 
 type Props = {
@@ -14,23 +14,25 @@ type Props = {
 };
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
-  const { id, name, fullPrice, price, screen, capacity, ram, image } =
-    product;
+  const { id, name, fullPrice, price, screen, capacity, ram, image } = product;
 
-  const { favourites, setFavourites } = useContext(FavouritesContext);
+  const { favorites: favorites, setFavourites } = useContext(FavoritesContext);
 
-  const handleFavourites = (id: number) => {
-    const newFavourites = favourites.includes(id)
-      ? favourites.filter(fav => fav !== id)
-      : [...favourites, id];
+  const handleFavorites = (id: number) => {
+    const newFavourites = favorites.includes(id)
+      ? favorites.filter((fav) => fav !== id)
+      : [...favorites, id];
 
     setFavourites(newFavourites);
-    localStorage.setItem('favourites', JSON.stringify(newFavourites));
+    localStorage.setItem('favorites', JSON.stringify(newFavourites));
   };
 
   return (
     <div className={styles.card}>
-      <Link href='/phones/[id]' as={`/phones/${id}`}>
+      <Link
+        href='/phones/[id]'
+        as={`/phones/${id}`}
+      >
         <Image
           alt='Phone Image'
           src={`https://nss-product-catalog-api.onrender.com/${image}`}
@@ -88,9 +90,9 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
         <button
           className={classNames(button.favorite, {
-            [button.favorite_selected]: favourites.includes(id)
+            [button.favorite_selected]: favorites.includes(id),
           })}
-          onClick={() => handleFavourites(id)}
+          onClick={() => handleFavorites(id)}
         ></button>
       </div>
     </div>
