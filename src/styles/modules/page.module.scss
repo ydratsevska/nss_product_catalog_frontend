@@ -48,3 +48,15 @@
     grid-template-columns: repeat(auto-fill, 260px);
   }
 }
+
+.loading_image {
+  height: 100px;
+  width: 100px;
+  grid-column: 1 / -1;
+  margin: 0 auto;
+}
+
+.no_products_message {
+  text-align: left;
+  grid-column: 1 / -1;
+}

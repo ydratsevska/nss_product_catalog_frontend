@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Navbar } from './Navbar';
@@ -13,8 +13,10 @@ import './Header.scss';
 import './Navbar.scss';
 import classNames from 'classnames';
 import { usePathname } from 'next/navigation';
+import { FavoritesContext } from '../FavoritesContextProvider/FavoritesContextProvider';
 
 export default function Header() {
+  const { favorites } = useContext(FavoritesContext)
   const [isActive, setIsActive] = useState(false);
   const pathName = usePathname();
 
@@ -22,17 +24,25 @@ export default function Header() {
     <header className='header'>
       <div className='header__container'>
         <div className='header__links'>
-          <Link href='/' className='header__logo'>
-            <Image src={Logo} width={80} height={28} alt='logo' />
+          <Link
+            href='/'
+            className='header__logo'
+          >
+            <Image
+              src={Logo}
+              width={80}
+              height={28}
+              alt='logo'
+            />
           </Link>
           <div className='header__navbar'>{<Navbar />}</div>
         </div>
 
         <div className='header__icons'>
           <Link
-            href='/favourites'
+            href='/favorites'
             className={classNames('header__icon', 'header__icon--favorite', {
-              'header__icon--active': pathName === '/favourites',
+              'header__icon--active': pathName === '/favorites',
             })}
           >
             <Image
@@ -41,6 +51,11 @@ export default function Header() {
               height={16}
               alt='Favorite Icon'
             />
+            {!!favorites.length && (
+              <span className='header__icon__amount'>
+                {favorites.length}
+              </span>
+            )}
           </Link>
 
           <Link
@@ -70,7 +85,12 @@ export default function Header() {
               alt='Favorite Icon'
             />
           ) : (
-            <Image src={closeIcon} width={16} height={16} alt='close icon' />
+            <Image
+              src={closeIcon}
+              width={16}
+              height={16}
+              alt='close icon'
+            />
           )}
         </div>
       </div>
@@ -85,10 +105,10 @@ export default function Header() {
 
           <div className='header__burger-menu-icons-bottom'>
             <Link
-              href='/favourites'
+              href='/favorites'
               className={classNames('header__burger-menu-icon-bottom', {
                 'header__burger-menu-icon-bottom--active':
-                  pathName === '/favourites',
+                  pathName === '/favorites',
               })}
             >
               <Image
@@ -97,6 +117,11 @@ export default function Header() {
                 height={16}
                 alt='Favorite Icon'
               />
+              {!!favorites.length && (
+                <span className='header__burger-menu-icon-bottom__amount header__burger-menu-icon-bottom__amount_favorite'>
+                  {favorites.length}
+                </span>
+              )}
             </Link>
             <Link
               href='/cart'
