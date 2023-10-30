@@ -1,5 +1,5 @@
-@import "../../app/variables";
-@import "../../utils/mixins.scss";
+@import '../../app/variables';
+@import '../../utils/mixins.scss';
 
 .card {
   display: grid;
@@ -11,11 +11,11 @@
   width: 212px;
   margin-bottom: 32px;
 
-  @include onTablet () {
+  @include onTablet() {
     width: 237px;
   }
 
-  @include onDesktop () {
+  @include onDesktop() {
     width: 272px;
   }
 
@@ -44,7 +44,6 @@
 
     &_new {
       font-weight: $accent-weight;
-
     }
 
     &_old {

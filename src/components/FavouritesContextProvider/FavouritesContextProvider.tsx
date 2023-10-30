@@ -1,35 +1,40 @@
-'use client'
-import { Dispatch, SetStateAction, createContext, useEffect, useState } from 'react'
+'use client';
+import {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useEffect,
+  useState,
+} from 'react';
 
 type FavContext = {
-  favourites: string[],
-  setFavourites:  Dispatch<SetStateAction<string[]>>,
-}
+  favourites: number[];
+  setFavourites: Dispatch<SetStateAction<number[]>>;
+};
 
-const FavouritesContext = createContext<FavContext>({
+export const FavouritesContext = createContext<FavContext>({
   favourites: [],
-  setFavourites: () => undefined
+  setFavourites: () => undefined,
 });
 
 export function FavouritesContextProvider({ children }: { children: any }) {
-  const [favourites, setFavourites] = useState([] as string[]);
+  const [favourites, setFavourites] = useState([] as number[]);
 
   useEffect(() => {
     if (!localStorage.getItem('favourites')) {
       localStorage.setItem('favourites', '[]');
     }
-    setFavourites(JSON.parse(localStorage.getItem('favourites') || '[]'))
-  }, [])
+    setFavourites(JSON.parse(localStorage.getItem('favourites') || '[]'));
+  }, []);
 
   return (
     <FavouritesContext.Provider
       value={{
         favourites,
-        setFavourites
+        setFavourites,
       }}
     >
       {children}
     </FavouritesContext.Provider>
   );
 }
-

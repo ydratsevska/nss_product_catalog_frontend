@@ -23,8 +23,8 @@ export default function RootLayout({
     <html lang='en'>
       <body className={mont.className}>
         <FavouritesContextProvider>
-        <Header />
-        <main className={layout.main}>{children}</main>
+          <Header />
+          <main className={layout.main}>{children}</main>
         </FavouritesContextProvider>
         <Footer />
       </body>
