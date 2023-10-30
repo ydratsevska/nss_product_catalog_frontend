@@ -55,16 +55,16 @@ export default function ProductsCarousel() {
         renderArrowsWhenDisabled={true}
         arrows={false} renderButtonGroupOutside={true} customButtonGroup={<ButtonGroup />}
       >
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+        <div className="temporary-card"></div>
+        <div className="temporary-card"></div>
+        <div className="temporary-card"></div>
+        <div className="temporary-card"></div>
+        <div className="temporary-card"></div>
+        <div className="temporary-card"></div>
+        <div className="temporary-card"></div>
+        <div className="temporary-card"></div>
+        <div className="temporary-card"></div>
+        <div className="temporary-card"></div>
       </Carousel>
     </div>
 

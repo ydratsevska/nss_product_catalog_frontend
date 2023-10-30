@@ -99,3 +99,18 @@
 
   }
 }
+
+.temporary-card {
+  width: 288px;
+  height: 440px;
+  background-color: black;
+
+  @include onTablet {
+    width: 288px;
+    height: 506px;
+  }
+  @include onDesktop {
+    width: 272px;
+    height: 506px;
+  }
+}

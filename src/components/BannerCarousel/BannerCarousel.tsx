@@ -60,7 +60,6 @@ export default function BannerCarousel() {
         <div className="banner_content"></div>
         <div className="banner_content"></div>
         <div className="banner_content"></div>
-
       </Carousel>
     </div>
   );
