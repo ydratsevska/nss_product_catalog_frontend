@@ -1,0 +1,152 @@
+@import "src/app/variables";
+@import "src/utils/mixins";
+
+.banner__carousel-container {
+  min-height: 320px;
+  width: 100%;
+
+  @include onDesktop {
+    min-height: 400px;
+  }
+}
+
+.banner_content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 320;
+  min-height: 320px;
+  background-image: url('./../../../public/Banner-mobile.jpg');
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-origin: border-box;
+  background-position:center;
+
+  @include onDesktop {
+    background-image: url('./../../../public/Banner.png');
+    min-height: 400px;
+  }
+
+  @include onTablet {
+    background-image: url('./../../../public/Banner.png');
+  }
+}
+
+.carousel_item {
+  @include onDesktop {
+    padding-inline: 48px;
+  }
+
+  @include onTablet {
+    padding-inline: 48px;
+  }
+}
+
+.banner__container {
+  position: relative;
+}
+
+.banner-buttons {
+  position: absolute;
+  width: 100%;
+  min-height: 320px;
+  top: 0;
+  display: none;
+
+  @include onDesktop {
+    min-height: 400px;
+    display: flex;
+    justify-content: space-between;
+  }
+  @include onTablet {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left {
+    display: none;
+
+    @include onDesktop {
+      width: 32px;
+      height: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 0;
+      flex-shrink: 0;
+      border: 1px solid $icons-color;
+      background-color: white;
+      cursor: pointer;
+
+      &::before {
+        content: url('./../../../public/icons/arrow-left-active.svg');
+        width: 16px;
+        height: 16px;
+      }
+    }
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 0;
+      border: 1px solid $icons-color;
+      background-color: white;
+      cursor: pointer;
+
+      &::before {
+        content: url('./../../../public/icons/arrow-left-active.svg');
+        width: 16px;
+        height: 16px;
+      }
+      width: 32px;
+      height: inherit;
+      flex-shrink: 0;
+    }
+  }
+
+  &__right {
+    display: none;
+
+    @include onDesktop {
+      width: 32px;
+      height: inherit;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 0;
+      border: 1px solid $icons-color;
+      background-color: white;
+      cursor: pointer;
+
+      &::before {
+        content: url('./../../../public/icons/arrow-right-active.svg');
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    @include onTablet {
+      width: 32px;
+      height: inherit;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 0;
+      border: 1px solid $icons-color;
+      background-color: white;
+      cursor: pointer;
+
+      &::before {
+        content: url('./../../../public/icons/arrow-right-active.svg');
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+}

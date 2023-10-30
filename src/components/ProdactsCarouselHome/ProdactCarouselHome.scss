@@ -1,0 +1,116 @@
+@import "src/app/variables";
+@import "src/utils/mixins";
+
+
+.container {
+  position: relative;
+}
+
+.carousel-container {
+  position:unset;
+}
+
+
+.buttons {
+  position: absolute;
+  box-sizing: border-box;
+  padding: 0;
+
+  top: -64px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  &__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    padding: 0;
+    height: 32px;
+    width: 32px;
+
+    border: 1px solid $icons-color;
+    background-color: white;
+
+    cursor: pointer;
+
+    &::before {
+      content: url('./../../../public/icons/arrow-left-active.svg');
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+    height: 32px;
+    width: 32px;
+    border: 1px solid $icons-color;
+    background-color: white;
+    cursor: pointer;
+
+    &::before {
+      content: url('./../../../public/icons/arrow-right-active.svg');
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+
+    }
+  }
+}
+
+.buttons__right:disabled {
+  &::before {
+    content: url('./../../../public/icons/Arrow-right.svg');
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+
+  }
+}
+
+.buttons__left--disable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+  padding: 0;
+  height: 32px;
+  width: 32px;
+
+  border: 1px solid $elements-color;
+  background-color: white;
+  cursor: pointer;
+
+
+  &::before {
+    content: url('./../../../public/icons/Arrow-left.svg');
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+
+  }
+}
+
+.temporary-card {
+  width: 288px;
+  height: 440px;
+  background-color: black;
+
+  @include onTablet {
+    width: 288px;
+    height: 506px;
+  }
+  @include onDesktop {
+    width: 272px;
+    height: 506px;
+  }
+}
