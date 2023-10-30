@@ -1,6 +1,6 @@
 import { Product } from './Product';
 
-export type ProductList = {
+export type ProductsList = {
   count: number;
   products: Product[];
 };
