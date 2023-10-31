@@ -1,4 +1,4 @@
-import { Blocks } from 'react-loader-spinner'
+import { Blocks } from 'react-loader-spinner';
 import style from './Loader.module.scss';
 
 export default function Loader() {
@@ -6,5 +6,5 @@ export default function Loader() {
     <div className={style.wrapper}>
       <Blocks color={'yellow'} />
     </div>
-  )
+  );
 }
