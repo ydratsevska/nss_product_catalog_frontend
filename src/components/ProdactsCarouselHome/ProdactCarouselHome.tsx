@@ -18,12 +18,12 @@ export default function ProductsCarousel({ products }: { products: Product[] }) 
       items: 4,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 640 },
+      breakpoint: { max: 1024, min: 570 },
       items: 2,
       partialVisibilityGutter: 50,
     },
     mobile: {
-      breakpoint: { max: 639, min: 0 },
+      breakpoint: { max: 569, min: 0 },
       items: 1,
       partialVisibilityGutter: 100,
     },

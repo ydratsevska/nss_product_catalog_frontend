@@ -16,17 +16,17 @@
   grid-column: span $mobile-columns-quantity;
   padding-bottom: 24px;
 
-  @include onDesktop {
-    font-size: 48px;
-    padding-bottom: 56px;
-    line-height: 56px;
-    grid-column: span $tablet-columns-quantity;
-  }
-
   @include onTablet {
     font-size: 48px;
     padding-bottom: 32px;
     line-height: 56px;
+    grid-column: span $tablet-columns-quantity;
+
+  }
+
+  @include onDesktop {
+    font-size: 48px;
+    padding-bottom: 56px;
     grid-column: span $desktop-columns-quantity;
   }
 }
@@ -38,10 +38,6 @@
   font-weight: 800;
   line-height: 140%;
 
-  @include onDesktop {
-    font-size: 32px;
-  }
-
   @include onTablet {
     font-size: 32px;
   }
@@ -52,27 +48,26 @@
   grid-column: span $mobile-columns-quantity;
   padding-bottom: 80px;
 
-  @include onDesktop {
+  @include onTablet {
     padding-bottom: 80px;
     margin-inline: 0;
     grid-column: span $tablet-columns-quantity;
   }
 
-  @include onTablet {
-    padding-bottom: 80px;
-    margin-inline: 0;
+  @include onDesktop {
     grid-column: span $desktop-columns-quantity;
   }
+
+
 }
 
 .new_models_slider {
   grid-column: span $mobile-columns-quantity;
 
-  @include onDesktop {
+  @include onTablet {
     grid-column: span $tablet-columns-quantity;
   }
-
-  @include onTablet {
+  @include onDesktop {
     grid-column: span $desktop-columns-quantity;
   }
 }
@@ -81,14 +76,14 @@
   padding-bottom: 56px;
   margin-right: -16px;
 
-  @include onDesktop {
-    margin-right: 0;
-    padding-bottom: 80px;
-  }
-
   @include onTablet {
     margin-right: -24px;
     padding-bottom: 64px;
+  }
+
+  @include onDesktop {
+    margin-right: 0;
+    padding-bottom: 80px;
   }
 }
 
@@ -96,14 +91,14 @@
   padding-bottom: 56px;
   grid-column: span $mobile-columns-quantity;
 
-  @include onDesktop {
-    grid-column: span $tablet-columns-quantity;
-    padding-bottom: 80px;
-  }
-
   @include onTablet {
     padding-bottom: 64px;
+    grid-column: span $tablet-columns-quantity;
+  }
+
+  @include onDesktop {
     grid-column: span $desktop-columns-quantity;
+    padding-bottom: 80px;
   }
 }
 
@@ -115,13 +110,6 @@
   gap: 32px;
 
   @include onTablet {
-    justify-content: space-between;
-    flex-direction: row;
-    align-items: center;
-    gap: 16px;
-  }
-
-  @include onDesktop {
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
@@ -151,7 +139,7 @@
       width: 187px;
       height: 187px;
     }
-    
+
     @include onDesktop {
       width: 368px;
       height: 368px;
@@ -179,11 +167,11 @@
 .hot_prices {
   grid-column: span $mobile-columns-quantity;
 
-  @include onDesktop {
+  @include onTablet {
     grid-column: span $tablet-columns-quantity;
   }
 
-  @include onTablet {
+  @include onDesktop {
     grid-column: span $desktop-columns-quantity;
   }
 }

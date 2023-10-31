@@ -100,6 +100,7 @@ export default function Header() {
           className={
             isActive ? 'header__burger-menu--active' : 'header__burger-menu'
           }
+          onClick={() => setIsActive(!isActive)}
         >
           {<Navbar />}
 
@@ -110,6 +111,7 @@ export default function Header() {
                 'header__burger-menu-icon-bottom--active':
                   pathName === '/favorites',
               })}
+              onClick={() => setIsActive(!isActive)}
             >
               <Image
                 src={FavoriteIcon}
@@ -128,6 +130,7 @@ export default function Header() {
               className={classNames('header__burger-menu-icon-bottom', {
                 'header__burger-menu-icon-bottom--active': pathName === '/cart',
               })}
+              onClick={() => setIsActive(!isActive)}
             >
               <Image
                 src={ShoppingBagIcon}

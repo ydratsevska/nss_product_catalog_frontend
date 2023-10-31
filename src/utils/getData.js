@@ -11,3 +11,4 @@ export default async function getData(type) {
 
   return res.json();
 }
+
