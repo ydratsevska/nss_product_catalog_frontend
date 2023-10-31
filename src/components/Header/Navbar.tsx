@@ -13,7 +13,12 @@ export const Navbar = () => {
         <Link
           key={id}
           href={path}
-          className={`/${pathName.split('/')[1]}` === path ? 'nav__link--active' : 'nav__link'}
+          prefetch={true}
+          className={
+            `/${pathName.split('/')[1]}` === path
+              ? 'nav__link--active'
+              : 'nav__link'
+          }
         >
           {title}
         </Link>
