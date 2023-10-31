@@ -3,7 +3,6 @@ import grid from 'src/styles/modules/grid.module.scss';
 import titles from 'src/styles/modules/titles.module.scss';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import favorites from '../../styles/modules/page.module.scss';
-import Image from 'next/image';
 import getData from '@/utils/getData';
 import ProductList from '@/components/ProductList/ProductList';
 import { useEffect, useState } from 'react';
@@ -18,7 +17,7 @@ export default function Favorites() {
   useEffect(() => {
     setIsLoading(true);
     setFavoriteIds(
-      JSON.parse(window.localStorage.getItem('favorites') || '[123]'),
+      JSON.parse(window.localStorage.getItem('favorites') || '[]'),
     );
     getData().then((res) => {
       setData(res);
@@ -36,11 +35,7 @@ export default function Favorites() {
       <h1 className={titles.main}>Favourites</h1>
       <p className={favorites.title_sub}>{favoritesList?.length} Models</p>
 
-      {isLoading ? (
-        <Loader />
-        ) : (
-        <ProductList products={favoritesList || []} />
-      )}
+      {isLoading ? <Loader /> : <ProductList products={favoritesList || []} />}
     </div>
   );
 }
