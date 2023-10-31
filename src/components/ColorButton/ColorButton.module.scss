@@ -1,0 +1,38 @@
+@import "src/app/variables";
+
+%roundedBase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: $button-small-size;
+  height: $button-small-size;
+  border-color: $elements-color;
+  background-color: $white-color;
+}
+
+.button {
+  @extend %roundedBase;
+
+  &:hover {
+    border-color: $icons-color;
+  }
+
+  &_selected {
+    @extend %roundedBase;
+    pointer-events: none;
+    cursor: auto;
+    border-color: $primary-color;
+
+    &:hover {
+      border-color: $primary-color;
+    }
+  }
+
+  &__color {
+    flex-shrink: 0;
+    border-radius: inherit;
+    width: calc($button-small-size - 4px);
+    height: calc($button-small-size - 4px);
+  }
+}

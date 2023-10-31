@@ -13,7 +13,6 @@ import classNames from "classnames";
 import { useEffect, useRef, useState } from "react";
 import Loader from "@/components/Loader/Loader";
 import {URL_BASE} from "@/utils/constants";
-import AddToButtons from "@/components/AddToButtons/AddToButtons";
 
 interface Props {
   params: {
@@ -185,8 +184,10 @@ export default function Page({ params }: { params: {id: string}}) {
               </span>
             </p>
 
-            <div className={style.options__buttons_buy}>
-              <AddToButtons product={data.current?.product as Product} />
+            <div className={`${style.options__buttons_buy} ${style.buttons}`}>
+              <button className={buttons.primary}>Add to cart</button>
+
+              <button className={buttons.favorite} />
             </div>
 
             <div className={style.pairs}>

@@ -1,0 +1,15 @@
+@import 'src/app/variables';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding-bottom: 16px;
+  grid-column: 1 / -1;
+}
+
+.link {
+  color: $secondary-color;
+  font-size: 12px;
+  font-weight: 700;
+}
