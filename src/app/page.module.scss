@@ -14,6 +14,7 @@
   line-height: 41px;
   letter-spacing: -0.48px;
   grid-column: span $mobile-columns-quantity;
+  padding-bottom: 24px;
 
   @include onDesktop {
     font-size: 48px;
@@ -24,7 +25,7 @@
 
   @include onTablet {
     font-size: 48px;
-    padding-bottom: 56px;
+    padding-bottom: 32px;
     line-height: 56px;
     grid-column: span $desktop-columns-quantity;
   }
@@ -47,18 +48,19 @@
 }
 
 .banner_slider {
+  margin-inline: -16px;
   grid-column: span $mobile-columns-quantity;
   padding-bottom: 80px;
 
   @include onDesktop {
     padding-bottom: 80px;
-
+    margin-inline: 0;
     grid-column: span $tablet-columns-quantity;
   }
 
   @include onTablet {
     padding-bottom: 80px;
-
+    margin-inline: 0;
     grid-column: span $desktop-columns-quantity;
   }
 }
@@ -75,14 +77,17 @@
   }
 }
 
-.new_models_slider_container {
+.products_slider_container {
   padding-bottom: 56px;
+  margin-right: -16px;
 
   @include onDesktop {
+    margin-right: 0;
     padding-bottom: 80px;
   }
 
   @include onTablet {
+    margin-right: -24px;
     padding-bottom: 64px;
   }
 }
@@ -102,6 +107,58 @@
   }
 }
 
+.category__cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+
+  @include onTablet {
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+
+  @include onDesktop {
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+.category_card {
+  @include onDesktop {
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+.category_img {
+  margin: 0;
+
+  &_box {
+    position: relative;
+    display: flex;
+    margin-bottom: 24px;
+    width: 288px;
+    height: 288px;
+
+    @include onTablet {
+      width: 187px;
+      height: 187px;
+    }
+    
+    @include onDesktop {
+      width: 368px;
+      height: 368px;
+    }
+  }
+}
+
 .category__title {
   font-size: 20px;
   font-style: normal;
@@ -117,52 +174,6 @@
   font-weight: 600;
   line-height: 21px;
   color: $secondary-color;
-}
-
-.category__cards {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  gap: 32px;
-
-  @include onDesktop {
-    justify-content: space-between;
-    flex-direction: row;
-    gap: 16px;
-  }
-
-  @include onTablet {
-    justify-content: space-between;
-    flex-direction: row;
-    gap: 16px;
-  }
-}
-
-.category_card {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-
-  @include onDesktop {
-  }
-
-  @include onTablet {
-  }
-}
-
-.category_img {
-  background-color: black;
-  min-width: 288px;
-  min-height: 288px;
-  margin-bottom: 24px;
-
-  @include onDesktop {
-    min-width: 368px;
-    min-height: 368px;
-  }
-
-  @include onTablet {
-  }
 }
 
 .hot_prices {
