@@ -5,7 +5,7 @@ import './variables.scss';
 import './globals.scss';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
-import { FavouritesContextProvider } from '@/components/FavoritesContextProvider/FavoritesContextProvider';
+import { FavouritesContextProvider } from '@/app/contexts/FavoritesContextProvider';
 
 const mont = Montserrat({ subsets: ['latin'] });
 
