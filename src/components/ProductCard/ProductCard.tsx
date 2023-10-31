@@ -6,7 +6,7 @@ import styles from './ProductCard.module.scss';
 import button from '../../styles/modules/buttons.module.scss';
 import { Product } from '@/types/Product';
 import { useContext } from 'react';
-import { FavoritesContext } from '../FavoritesContextProvider/FavoritesContextProvider';
+import { FavoritesContext } from '@/app/contexts/FavoritesContextProvider';
 import classNames from 'classnames';
 import { CartObject } from '@/types/CartObject';
 

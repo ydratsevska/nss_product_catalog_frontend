@@ -5,8 +5,8 @@
   display: grid;
   grid-template-columns: repeat($mobile-columns-quantity, 1fr);
   padding-inline: $columns-gap;
-  column-gap: $columns-gap;
   justify-content: space-around;
+  grid-column-gap: $columns-gap;
 
   @include onTablet {
     grid-template-columns: repeat($tablet-columns-quantity, 1fr);

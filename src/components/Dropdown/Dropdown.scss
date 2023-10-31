@@ -5,7 +5,7 @@
   position: relative;
   font-family: 'Inter', sans-serif;
   box-sizing: border-box;
-  min-width: 136px;
+  width: 100%;
 
   &__trigger {
     text-decoration: none;
@@ -27,11 +27,11 @@
     &__arrow {
       width: 16px;
       height: 16px;
-      background-image: url('/icons/Arrow-down.svg');
+      background-image: url('../../../public/icons/Arrow-down.svg');
       background-repeat: no-repeat;
 
       &_active {
-        background-image: url('/icons/Arrow-up.svg');
+        background-image: url('../../../public/icons/Arrow-up.svg');
       }
     }
 
