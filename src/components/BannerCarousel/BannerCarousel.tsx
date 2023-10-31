@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -14,7 +14,6 @@ export default function BannerCarousel() {
     desktop: {
       breakpoint: { max: 3000, min: 1200 },
       items: 1,
-
     },
     tablet: {
       breakpoint: { max: 1199, min: 640 },
@@ -23,28 +22,44 @@ export default function BannerCarousel() {
     mobile: {
       breakpoint: { max: 639, min: 0 },
       items: 1,
-    }
+    },
+  };
+
+  const CustomDot = ({...rest }) => {
+    const {
+      active
+    } = rest;
+    return (
+      <li
+        className={active ? "dot-active" : "dot"}
+      >
+      </li>
+    );
   };
 
   const BannerButtonGroup = ({ next, previous, goToSlide, ...rest }: any) => {
-    const { carouselState: { currentSlide } } = rest;
+    const {
+      carouselState: { currentSlide },
+    } = rest;
     return (
-      <div className="banner-buttons">
-        <button className={currentSlide === 0
-          ? 'banner-buttons__left--disable'
-          : 'banner-buttons__left'
-        } onClick={() => previous()} />
+      <div className='banner-buttons'>
+        <button
+          className={
+            currentSlide === 0
+              ? 'banner-buttons__left--disable'
+              : 'banner-buttons__left'
+          }
+          onClick={() => previous()}
+        />
         <button className='banner-buttons__right' onClick={() => next()} />
       </div>
-
     );
   };
 
   return (
-    <div className="banner__container">
+    <div className='banner__container'>
       <Carousel
         responsive={responsive}
-        showDots={true}
         infinite={true}
         autoPlay={true}
         autoPlaySpeed={5000}
@@ -56,10 +71,14 @@ export default function BannerCarousel() {
         itemClass="carousel_item"
         containerClass="banner__carousel-container"
         sliderClass="banner__carousel-trak"
+        dotListClass="custom-dot-list-style"
+        showDots
+        customDot={<CustomDot />}
+        renderDotsOutside={true}
       >
-        <div className="banner_content"></div>
-        <div className="banner_content"></div>
-        <div className="banner_content"></div>
+        <div className='banner_content'></div>
+        <div className='banner_content'></div>
+        <div className='banner_content'></div>
       </Carousel>
     </div>
   );

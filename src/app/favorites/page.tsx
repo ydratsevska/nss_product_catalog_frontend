@@ -7,7 +7,7 @@ import Image from 'next/image';
 import getData from '@/utils/getData';
 import ProductList from '@/components/ProductList/ProductList';
 import { useEffect, useState } from 'react';
-import { ProductsList } from '@/types/ProductList';
+import { ProductsList } from '@/types/ProductsList';
 
 export default function Favorites() {
   const [favoriteIds, setFavoriteIds] = useState<number[]>([]);

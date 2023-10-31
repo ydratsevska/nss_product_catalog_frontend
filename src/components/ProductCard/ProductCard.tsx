@@ -8,6 +8,7 @@ import { Product } from '@/types/Product';
 import { useContext } from 'react';
 import { FavoritesContext } from '../FavoritesContextProvider/FavoritesContextProvider';
 import classNames from 'classnames';
+import { CartObject } from '@/types/CartObject';
 
 type Props = {
   product: Product;
@@ -17,6 +18,30 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   const { id, name, fullPrice, price, screen, capacity, ram, image } = product;
 
   const { favorites, handleFavorites } = useContext(FavoritesContext);
+
+  const handleAddToCart = () => {
+      const cartDataString = localStorage.getItem('cart');
+      const existingCart = cartDataString ? JSON.parse(cartDataString) : [];
+
+    const productToAdd = {
+      id,
+      name,
+      price,
+      image,
+      count: 1
+    };
+
+    const existingProductIndex = existingCart.findIndex((item: CartObject) => item.id === id);
+
+    if (existingProductIndex !== -1) {
+      existingCart[existingProductIndex].quantity++;
+    } else {
+      existingCart.push(productToAdd);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(existingCart));
+
+  };
 
   return (
     <div className={styles.card}>
@@ -77,7 +102,12 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </div>
 
       <div className={styles.card__buttons}>
-        <button className={button.primary}>Add to cart</button>
+      <button
+          className={button.primary}
+          onClick={handleAddToCart}
+        >
+          Add to cart
+        </button>
 
         <button
           className={classNames(button.favorite, {

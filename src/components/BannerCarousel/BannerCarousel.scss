@@ -1,11 +1,18 @@
-@import "src/app/variables";
-@import "src/utils/mixins";
+@import 'src/app/variables';
+@import 'src/utils/mixins';
 
 .banner__carousel-container {
   min-height: 320px;
   width: 100%;
 
+  @include onTablet {
+    position: static;
+    width: 100%;
+  }
+
   @include onDesktop {
+    position: static;
+    width: 100%;
     min-height: 400px;
   }
 }
@@ -18,10 +25,10 @@
   width: 320;
   min-height: 320px;
   background-image: url('./../../../public/Banner-mobile.jpg');
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   background-origin: border-box;
-  background-position:center;
+  background-position: center;
 
   @include onDesktop {
     background-image: url('./../../../public/Banner.png');
@@ -149,4 +156,27 @@
       }
     }
   }
+}
+
+.dot {
+  width: 14px;
+  height: 4px;
+
+  background-color: $secondary-color;
+
+  &-active {
+    width: 14px;
+    height: 4px;
+    background-color: $primary-color;
+  }
+}
+
+.custom-dot-list-style {
+  display: block;
+  width: 80px;
+  height: 24px;
+  bottom: -40px;
+  display: flex;
+  justify-content: space-between;
+  left: calc(50% - 80px / 2);
 }

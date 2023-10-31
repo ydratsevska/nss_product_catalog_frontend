@@ -1,13 +1,11 @@
-'use client'
+'use client';
 
 import { useEffect, useRef, useState } from 'react';
 import './Dropdown.scss';
 import { Option } from '@/types/Option';
-import classNames from 'classnames'
+import classNames from 'classnames';
 
-export default function Dropdown(
-  { options }: { options: Option[] }
-) {
+export default function Dropdown({ options }: { options: Option[] }) {
   const [open, setOpen] = useState(false);
   const [currentText, setCurrentText] = useState(options[0].text);
 
@@ -18,10 +16,10 @@ export default function Dropdown(
       if (!dropdownRef.current?.contains(e.target as Node)) {
         setOpen(false);
       }
-    }
+    };
 
-    document.addEventListener('mouseup', handler)
-  })
+    document.addEventListener('mouseup', handler);
+  });
 
   const handleOpen = () => {
     setOpen(!open);
@@ -32,26 +30,25 @@ export default function Dropdown(
   };
 
   return (
-    <div className="dropdown">
+    <div className='dropdown'>
       <button
         className={classNames('dropdown__trigger', {
-          'dropdown__trigger_active': open,
+          dropdown__trigger_active: open,
         })}
         onClick={handleOpen}
         ref={dropdownRef}
       >
         {currentText}
-        <div className={classNames('dropdown__trigger__arrow', {
-          'dropdown__trigger__arrow_active': open,
-        })}/>
+        <div
+          className={classNames('dropdown__trigger__arrow', {
+            dropdown__trigger__arrow_active: open,
+          })}
+        />
       </button>
       {open && (
         <ul className='dropdown__list'>
-          {options.map(option => (
-            <li
-              className='dropdown__element'
-              key={option.value}
-            >
+          {options.map((option) => (
+            <li className='dropdown__element' key={option.value}>
               <button
                 onMouseDown={() => handleClick(option.text)}
                 className='dropdown__element__button'
@@ -62,6 +59,6 @@ export default function Dropdown(
           ))}
         </ul>
       )}
-  </div>
-  )
+    </div>
+  );
 }
