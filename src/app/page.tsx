@@ -33,15 +33,17 @@ export default async function Home() {
           <h2 className={styles.home_secondary_title}>
             Brand new models
           </h2>
-          
+
           <div className={styles.products_slider_container}>
             <ProductsCarousel products={dataSortedByYear} />
           </div>
+        </div>
 
         <div className={styles.categories}>
           <h2 className={styles.home_secondary_title}>
             Shop by category
           </h2>
+
           <div className={styles.category__cards}>
             {categories.map(({ image, title, description, id, link }) => (
               <div key={id} className={styles.category_card}>
@@ -55,15 +57,18 @@ export default async function Home() {
                     />
                   </div>
                 </Link>
+
                 <Link href={link} className={styles.category__title}>
                   {title}
                 </Link>
+
                 <p className={styles.category__description}>
                   95 {description}
                 </p>
               </div>
             ))}
           </div>
+        </div>
 
         <div className={styles.hot_prices}>
           <h2 className={styles.home_secondary_title}>Hot prices</h2>
