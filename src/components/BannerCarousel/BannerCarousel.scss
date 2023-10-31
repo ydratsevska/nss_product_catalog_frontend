@@ -1,5 +1,5 @@
-@import "src/app/variables";
-@import "src/utils/mixins";
+@import 'src/app/variables';
+@import 'src/utils/mixins';
 
 .banner__carousel-container {
   min-height: 320px;
@@ -25,10 +25,10 @@
   width: 320;
   min-height: 320px;
   background-image: url('./../../../public/Banner-mobile.jpg');
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-size: cover;
   background-origin: border-box;
-  background-position:center;
+  background-position: center;
 
   @include onDesktop {
     background-image: url('./../../../public/Banner.png');

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -14,7 +14,6 @@ export default function BannerCarousel() {
     desktop: {
       breakpoint: { max: 3000, min: 1200 },
       items: 1,
-
     },
     tablet: {
       breakpoint: { max: 1199, min: 640 },
@@ -23,7 +22,7 @@ export default function BannerCarousel() {
     mobile: {
       breakpoint: { max: 639, min: 0 },
       items: 1,
-    }
+    },
   };
 
   const CustomDot = ({...rest }) => {
@@ -39,21 +38,26 @@ export default function BannerCarousel() {
   };
 
   const BannerButtonGroup = ({ next, previous, goToSlide, ...rest }: any) => {
-    const { carouselState: { currentSlide } } = rest;
+    const {
+      carouselState: { currentSlide },
+    } = rest;
     return (
-      <div className="banner-buttons">
-        <button className={currentSlide === 0
-          ? 'banner-buttons__left--disable'
-          : 'banner-buttons__left'
-        } onClick={() => previous()} />
+      <div className='banner-buttons'>
+        <button
+          className={
+            currentSlide === 0
+              ? 'banner-buttons__left--disable'
+              : 'banner-buttons__left'
+          }
+          onClick={() => previous()}
+        />
         <button className='banner-buttons__right' onClick={() => next()} />
       </div>
-
     );
   };
 
   return (
-    <div className="banner__container">
+    <div className='banner__container'>
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -72,9 +76,9 @@ export default function BannerCarousel() {
         customDot={<CustomDot />}
         renderDotsOutside={true}
       >
-        <div className="banner_content"></div>
-        <div className="banner_content"></div>
-        <div className="banner_content"></div>
+        <div className='banner_content'></div>
+        <div className='banner_content'></div>
+        <div className='banner_content'></div>
       </Carousel>
     </div>
   );

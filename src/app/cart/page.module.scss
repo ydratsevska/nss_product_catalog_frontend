@@ -1,3 +1,47 @@
-.cart {
+@import '../variables.scss';
+@import 'src/utils/mixins';
+
+.back {
   display: flex;
+  gap: 9px;
+  align-items: center;
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+  border: 1px solid $elements-color;
+  padding: 24px;
+  grid-column: 1 / 5;
+  max-height: 206px;
+
+  @include onTablet {
+    grid-column: 1 / 13;
+  }
+
+  @include onDesktop {
+    grid-column: 18 / 26;
+  }
+}
+
+.price {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.items {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.line {
+  border: 1px solid #E2E6E9
 }

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -11,12 +11,11 @@ export default function ProductsCarousel({ products }: { products: Product[] }) 
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
-      items: 5
+      items: 5,
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
       items: 4,
-
     },
     tablet: {
       breakpoint: { max: 1024, min: 640 },
@@ -27,11 +26,13 @@ export default function ProductsCarousel({ products }: { products: Product[] }) 
       breakpoint: { max: 639, min: 0 },
       items: 1,
       partialVisibilityGutter: 100,
-    }
+    },
   };
 
   const ButtonGroup = ({ next, previous, goToSlide, ...rest }: any) => {
-    const { carouselState: { currentSlide } } = rest;
+    const {
+      carouselState: { currentSlide },
+    } = rest;
     return (
       <div className="buttons">
         <button
@@ -47,25 +48,24 @@ export default function ProductsCarousel({ products }: { products: Product[] }) 
           }
           onClick={() => next()} />
       </div>
-
     );
   };
 
-
   return (
-    <div className="container">
+    <div className='container'>
       <Carousel
         responsive={responsive}
         partialVisible={true}
-        containerClass="carousel-container"
+        containerClass='carousel-container'
         renderArrowsWhenDisabled={true}
-        arrows={false} renderButtonGroupOutside={true} customButtonGroup={<ButtonGroup />}
+        arrows={false}
+        renderButtonGroupOutside={true}
+        customButtonGroup={<ButtonGroup />}
       >
         {products.map((product) => (
         <ProductCard product={product} key={product.id} />
       ))}
       </Carousel>
     </div>
-
   );
 }

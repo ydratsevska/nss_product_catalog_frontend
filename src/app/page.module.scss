@@ -1,5 +1,12 @@
-@import "src/app/variables";
-@import "src/utils/mixins";
+@import 'src/app/variables';
+@import 'src/utils/mixins';
+
+.home_page_wraper {
+  padding-top: 32px;
+  overflow-x: hidden;
+  margin: 0;
+  min-width: 320px;
+}
 
 .main_title {
   font-size: 32px;
@@ -58,9 +65,8 @@
   }
 }
 
-.new_models_slider{
+.new_models_slider {
   grid-column: span $mobile-columns-quantity;
-
 
   @include onDesktop {
     grid-column: span $tablet-columns-quantity;
@@ -145,6 +151,7 @@
       width: 187px;
       height: 187px;
     }
+    
     @include onDesktop {
       width: 368px;
       height: 368px;

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import grid from '@/styles/modules/grid.module.scss';
-import styles from './page.module.scss'
+import styles from './page.module.scss';
 
 import ProductsCarousel from '@/components/ProdactsCarouselHome/ProdactCarouselHome';
 import BannerCarousel from '@/components/BannerCarousel/BannerCarousel';
@@ -25,16 +25,18 @@ export default async function Home() {
           Welcome to Nice Gadgets store!
         </h1>
 
-        <div className={styles.banner_slider}>
-          <BannerCarousel />
-        </div>
+          <div className={styles.banner_slider}>
+            <BannerCarousel />
+          </div>
 
         <div className={styles.new_models_slider}>
-          <h2 className={styles.home_secondary_title}>Brand new models</h2>
+          <h2 className={styles.home_secondary_title}>
+            Brand new models
+          </h2>
+          
           <div className={styles.products_slider_container}>
             <ProductsCarousel products={dataSortedByYear} />
           </div>
-        </div>
 
         <div className={styles.categories}>
           <h2 className={styles.home_secondary_title}>
@@ -56,11 +58,12 @@ export default async function Home() {
                 <Link href={link} className={styles.category__title}>
                   {title}
                 </Link>
-                <p className={styles.category__description}>95 {description}</p>
+                <p className={styles.category__description}>
+                  95 {description}
+                </p>
               </div>
             ))}
           </div>
-        </div>
 
         <div className={styles.hot_prices}>
           <h2 className={styles.home_secondary_title}>Hot prices</h2>
@@ -70,5 +73,5 @@ export default async function Home() {
         </div>
       </div>
     </main>
-  )
+  );
 }
