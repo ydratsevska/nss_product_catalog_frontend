@@ -1,5 +1,5 @@
-@import "src/app/variables";
-@import "src/utils/mixins";
+@import 'src/app/variables';
+@import 'src/utils/mixins';
 
 .home_page_wraper {
   padding-top: 32px;
@@ -7,7 +7,6 @@
   margin: 0;
   min-width: 320px;
 }
-
 
 .main_title {
   font-size: 32px;
@@ -51,7 +50,6 @@
   grid-column: span $mobile-columns-quantity;
   padding-bottom: 80px;
 
-
   @include onDesktop {
     padding-bottom: 80px;
 
@@ -65,9 +63,8 @@
   }
 }
 
-.new_models_slider{
+.new_models_slider {
   grid-column: span $mobile-columns-quantity;
-
 
   @include onDesktop {
     grid-column: span $tablet-columns-quantity;
@@ -146,13 +143,10 @@
   justify-content: space-between;
   flex-direction: column;
 
-
   @include onDesktop {
-
   }
 
   @include onTablet {
-
   }
 }
 
@@ -161,7 +155,6 @@
   min-width: 288px;
   min-height: 288px;
   margin-bottom: 24px;
-
 
   @include onDesktop {
     min-width: 368px;

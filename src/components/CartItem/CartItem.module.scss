@@ -1,33 +1,26 @@
-@import "../../app/variables";
-@import "../../utils/mixins.scss";
+@import '../../app/variables';
+@import '../../utils/mixins.scss';
 
 .item {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   padding: 24px 32px;
-  border:  1px solid $bg-and-hover-color;
-  max-width: 288px;
+  border: 1px solid $bg-and-hover-color;
+  width: 100%;
   gap: 23px;
 
   @include onTablet() {
     flex-direction: row;
-    max-width: 592px;
-  }
-
-  @include onDesktop() {
-    max-width: 722px;
   }
 
   &__group {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-around;
-   align-items: center;
-   gap: 15px;
-
-
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 15px;
   }
 
   &__pair {
