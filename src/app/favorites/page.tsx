@@ -38,14 +38,7 @@ export default function Favorites() {
 
       {isLoading ? (
         <Loader />
-        // <Image
-        //   src={'/LoadingSpinner.svg'}
-        //   alt='Loading'
-        //   width={100}
-        //   height={100}
-        //   className={favorites.loading_image}
-        // />
-      ) : (
+        ) : (
         <ProductList products={favoritesList || []} />
       )}
     </div>

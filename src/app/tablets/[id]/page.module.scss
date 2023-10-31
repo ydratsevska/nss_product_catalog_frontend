@@ -1,5 +1,5 @@
 @import 'src/utils/mixins';
-@import "src/app/variables.scss";
+@import 'src/app/variables.scss';
 
 .page {
   &__title {
@@ -216,7 +216,6 @@
   }
 }
 
-
 .divider {
   width: 100%;
   padding-bottom: 24px;
@@ -260,7 +259,7 @@
     font-size: 20px;
     font-weight: 700;
     padding-bottom: 16px;
-    border-bottom: 1px solid $elements-color;;
+    border-bottom: 1px solid $elements-color;
   }
 }
 
