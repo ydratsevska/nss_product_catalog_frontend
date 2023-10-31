@@ -43,9 +43,14 @@ export default function Page({ params }: { params: {id: string}}) {
     const fetchData = async () => {
       setIsLoading(true);
       data.current = await getData(params.id);
+
+      if (!data.current) {
+        throw new Error('No such product')
+      }
+
       const descriptiveProduct = data
         .current
-        ?.variants
+        .variants
         .find(variant => data.current?.product.name === variant.name) as ProductDescriptive
       setSelectedProduct(descriptiveProduct)
       setSelectedImg(descriptiveProduct.images[0])
@@ -117,7 +122,7 @@ export default function Page({ params }: { params: {id: string}}) {
                 key={uuidv4()}
               >
                 <Image
-                  src={`https://nss-product-catalog-api.onrender.com/${image}`}
+                  src={`${URL_BASE}/${image}`}
                   alt={'phone image'}
                   fill={true}
                   style={{ objectPosition: 'center bottom', objectFit: 'contain'}}
@@ -185,9 +190,7 @@ export default function Page({ params }: { params: {id: string}}) {
               </span>
             </p>
 
-            <div className={style.options__buttons_buy}>
-              <AddToButtons product={data.current?.product as Product} />
-            </div>
+            <AddToButtons product={data.current?.product as Product} />
 
             <div className={style.pairs}>
               <p className={style.pair}>

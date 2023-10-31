@@ -9,6 +9,8 @@ export const navigation = [
   { id: 4, title: 'accessories', path: '/accessories' },
 ];
 
+export const URL_BASE = 'https://nss-product-catalog-api.onrender.com';
+
 export const categories = [
   {
     image: phoneImg,

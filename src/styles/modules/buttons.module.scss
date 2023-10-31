@@ -81,6 +81,7 @@
   background: url('../../../public/icons/Favourites.svg') no-repeat center
     center;
   transition-duration: $button-hover-effect-duration;
+  flex-shrink: 0;
 
   &_selected {
     background: url('../../../public/icons/Favourites-filled.svg') no-repeat
