@@ -1,8 +1,7 @@
 'use client';
 
-import style from './page.module.scss';
+import style from 'src/styles/modules/productPage.module.scss';
 import Image from 'next/image';
-import buttons from '@/styles/modules/buttons.module.scss';
 import BreadCrumbs from '@/components/BreadCrumbs/BreadCrumbs';
 import { v4 as uuidv4 } from 'uuid';
 import grid from 'src/styles/modules/grid.module.scss';
@@ -81,10 +80,7 @@ export default function Page({ params }: { params: { id: string } }) {
     <Loader />
   ) : (
     <div className={`${style.page} ${grid.template}`}>
-      <BreadCrumbs
-        category={'Phones'}
-        productName={selectedProduct?.name}
-      />
+      <BreadCrumbs category={'Phones'} productName={selectedProduct?.name} />
 
       <h1 className={`${style.page__title} ${style.title}`}>
         {selectedProduct?.name}
