@@ -74,7 +74,7 @@
   }
 }
 
-.nav__link:hover::after {
+/* .nav__link:hover::after {
   @include onDesktop {
     content: '';
     position: absolute;
@@ -84,4 +84,4 @@
     background: $primary-color;
     bottom: 0;
   }
-}
+} */

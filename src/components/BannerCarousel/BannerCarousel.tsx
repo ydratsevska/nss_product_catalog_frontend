@@ -26,6 +26,18 @@ export default function BannerCarousel() {
     }
   };
 
+  const CustomDot = ({...rest }) => {
+    const {
+      active
+    } = rest;
+    return (
+      <li
+        className={active ? "dot-active" : "dot"}
+      >
+      </li>
+    );
+  };
+
   const BannerButtonGroup = ({ next, previous, goToSlide, ...rest }: any) => {
     const { carouselState: { currentSlide } } = rest;
     return (
@@ -44,7 +56,6 @@ export default function BannerCarousel() {
     <div className="banner__container">
       <Carousel
         responsive={responsive}
-        showDots={true}
         infinite={true}
         autoPlay={true}
         autoPlaySpeed={5000}
@@ -56,6 +67,10 @@ export default function BannerCarousel() {
         itemClass="carousel_item"
         containerClass="banner__carousel-container"
         sliderClass="banner__carousel-trak"
+        dotListClass="custom-dot-list-style"
+        showDots
+        customDot={<CustomDot />}
+        renderDotsOutside={true}
       >
         <div className="banner_content"></div>
         <div className="banner_content"></div>

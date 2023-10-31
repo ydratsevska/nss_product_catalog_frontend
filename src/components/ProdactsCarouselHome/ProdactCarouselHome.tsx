@@ -3,12 +3,11 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-
-
 import { ProductCard } from '../ProductCard';
 import './ProdactCarouselHome.scss';
+import { Product } from '@/types/Product';
 
-export default function ProductsCarousel() {
+export default function ProductsCarousel({ products }: { products: Product[] }) {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -35,11 +34,18 @@ export default function ProductsCarousel() {
     const { carouselState: { currentSlide } } = rest;
     return (
       <div className="buttons">
-        <button className={currentSlide === 0
-          ? 'buttons__left--disable'
-          : 'buttons__left'
-        } onClick={() => previous()} />
-        <button className='buttons__right' onClick={() => next()} />
+        <button
+          className={currentSlide === 0
+            ? 'buttons__left--disable'
+            : 'buttons__left'
+          }
+          onClick={() => previous()} />
+        <button
+          className={currentSlide === 6
+            ? 'buttons__right--disable'
+            : 'buttons__right'
+          }
+          onClick={() => next()} />
       </div>
 
     );
@@ -55,16 +61,9 @@ export default function ProductsCarousel() {
         renderArrowsWhenDisabled={true}
         arrows={false} renderButtonGroupOutside={true} customButtonGroup={<ButtonGroup />}
       >
-        <div className="temporary-card"></div>
-        <div className="temporary-card"></div>
-        <div className="temporary-card"></div>
-        <div className="temporary-card"></div>
-        <div className="temporary-card"></div>
-        <div className="temporary-card"></div>
-        <div className="temporary-card"></div>
-        <div className="temporary-card"></div>
-        <div className="temporary-card"></div>
-        <div className="temporary-card"></div>
+        {products.map((product) => (
+        <ProductCard product={product} key={product.id} />
+      ))}
       </Carousel>
     </div>
 
