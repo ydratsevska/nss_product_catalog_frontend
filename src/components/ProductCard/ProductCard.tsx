@@ -15,7 +15,7 @@ type Props = {
 };
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
-  const { id, name, fullPrice, price, screen, capacity, ram, image } = product;
+  const { id, name, category, fullPrice, price, screen, capacity, ram, image } = product;
 
   const { favorites, handleFavorites } = useContext(FavoritesContext);
 
@@ -46,8 +46,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   return (
     <div className={styles.card}>
       <Link
-        href='/phones/[id]'
-        as={`/phones/${id}`}
+        href={`/${category}/[id]`}
+        as={`/${category}/${id}`}
       >
         <Image
           alt='Phone Image'
