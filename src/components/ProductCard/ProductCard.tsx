@@ -17,16 +17,7 @@ type Props = {
 export const ProductCard: React.FC<Props> = ({ product }) => {
   const { id, name, fullPrice, price, screen, capacity, ram, image } = product;
 
-  const { favorites: favorites, setFavourites } = useContext(FavoritesContext);
-
-  const handleFavorites = (id: number) => {
-    const newFavourites = favorites.includes(id)
-      ? favorites.filter((fav) => fav !== id)
-      : [...favorites, id];
-
-    setFavourites(newFavourites);
-    localStorage.setItem('favorites', JSON.stringify(newFavourites));
-  };
+  const { favorites, handleFavorites } = useContext(FavoritesContext);
 
   const handleAddToCart = () => {
       const cartDataString = localStorage.getItem('cart');
