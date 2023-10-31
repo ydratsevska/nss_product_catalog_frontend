@@ -8,20 +8,15 @@
   align-items: center;
   text-transform: uppercase;
 
-  @include onDesktop {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 64px;
-  }
-
   @include onTablet {
-    display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     gap: 32px;
+  }
+
+  @include onDesktop {
+    gap: 64px;
   }
 
   &__link {
@@ -74,14 +69,3 @@
   }
 }
 
-/* .nav__link:hover::after {
-  @include onDesktop {
-    content: '';
-    position: absolute;
-    display: block;
-    height: 4px;
-    width: 100%;
-    background: $primary-color;
-    bottom: 0;
-  }
-} */
