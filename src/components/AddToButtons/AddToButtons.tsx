@@ -13,14 +13,14 @@ interface Props {
 
 export default function AddToButtons({ product }: Props) {
   const { id, name, fullPrice, price, screen, capacity, ram, image } = product;
-  const { favorites: favorites, setFavourites } = useContext(FavoritesContext);
+  const { favorites: favorites, setFavorites } = useContext(FavoritesContext);
 
   const handleFavorites = (id: number) => {
     const newFavourites = favorites.includes(id)
       ? favorites.filter((fav) => fav !== id)
       : [...favorites, id];
 
-    setFavourites(newFavourites);
+    setFavorites(newFavourites);
     localStorage.setItem('favorites', JSON.stringify(newFavourites));
   };
 
