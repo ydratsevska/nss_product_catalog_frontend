@@ -6,7 +6,7 @@ import styles from './ProductCard.module.scss';
 import button from '../../styles/modules/buttons.module.scss';
 import { Product } from '@/types/Product';
 import { useContext } from 'react';
-import { FavoritesContext } from '@/app/contexts/FavoritesContextProvider';
+import { FavoritesContext } from '@/contexts/FavoritesContextProvider';
 import classNames from 'classnames';
 import { CartObject } from '@/types/CartObject';
 import { CartContext } from '@/app/contexts/CartContextProvider';
@@ -36,7 +36,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
   const isAddedInCart =  cartItems.some((item : CartObject) => item.id === id);
 
   return (
-    <div className={styles.card}>
+    <div className={classNames(styles.card)}>
       <Link
         href={`/${category}/[id]`}
         as={`/${category}/${id}`}

@@ -8,10 +8,6 @@
   margin: 0;
 }
 
-button {
-  border: 1px solid;
-}
-
 a {
   text-decoration: none;
   color: inherit;
@@ -48,7 +44,9 @@ body {
 }
 
 button {
+  cursor: pointer;
   font-weight: $semi-accent-weight;
   font-size: 14px;
   line-height: 21px;
+  border: 1px solid;
 }

@@ -52,7 +52,6 @@ export default async function Home() {
                   <Image
                     src={image}
                     alt={'category image'}
-                    fill
                     className={styles.category_img}
                   />
                 </div>
