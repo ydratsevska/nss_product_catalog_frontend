@@ -8,6 +8,7 @@ import ProductList from '@/components/ProductList/ProductList';
 import Dropdown from '@/components/Dropdown/Dropdown';
 import { sortOptions, limitOptions, optionsType } from '@/utils/constants';
 import getSortedData from '@/utils/getSortedData';
+import CustomPagination from '@/components/CastomPagination/CastomPagination';
 
 export default async function Accessories({ searchParams } : { searchParams: any}) {
   const sort = searchParams.sort || 'age';
@@ -41,6 +42,13 @@ export default async function Accessories({ searchParams } : { searchParams: any
       </div>
 
       <ProductList products={data.products} />
+
+      <div className={accessories.pagination_box}>
+        <CustomPagination
+          resPerPage={limit}
+          productsCount={data.count}
+        />
+      </div>
     </div>
   );
 }
