@@ -6,6 +6,7 @@ import './globals.scss';
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import { FavouritesContextProvider } from '@/app/contexts/FavoritesContextProvider';
+import { CartContext, CartContextProvider } from './contexts/CartContextProvider';
 
 const mont = Montserrat({ subsets: ['latin'] });
 
@@ -23,8 +24,10 @@ export default function RootLayout({
     <html lang='en'>
       <body className={mont.className}>
         <FavouritesContextProvider>
+          <CartContextProvider>
           <Header />
           <main className={layout.main}>{children}</main>
+          </CartContextProvider>
         </FavouritesContextProvider>
         <Footer />
       </body>

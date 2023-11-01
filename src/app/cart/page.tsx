@@ -10,18 +10,27 @@ import arrowLeft from '../../../public/icons/Arrow-left.svg';
 import CartList from '@/components/CartList/CartList';
 import { CartObject } from '@/types/CartObject';
 import button from '../../styles/modules/buttons.module.scss';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import { CartContext } from '../contexts/CartContextProvider';
 
 export default function Cart() {
  //  const router = useRouter();
-  const [cartItems, setCartItems] = useState<CartObject[]>([]);
+  const { cartItems } = useContext(CartContext);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
 
   useEffect(() => {
-    const cartDataString = localStorage.getItem('cart');
-    setCartItems(cartDataString ? JSON.parse(cartDataString) : []);
-  }, []);
+    let totalPriceTemp = 0;
+    let totalItemsTemp = 0;
+    cartItems.forEach(element => {
+      totalPriceTemp += element.count * element.price
+      totalItemsTemp += element.count
+    });
 
+    setTotalPrice(totalPriceTemp);
+    setTotalItems(totalItemsTemp);
+  }, [cartItems]);
 
   return (
     <div className={grid.template}>
@@ -38,8 +47,8 @@ export default function Cart() {
       <CartList products={cartItems} />
 
       <div className={cart.total}>
-        <span className={cart.price}>$2657</span>
-        <span className={cart.items}>Total for 3 items</span>
+        <span className={cart.price}>${totalPrice}</span>
+        <span className={cart.items}>Total for {totalItems} items</span>
 
         <hr className={cart.line} />
 
