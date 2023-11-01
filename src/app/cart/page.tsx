@@ -13,12 +13,14 @@ import button from '../../styles/modules/buttons.module.scss';
 import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { CartContext } from '../contexts/CartContextProvider';
+import CheckoutModal from '@/components/CheckoutModal/CheckoutModal';
 
 export default function Cart() {
  //  const router = useRouter();
   const { cartItems } = useContext(CartContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
     let totalPriceTemp = 0;
@@ -52,7 +54,15 @@ export default function Cart() {
 
         <hr className={cart.line} />
 
-        <button className={button.primary}>Checkout</button>
+        <button
+          className={button.primary}
+          onClick={() => setIsModalVisible(true)}
+        >Checkout</button>
+
+        <CheckoutModal
+          isModalVisible={isModalVisible}
+          setIsModalVisible={setIsModalVisible}
+        />
       </div>
     </div>
   );
