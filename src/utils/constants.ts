@@ -34,3 +34,17 @@ export const categories = [
     id: 3
   }
 ]
+
+export const sortOptions = [
+  { value: 'age', text: 'newest'},
+  { value: 'price', text: 'prise'},
+  { value: 'title', text: 'title'},
+]
+
+export const limitOptions = [
+  { value: '8', text: '8'},
+  { value: '16', text: '16'},
+  { value: '32', text: '32'},
+]
+
+export const optionsType = {sort: 'sort', limit: 'limit'}

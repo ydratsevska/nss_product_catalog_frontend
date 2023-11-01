@@ -5,7 +5,18 @@ import './Dropdown.scss';
 import { Option } from '@/types/Option';
 import classNames from 'classnames';
 
-export default function Dropdown({ options }: { options: Option[] }) {
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+
+export default function Dropdown(
+  {
+    options, optionsType,
+  } : {
+    options: Option[], optionsType: string
+  }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const params = useSearchParams();
+
   const [open, setOpen] = useState(false);
   const [currentText, setCurrentText] = useState(options[0].text);
 
@@ -25,8 +36,13 @@ export default function Dropdown({ options }: { options: Option[] }) {
     setOpen(!open);
   };
 
-  const handleClick = (newText: string) => {
+  const handleClick = (newText: string, sortValue: string) => {
     setCurrentText(newText);
+
+    const newParams = new URLSearchParams(params.toString());
+    newParams.set(optionsType, sortValue);
+
+    router.push(`${pathname}?${newParams.toString()}`);
   };
 
   return (
@@ -50,7 +66,7 @@ export default function Dropdown({ options }: { options: Option[] }) {
           {options.map((option) => (
             <li className='dropdown__element' key={option.value}>
               <button
-                onMouseDown={() => handleClick(option.text)}
+                onMouseDown={() => handleClick(option.text, option.value)}
                 className='dropdown__element__button'
               >
                 {option.text}
