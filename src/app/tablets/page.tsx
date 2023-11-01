@@ -3,11 +3,16 @@ import titles from 'src/styles/modules/titles.module.scss';
 import paragraphs from 'src/styles/modules/paragraphs.module.scss';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import tablets from '../../styles/modules/page.module.scss';
-import getData from '@/utils/getData';
 import ProductList from '@/components/ProductList/ProductList';
+import Dropdown from '@/components/Dropdown/Dropdown';
+import { sortOptions, limitOptions, optionsType } from '@/utils/constants';
+import getSortedData from '@/utils/getSortedData';
 
-export default async function Tablets() {
-  const data = await getData('tablets');
+export default async function Tablets({ searchParams } : { searchParams: any}) {
+  const sort = searchParams.sort || 'age';
+  const limit = searchParams.limit || '8';
+
+  const data = await getSortedData('tablets', sort, limit);
 
   return (
     <div className={grid.template}>
@@ -18,17 +23,19 @@ export default async function Tablets() {
       <div className={tablets.sort}>
         <p className={paragraphs.parameter}>Sort by</p>
 
-        <select>
-          <option>newest</option>
-        </select>
+        <Dropdown
+          options={sortOptions}
+          optionsType={optionsType.sort}
+        />
       </div>
 
       <div className={tablets.pagination}>
         <p className={paragraphs.parameter}>Items on page</p>
 
-        <select>
-          <option>16</option>
-        </select>
+        <Dropdown
+          options={limitOptions}
+          optionsType={optionsType.limit}
+        />
       </div>
 
       <ProductList products={data.products} />

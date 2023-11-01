@@ -4,7 +4,6 @@ import paragraphs from 'src/styles/modules/paragraphs.module.scss';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import phones from '../../styles/modules/page.module.scss';
 import ProductList from '@/components/ProductList/ProductList';
-import getData from '@/utils/getData';
 import Dropdown from '@/components/Dropdown/Dropdown';
 import { sortOptions, limitOptions, optionsType } from '@/utils/constants';
 import getSortedData from '@/utils/getSortedData';
