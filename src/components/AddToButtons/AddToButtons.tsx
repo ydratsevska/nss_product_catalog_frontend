@@ -2,10 +2,11 @@ import styles from './AddToButtons.module.scss'
 import button from "@/styles/modules/buttons.module.scss";
 import classNames from "classnames";
 import {useContext} from "react";
-import {FavoritesContext} from "@/app/contexts/FavoritesContextProvider";
+import {FavoritesContext} from "@/contexts/FavoritesContextProvider";
 import {CartObject} from "@/types/CartObject";
 import {Product} from "@/types/Product";
-import {ProductDescriptive} from "@/types/ProductDescriptive";
+import 'animate.css';
+import { toast } from "react-toastify";
 
 interface Props {
   product: Product
@@ -45,7 +46,6 @@ export default function AddToButtons({ product }: Props) {
     }
 
     localStorage.setItem('cart', JSON.stringify(existingCart));
-
   };
 
   return (
@@ -58,11 +58,14 @@ export default function AddToButtons({ product }: Props) {
       </button>
 
       <button
-        className={classNames(button.favorite, {
-          [button.favorite_selected]: favorites.includes(id),
+        className={classNames(button.favorite, 'animate__animated', {
+          [button.favorite_selected + ' animate__heartBeat']: favorites.includes(id),
         })}
-        onClick={() => handleFavorites(id)}
-      ></button>
+        onClick={() => {
+          toast.success('Added successfully')
+          handleFavorites(id)
+        }}
+      />
     </div>
   )
 }

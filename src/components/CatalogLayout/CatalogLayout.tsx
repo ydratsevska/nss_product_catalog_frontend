@@ -5,16 +5,23 @@ import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 import phones from './CatalogLayout.module.scss'
 import { ProductCard } from "@/components/ProductCard";
 import Dropdown from "@/components/Dropdown/Dropdown";
+import 'animate.css';
+import classNames from "classnames";
+import {Product} from "@/types/Product";
 
 interface Props {
   category: string;
+  data: {
+    count: string;
+    products: Product[];
+  }
 }
 
-export default function CatalogLayout({ category }: Props) {
-  const formattedHeader = category.slice(1).padStart(category.length, category.slice(0,1).toUpperCase());
+export default function CatalogLayout({ category, data }: Props) {
+  const formattedHeader = category.charAt(0).toUpperCase() + category.slice(1);
 
   return (
-    <div className={grid.template}>
+    <div className={classNames(grid.template, 'animate__animated', 'animate__fadeInLeft')}>
       <BreadCrumbs category={formattedHeader}/>
       <h1 className={titles.main}>{formattedHeader}</h1>
       <p className={phones.title_sub}>95 Models</p>
