@@ -1,4 +1,3 @@
-import { ProductCard } from '../ProductCard';
 import styles from '../../styles/modules/page.module.scss';
 import { CartObject } from '@/types/CartObject';
 import { CartItem } from '../CartItem/CartItem';

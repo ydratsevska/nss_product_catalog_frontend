@@ -1,5 +1,5 @@
 'use client'
-import { CartContext } from "@/app/contexts/CartContextProvider";
+import { CartContext } from "@/contexts/CartContextProvider";
 import { useContext, useEffect, useRef, useState } from "react";
 import '@/app/globals.scss'
 import button from '@/styles/modules/buttons.module.scss'

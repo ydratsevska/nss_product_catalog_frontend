@@ -3,7 +3,7 @@ import Image from 'next/image';
 import phoneImage from '../ProductCard/phoneImage.png';
 import { CartObject } from '@/types/CartObject';
 import { useContext } from 'react';
-import { CartContext } from '@/app/contexts/CartContextProvider';
+import { CartContext } from '@/contexts/CartContextProvider';
 
 type Props = {
   cartObject: CartObject;
