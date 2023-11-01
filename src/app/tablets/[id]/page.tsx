@@ -21,7 +21,7 @@ interface Props {
 }
 
 async function getData(id: string) {
-  const res = await fetch(`${URL_BASE}/products/${id}`);
+  const res = await fetch(`${URL_BASE}/products/${id}?variants=true`);
 
   if (!res.ok) {
     throw new Error(`${res}`);
@@ -88,7 +88,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
       <div className={style.page__image_selected}>
         <Image
-          src={`https://nss-product-catalog-api.onrender.com/${selectedImg}`}
+          src={`https://nss-product-catalog-api.onrender.com/${selectedImg}?variants=true`}
           alt={'product image'}
           fill={true}
           style={{ objectPosition: 'center top', objectFit: 'contain' }}

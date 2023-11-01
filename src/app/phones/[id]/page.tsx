@@ -21,7 +21,7 @@ interface Props {
 }
 
 async function getData(id: string) {
-  const res = await fetch(`${URL_BASE}/products/${id}`);
+  const res = await fetch(`${URL_BASE}/products/${id}?variants=true`);
 
   if (!res.ok) {
     throw new Error(`${res}`);
