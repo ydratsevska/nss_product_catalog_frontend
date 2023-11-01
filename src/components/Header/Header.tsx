@@ -14,9 +14,12 @@ import './Navbar.scss';
 import classNames from 'classnames';
 import { usePathname } from 'next/navigation';
 import { FavoritesContext } from '../../app/contexts/FavoritesContextProvider';
+import { CartContext } from '@/app/contexts/CartContextProvider';
 
 export default function Header() {
   const { favorites } = useContext(FavoritesContext);
+  const { cartItems } = useContext(CartContext);
+
   const [isActive, setIsActive] = useState(false);
   const pathName = usePathname();
 
@@ -62,6 +65,9 @@ export default function Header() {
               height={16}
               alt='Shopping Bag icon'
             />
+            {!!cartItems.length && (
+              <span className='header__icon__amount'>{cartItems.length}</span>
+            )}
           </Link>
         </div>
 

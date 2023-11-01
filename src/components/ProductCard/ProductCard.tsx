@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import { FavoritesContext } from '@/app/contexts/FavoritesContextProvider';
 import classNames from 'classnames';
 import { CartObject } from '@/types/CartObject';
+import { CartContext } from '@/app/contexts/CartContextProvider';
 
 type Props = {
   product: Product;
@@ -17,13 +18,11 @@ type Props = {
 export const ProductCard: React.FC<Props> = ({ product }) => {
   const { id, name, category, fullPrice, price, screen, capacity, ram, image } = product;
 
+  const { cartItems, handleAddToCart } = useContext(CartContext);
   const { favorites, handleFavorites } = useContext(FavoritesContext);
 
-  const handleAddToCart = () => {
-      const cartDataString = localStorage.getItem('cart');
-      const existingCart = cartDataString ? JSON.parse(cartDataString) : [];
-
-    const productToAdd = {
+  const handleAddItem = () => {
+    const productToAdd: CartObject = {
       id,
       name,
       price,
@@ -31,17 +30,10 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       count: 1
     };
 
-    const existingProductIndex = existingCart.findIndex((item: CartObject) => item.id === id);
-
-    if (existingProductIndex !== -1) {
-      existingCart[existingProductIndex].quantity++;
-    } else {
-      existingCart.push(productToAdd);
-    }
-
-    localStorage.setItem('cart', JSON.stringify(existingCart));
-
+    handleAddToCart(productToAdd);
   };
+
+  const isAddedInCart =  cartItems.some((item : CartObject) => item.id === id);
 
   return (
     <div className={styles.card}>
@@ -103,10 +95,15 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
       <div className={styles.card__buttons}>
       <button
-          className={button.primary}
-          onClick={handleAddToCart}
+          className={classNames(button.primary, {
+            [button.primary_selected]: isAddedInCart
+          })}
+          onClick={handleAddItem}
         >
-          Add to cart
+          {isAddedInCart
+            ? 'Added'
+            : 'Add to cart'
+          }
         </button>
 
         <button
