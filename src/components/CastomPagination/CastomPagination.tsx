@@ -4,6 +4,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 import Pagination from "react-js-pagination";
 
+import './CastomPagination.scss';
+
 const CustomPagination = (
   { resPerPage, productsCount } : { resPerPage: any, productsCount: any }) => {
   const router = useRouter();
@@ -33,17 +35,20 @@ const CustomPagination = (
   return (
     <div className="flex mt-20 justify-center">
       <Pagination
+        hideFirstLastPages={true}
         activePage={page}
         itemsCountPerPage={resPerPage}
         totalItemsCount={productsCount}
         onChange={handlePageChange}
-        nextPageText={"Next"}
-        prevPageText={"Prev"}
-        firstPageText={"First"}
-        lastPageText={"Last"}
-        itemClass="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
-        activeLinkClass="z-10 inline-flex items-center border border-indigo-500 bg-indigo-50 text-sm font-medium text-indigo-600 focus:z-20"
-        activeClass="z-10 inline-flex items-center border border-indigo-500 bg-indigo-50 text-sm font-medium text-indigo-600 focus:z-20"
+        nextPageText={""}
+        prevPageText={""}
+        innerClass='pagination'
+        itemClass='pagination__list-item'
+        activeClass='pagination__list-item--active'
+        linkClass='pagination__link'
+        activeLinkClass='pagination__link--active'
+        itemClassPrev='pagination__prev-item'
+        itemClassNext='pagination__next-item'
       />
     </div>
   );

@@ -1,0 +1,55 @@
+@import './../../utils/mixins.scss';
+@import './../../app/variables.scss';
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  text-decoration: none;
+  list-style: none;
+  color: $primary-color;
+  cursor: pointer;
+
+  &__list-item {
+    width: 32px;
+    height: 32px;
+    border: 1px solid $elements-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--active {
+      background-color: $primary-color;
+      color: white;
+    }
+  }
+
+  &__link {
+    padding: 16px;
+  }
+
+  &__prev-item {
+    border: 1px solid $icons-color;
+    position: relative;
+    margin-right: 16px;
+
+    &::after {
+      position: absolute;
+      bottom: 2px;
+      content: url('./../../../public/icons/arrow-left-active.svg');
+    }
+  }
+
+  &__next-item {
+    border: 1px solid $icons-color;
+    position: relative;
+    margin-left: 16px;
+
+    &::after {
+      position: absolute;
+      bottom: 2px;
+      content: url('./../../../public/icons/arrow-right-active.svg');
+    }
+  }
+
+}
