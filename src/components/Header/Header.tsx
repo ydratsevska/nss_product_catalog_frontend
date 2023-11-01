@@ -13,8 +13,8 @@ import './Header.scss';
 import './Navbar.scss';
 import classNames from 'classnames';
 import { usePathname } from 'next/navigation';
-import { FavoritesContext } from '../../app/contexts/FavoritesContextProvider';
-import { CartContext } from '@/app/contexts/CartContextProvider';
+import { FavoritesContext } from '@/contexts/FavoritesContextProvider';
+import { CartContext } from '@/contexts/CartContextProvider';
 
 export default function Header() {
   const { favorites } = useContext(FavoritesContext);

@@ -1,0 +1,77 @@
+@import 'src/app/variables';
+@import 'src/utils/mixins';
+
+.title_sub {
+  color: $secondary-color;
+  font-weight: 600;
+  font-size: 14px;
+  grid-column: span $mobile-columns-quantity;
+  padding-bottom: 32px;
+
+  @include onTablet {
+    grid-column: span $tablet-columns-quantity;
+  }
+
+  @include onDesktop {
+    grid-column: span $desktop-columns-quantity;
+  }
+}
+
+.sort {
+  grid-column: span 2;
+  padding-bottom: 24px;
+
+  @include onTablet {
+    grid-column: span 4;
+  }
+}
+
+.pagination {
+  grid-column: span 2;
+
+  @include onTablet {
+    grid-column: span 3;
+  }
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-rows: min-content;
+  column-gap: inherit;
+  row-gap: 8px;
+  justify-content: space-around;
+  grid-column: 1 / -1;
+  justify-items: center;
+
+  @include onTablet {
+    grid-template-columns: repeat(auto-fill, 260px);
+  }
+}
+
+.loading_image {
+  height: 100px;
+  width: 100px;
+  grid-column: 1 / -1;
+  margin: 0 auto;
+}
+
+.no_products_message {
+  text-align: left;
+  grid-column: 1 / -1;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  grid-column: 1 / 5;
+
+  @include onTablet {
+    grid-column: 1 / 13;
+  }
+
+  @include onDesktop {
+    grid-column: 1 / 18;
+  }
+}

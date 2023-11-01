@@ -101,6 +101,7 @@
   background-color: $primary-color;
   color: $white-color;
   transition-duration: $button-hover-effect-duration;
+  z-index: 2;
 
   &:hover {
     box-shadow: 0 3px 13px 0 rgba(23, 32, 49, 0.4);
