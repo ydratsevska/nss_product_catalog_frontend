@@ -36,15 +36,15 @@ export const categories = [
 ]
 
 export const sortOptions = [
-  { value: 'age', text: 'newest'},
-  { value: 'price', text: 'prise'},
-  { value: 'title', text: 'title'},
+  { value: 'age', text: 'Newest'},
+  { value: 'price', text: 'Cheapest'},
+  { value: 'title', text: 'Alphabetically '},
 ]
 
 export const limitOptions = [
+  { value: '4', text: '4'},
   { value: '8', text: '8'},
   { value: '16', text: '16'},
-  { value: '32', text: '32'},
 ]
 
 export const optionsType = {sort: 'sort', limit: 'limit'}
