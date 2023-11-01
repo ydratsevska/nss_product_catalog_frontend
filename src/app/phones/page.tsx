@@ -7,12 +7,14 @@ import ProductList from '@/components/ProductList/ProductList';
 import Dropdown from '@/components/Dropdown/Dropdown';
 import { sortOptions, limitOptions, optionsType } from '@/utils/constants';
 import getSortedData from '@/utils/getSortedData';
+import CustomPagination from '@/components/CastomPagination/CastomPagination';
 
 export default async function Phones({ searchParams } : { searchParams: any}) {
   const sort = searchParams.sort || 'age';
   const limit = searchParams.limit || '8';
+  const offset = searchParams.offset || '1';
 
-  const data = await getSortedData('phones', sort, limit);
+  const data = await getSortedData('phones', sort, limit, offset);
 
   return (
     <div className={grid.template}>
@@ -39,6 +41,7 @@ export default async function Phones({ searchParams } : { searchParams: any}) {
       </div>
 
       <ProductList products={data.products} />
+      <CustomPagination resPerPage={limit} productsCount={data.count}/>
     </div>
   );
 }
