@@ -9,7 +9,6 @@
   background-color: #fff;
   border: 1px solid $elements-color;
   width: 212px;
-  margin-bottom: 32px;
 
   @include onTablet() {
     width: 237px;
@@ -17,6 +16,12 @@
 
   @include onDesktop() {
     width: 272px;
+  }
+
+  &__link_wrapper {
+    display: inherit;
+    flex-direction: inherit;
+    gap: inherit;
   }
 
   &__image {
