@@ -18,7 +18,7 @@ export default function Dropdown({ options, optionsType }: Props) {
   const params = useSearchParams();
 
   const [open, setOpen] = useState(false);
-  const [currentText, setCurrentText] = useState(options[0].text);
+  const [currentText, setCurrentText] = useState(options[1].text);
 
   let dropdownRef = useRef<HTMLButtonElement>(null);
 
@@ -54,7 +54,7 @@ export default function Dropdown({ options, optionsType }: Props) {
         onClick={handleOpen}
         ref={dropdownRef}
       >
-        {currentText} 
+        {currentText}
         <div
           className={classNames('dropdown__trigger__arrow', {
             dropdown__trigger__arrow_active: open,

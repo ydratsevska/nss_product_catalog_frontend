@@ -32,7 +32,7 @@ export default async function Page({params, searchParams}: Props) {
   }
 
   const sort = searchParams.sort || 'age';
-  const limit = searchParams.limit || '4';
+  const limit = searchParams.limit || '8';
   const offset = searchParams.offset || '1';
 
   let data;
