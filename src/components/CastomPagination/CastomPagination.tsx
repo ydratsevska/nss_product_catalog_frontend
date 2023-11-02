@@ -7,12 +7,20 @@ import Pagination from "react-js-pagination";
 import './CastomPagination.scss';
 
 const CustomPagination = (
-  { resPerPage, productsCount } : { resPerPage: any, productsCount: any }) => {
+  { resPerPage, productsCount, offset } : { resPerPage: any, productsCount: any, offset: string }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
   let page = searchParams.get("offset") || 1;
-  page = Number(page);
+
+  const pageAmount = Math.ceil(productsCount / resPerPage);
+
+  if (pageAmount < Number(offset)) {
+    page = 1;
+  } else {
+    page = Number(page);
+  }
+
 
   let queryParams;
 
