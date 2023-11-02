@@ -16,7 +16,11 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
   return (
     <div className={styles.card}>
-      <Link href={`/${category}/[id]`} as={`/${category}/${id}`}>
+      <Link
+        href={`/${category}/[id]`}
+        as={`/${category}/${id}`}
+        className={styles.card__link_wrapper}
+      >
         <Image
           alt='Phone Image'
           src={`https://nss-product-catalog-api.onrender.com/${image}`}
