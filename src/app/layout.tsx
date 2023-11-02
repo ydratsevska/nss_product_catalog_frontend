@@ -30,7 +30,7 @@ export default function RootLayout({
           <Header />
           <ToastContainer
             position="top-right"
-            autoClose={false}
+            autoClose={2000}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick
