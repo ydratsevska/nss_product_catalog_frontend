@@ -26,7 +26,7 @@ export default function BannerCarousel() {
     },
   };
 
-  const CustomDot = ({ onClick, active }:{ onClick: any, active: any }) => {
+  const CustomDot = ({ onClick, active }:any) => {
     return (
       <li
         className={active ? "dot-active" : "dot"}
