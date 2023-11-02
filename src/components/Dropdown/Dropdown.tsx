@@ -9,16 +9,17 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
 interface Props {
   options: Option[],
-  optionsType: string
+  optionsType: string,
+  currentValue: string,
 }
 
-export default function Dropdown({ options, optionsType }: Props) {
+export default function Dropdown({ options, optionsType, currentValue }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
 
   const [open, setOpen] = useState(false);
-  const [currentText, setCurrentText] = useState(options[0].text);
+  const [currentText, setCurrentText] = useState(options.find(option => option.value === currentValue)?.text);
 
   let dropdownRef = useRef<HTMLButtonElement>(null);
 
@@ -36,11 +37,11 @@ export default function Dropdown({ options, optionsType }: Props) {
     setOpen(!open);
   };
 
-  const handleClick = (newText: string, sortValue: string) => {
+  const handleClick = (newText: string, newValue: string) => {
     setCurrentText(newText);
 
     const newParams = new URLSearchParams(params.toString());
-    newParams.set(optionsType, sortValue);
+    newParams.set(optionsType, newValue);
 
     router.push(`${pathname}?${newParams.toString()}`);
   };
@@ -54,7 +55,7 @@ export default function Dropdown({ options, optionsType }: Props) {
         onClick={handleOpen}
         ref={dropdownRef}
       >
-        {currentText} 
+        {currentText}
         <div
           className={classNames('dropdown__trigger__arrow', {
             dropdown__trigger__arrow_active: open,
