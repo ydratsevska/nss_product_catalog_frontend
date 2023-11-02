@@ -22,6 +22,7 @@ interface ProductContext {
   onCapacityChange: (capacity: string) => void;
   preferences: Product[] | null;
   productToAdd: { itemId: string | undefined, name: string | undefined, price: number | undefined, img: string | undefined }
+  category: string;
 }
 
 export const ProductContext = createContext<ProductContext>({
@@ -32,6 +33,7 @@ export const ProductContext = createContext<ProductContext>({
   onColorChange: () => {},
   onCapacityChange: () => {},
   preferences: null,
+  category: '',
   productToAdd: {
     itemId: '',
     name: '',
@@ -48,6 +50,7 @@ interface Props {
   children: ReactNode,
   params: {
     id: string
+    category: string
   }
 }
 
@@ -141,6 +144,7 @@ export function ProductPageContextProvider({ children, params }: Props) {
             onCapacityChange,
             setSelectedImg,
             productToAdd,
+            category: params.category,
             preferences: data.current?.preferences as Product[],
 			    }}
 		    >

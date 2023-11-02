@@ -16,6 +16,7 @@ import 'animate.css';
 export default function ProductPage() {
 	const {
 		selectedProduct,
+    category,
 		selectedImg,
 		onColorChange,
 		onCapacityChange,
