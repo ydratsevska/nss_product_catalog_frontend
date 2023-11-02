@@ -36,7 +36,6 @@ export default function Header() {
         <div className='header__icons'>
           <Link
             href='/favorites'
-            prefetch={true}
             className={classNames('header__icon', 'header__icon--favorite', {
               'header__icon--active': pathName === '/favorites',
             })}
@@ -54,7 +53,6 @@ export default function Header() {
 
           <Link
             href='/cart'
-            prefetch={true}
             className={classNames('header__icon', 'header__icon--basket', {
               'header__icon--active': pathName === '/cart',
             })}
@@ -100,7 +98,6 @@ export default function Header() {
           <div className='header__burger-menu-icons-bottom'>
             <Link
               href='/favorites'
-              prefetch={true}
               className={classNames('header__burger-menu-icon-bottom', {
                 'header__burger-menu-icon-bottom--active':
                   pathName === '/favorites',
@@ -121,7 +118,6 @@ export default function Header() {
             </Link>
             <Link
               href='/cart'
-              prefetch={true}
               className={classNames('header__burger-menu-icon-bottom', {
                 'header__burger-menu-icon-bottom--active': pathName === '/cart',
               })}
