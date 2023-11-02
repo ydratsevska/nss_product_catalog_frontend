@@ -26,13 +26,11 @@ export default function BannerCarousel() {
     },
   };
 
-  const CustomDot = ({ ...rest }) => {
-    const {
-      active
-    } = rest;
+  const CustomDot = ({ onClick, active }:{ onClick: any, active: any }) => {
     return (
       <li
         className={active ? "dot-active" : "dot"}
+        onClick={() => onClick()}
       >
       </li>
     );
@@ -78,7 +76,7 @@ export default function BannerCarousel() {
         showDots
         customDot={<CustomDot />}
         renderDotsOutside={true}
-        ssr={true}
+
       >
         <div className='banner_content banner_content--phone'>
           <div className='text'>

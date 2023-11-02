@@ -261,6 +261,7 @@
 .dot {
   width: 14px;
   height: 4px;
+  cursor: pointer;
 
   background-color: $secondary-color;
 
@@ -272,6 +273,7 @@
 }
 
 .custom-dot-list-style {
+  cursor: pointer;
   display: block;
   width: 80px;
   height: 24px;
