@@ -31,6 +31,6 @@ export default async function getSortedData(type: string, sort: string, limit: s
   return client.get(
     `/products?${
       type ? `type=${type}&` : ''
-    }sort=${sort}&limit=${limit}&offset=${offset}`,
+    }sort=${sort}&limit=${limit}&offset=${(Number(offset) - 1) * Number(limit)}`,
   )
 }
