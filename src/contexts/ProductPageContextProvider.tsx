@@ -64,7 +64,7 @@ export function ProductPageContextProvider({ children, params }: Props) {
       try {
         data.current = await fetchData(params.id);
         const descriptiveProduct = data.current.variants.find(
-          (variant) => data.current?.product.name === variant.name
+          (variant) => data.current?.product.itemId === variant.id
         ) as ProductDescriptive;
         setSelectedProduct(descriptiveProduct);
         setSelectedImg(descriptiveProduct.images[0]);
@@ -96,6 +96,7 @@ export function ProductPageContextProvider({ children, params }: Props) {
 			.current
 			?.variants
 			.find(({ color, capacity}) => color === newColor && capacity === selectedProduct?.capacity) || null;
+    console.log(product);
 
 		setSelectedProduct(product);
 		setSelectedImg(product?.images[0])
@@ -106,9 +107,11 @@ export function ProductPageContextProvider({ children, params }: Props) {
 			.current
 			?.variants
 			.find(({ color, capacity}) => (color === selectedProduct?.color && capacity === newCapacity)) || null
+    console.log(product);
 
 		setSelectedProduct(product);
 	}
+
 
   return (
     isLoading

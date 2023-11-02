@@ -5,6 +5,8 @@ import Link from 'next/link';
 import styles from './ProductCard.module.scss';
 import { Product } from '@/types/Product';
 import AddToButtons from '@/components/AddToButtons/AddToButtons';
+import classNames from "classnames";
+import {URL_BASE} from "@/utils/constants";
 
 type Props = {
   product: Product;
@@ -23,7 +25,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       >
         <Image
           alt='Phone Image'
-          src={`https://nss-product-catalog-api.onrender.com/${image}`}
+          src={`${URL_BASE}/${image}`}
           className={styles.card__image}
           width={250}
           height={250}
