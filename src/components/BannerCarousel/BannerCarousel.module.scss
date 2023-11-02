@@ -139,6 +139,7 @@
 
 .banner__container {
   position: relative;
+  width: 100%;
 }
 
 .banner-buttons {
@@ -273,12 +274,12 @@
 }
 
 .custom-dot-list-style {
-  cursor: pointer;
-  display: block;
-  width: 80px;
-  height: 24px;
-  bottom: -40px;
-  display: flex;
-  justify-content: space-between;
-  left: calc(50% - 80px / 2);
+  cursor: pointer !important;
+  display: block !important;
+  width: 80px !important;
+  height: 24px !important;
+  bottom: -40px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  left: calc(50% - 80px / 2) !important;
 }
