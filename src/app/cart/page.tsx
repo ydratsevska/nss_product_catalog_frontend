@@ -13,7 +13,6 @@ import { CartContext } from '@/contexts/CartContextProvider';
 import CheckoutModal from '@/components/CheckoutModal/CheckoutModal';
 
 export default function Cart() {
- //  const router = useRouter();
   const { cartItems } = useContext(CartContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
@@ -36,7 +35,7 @@ export default function Cart() {
       <div className={style.wrapper}>
         <div
           className={cart.back}
-         // onClick={() => router.back()}
+         onClick={() =>  window.history.back()}
         >
           <Image src={arrowLeft} alt={'back link'} />
           Back

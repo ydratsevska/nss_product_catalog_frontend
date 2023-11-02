@@ -29,16 +29,17 @@ export default function AddToButtons({ product }: Props) {
 
   const { cartItems, handleAddToCart } = useContext(CartContext);
   const { favorites, handleFavorites } = useContext(FavoritesContext);
-  const isAddedInCart =  cartItems.some((item : CartObject) => item.id === id);
+  const isAddedInCart =  cartItems.some((item : CartObject) => item.itemId === itemId);
 
   const handleAddCartItem = () => {
     const productToAdd: CartObject = {
-      id,
+      itemId,
       name,
       price,
       image,
       count: 1
     };
+    console.log(productToAdd);
 
     handleAddToCart(productToAdd);
   };

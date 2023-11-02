@@ -13,8 +13,8 @@ type CartContextType = {
   cartItems: CartObject[];
   setCartItems: Dispatch<SetStateAction<CartObject[]>>;
   handleAddToCart: (cartObject: CartObject) => void;
-  handleDeleteFromCart: (itemId: number) => void;
-  changeCount: (itemId: number,side: number ) => void
+  handleDeleteFromCart: (itemId: string) => void;
+  changeCount: (itemId: string,side: number ) => void
 };
 
 export const CartContext = createContext<CartContextType>({
@@ -35,9 +35,8 @@ export function CartContextProvider({ children }: { children: any }) {
   }, []);
 
   const handleAddToCart = (cartObject: CartObject) => {
-
     const tempCart = [...cartItems];
-    const existingProductIndex = tempCart.findIndex((item: CartObject) => item.id === cartObject.id);
+    const existingProductIndex = tempCart.findIndex((item: CartObject) => item.itemId === cartObject.itemId);
     if (existingProductIndex === -1) {
 
       tempCart.push(cartObject);
@@ -45,20 +44,20 @@ export function CartContextProvider({ children }: { children: any }) {
     setCartItems(tempCart);
 
     localStorage.setItem('cart', JSON.stringify(tempCart));
-    toast.success(`Successfully added to cart`, { toastId: `addCart${cartObject.id}`})
+    toast.success(`Successfully added to cart`, { toastId: `addCart${cartObject.itemId}`})
   };
-  const handleDeleteFromCart = (itemId: number) => {
+  const handleDeleteFromCart = (itemId: string) => {
 
-    const tempCart = [...cartItems].filter((item) => item.id !== itemId);
+    const tempCart = [...cartItems].filter((item) => item.itemId !== itemId);
     setCartItems(tempCart);
 
     localStorage.setItem('cart', JSON.stringify(tempCart));
     toast.error(`Successfully deleted from cart`, { toastId: `removeCart${itemId}`})
   }
-  const changeCount = (itemId: number,side: number ) => {
+  const changeCount = (itemId: string,side: number ) => {
 
     const tempCart = [...cartItems];
-    const existingProduct = tempCart.find((item: CartObject) => item.id === itemId);
+    const existingProduct = tempCart.find((item: CartObject) => item.itemId === itemId);
     if (existingProduct && existingProduct.count + side > 0) {
       existingProduct.count += side;
     }
