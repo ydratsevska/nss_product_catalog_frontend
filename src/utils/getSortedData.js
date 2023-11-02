@@ -1,8 +1,8 @@
 export default async function getSortedData(type, sort, limit, offset) {
   const res = await fetch(
     `https://nss-product-catalog-api.onrender.com/products?${
-      type ? `type=${type}` : ''
-    }&sort=${sort}&limit=${limit}&offset=${offset}`,
+      type ? `type=${type}&` : ''
+    }sort=${sort}&limit=${limit}&offset=${offset}`,
   );
 
   if (!res.ok) {

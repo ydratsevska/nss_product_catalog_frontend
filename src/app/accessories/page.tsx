@@ -3,7 +3,6 @@ import titles from 'src/styles/modules/titles.module.scss';
 import paragraphs from 'src/styles/modules/paragraphs.module.scss';
 import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
 import accessories from '../../styles/modules/page.module.scss';
-import getData from '@/utils/getData';
 import ProductList from '@/components/ProductList/ProductList';
 import Dropdown from '@/components/Dropdown/Dropdown';
 import { sortOptions, limitOptions, optionsType } from '@/utils/constants';
@@ -13,8 +12,9 @@ import CustomPagination from '@/components/CastomPagination/CastomPagination';
 export default async function Accessories({ searchParams } : { searchParams: any}) {
   const sort = searchParams.sort || 'age';
   const limit = searchParams.limit || '8';
+  const offset = searchParams.offset || '1';
 
-  const data = await getSortedData('accessories', sort, limit);
+  const data = await getSortedData('accessories', sort, limit, offset);
 
 
   return (

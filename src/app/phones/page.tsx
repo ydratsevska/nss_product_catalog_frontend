@@ -41,7 +41,7 @@ export default async function Phones({ searchParams } : { searchParams: any}) {
       </div>
 
       <ProductList products={data.products} />
-      
+
       <div className={phones.pagination_box}>
         <CustomPagination
           resPerPage={limit}

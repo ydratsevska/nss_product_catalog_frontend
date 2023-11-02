@@ -12,8 +12,9 @@ import CustomPagination from '@/components/CastomPagination/CastomPagination';
 export default async function Tablets({ searchParams } : { searchParams: any}) {
   const sort = searchParams.sort || 'age';
   const limit = searchParams.limit || '8';
+  const offset = searchParams.offset || '1';
 
-  const data = await getSortedData('tablets', sort, limit);
+  const data = await getSortedData('tablets', sort, limit, offset);
 
   return (
     <div className={grid.template}>
