@@ -9,6 +9,7 @@
   height: $button-small-size;
   border-color: $elements-color;
   background-color: $white-color;
+  transition-duration: $button-hover-effect-duration;
 }
 
 .button {

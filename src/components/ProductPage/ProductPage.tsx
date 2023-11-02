@@ -12,11 +12,9 @@ import AddToButtons from "@/components/AddToButtons/AddToButtons";
 import { Product } from "@/types/Product";
 import ProductsCarousel from "@/components/ProdactsCarouselHome/ProdactCarouselHome";
 import 'animate.css';
-import { useParams } from "next/navigation";
 
 export default function ProductPage() {
 	const {
-		isLoading,
 		selectedProduct,
 		selectedImg,
 		onColorChange,
@@ -24,8 +22,6 @@ export default function ProductPage() {
 		setSelectedImg,
     preferences,
 	} = useContext(ProductContext);
-
-  const { category }: { category: string } = useParams();
 
 	return (
 		!selectedProduct
@@ -37,16 +33,17 @@ export default function ProductPage() {
 
 					<h1 className={`${style.page__title} ${style.title}`}>{selectedProduct.name}</h1>
 
-					<div className={style.page__image_selected}>
+					<div className={classNames(style.page__image_selected, 'animate__animated', 'animate__fadeIn')}>
 						<Image
 							src={`${URL_BASE}/${selectedImg}`}
 							alt={'product image'}
 							fill={true}
 							style={{ objectPosition: 'center top',objectFit: 'contain'}}
+              className={classNames('animate__animated', 'animate__fadeIn')}
 						/>
 					</div>
 
-					<div className={`${style.page__images} ${style.images}`}>
+					<div className={classNames(style.page__images, style.images)}>
 						{selectedProduct.images.map(image => (
 							<button
 								className={classNames({
@@ -60,7 +57,7 @@ export default function ProductPage() {
 									src={`${URL_BASE}/${image}`}
 									alt={'phone image'}
 									fill={true}
-									className={style.images__button__image}
+									className={classNames(style.images__button__image, 'animate__animated', 'animate__fadeIn')}
 								/>
 							</button>
 						))}
@@ -126,7 +123,7 @@ export default function ProductPage() {
 						</p>
 
 						<div className={style.options__buttons_buy}>
-							<AddToButtons product={selectedProduct as unknown as Product}/>
+							<AddToButtons product={selectedProduct.id}/>
 						</div>
 
 						<div className={style.pairs}>

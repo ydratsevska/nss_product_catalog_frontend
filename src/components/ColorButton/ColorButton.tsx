@@ -2,6 +2,7 @@
 
 import style from './ColorButton.module.scss'
 import classNames from "classnames";
+import {colors} from "@/utils/constants";
 
 interface Props {
   color: string;
@@ -18,7 +19,7 @@ export default function ColorButton({color, selected, onClick}: Props) {
       <div
         className={style.button__color}
         style={{
-            backgroundColor: color,
+            backgroundColor: colors[color],
             opacity: 0.8
           }}
         onClick={() => onClick(color)}

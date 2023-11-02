@@ -6,8 +6,8 @@ import { FavoritesContext } from '@/contexts/FavoritesContextProvider';
 import { CartObject } from '@/types/CartObject';
 import { Product } from '@/types/Product';
 import 'animate.css';
-import { toast } from 'react-toastify';
-import { CartContext } from '@/contexts/CartContextProvider';
+import { toast } from "react-toastify";
+import {CartContext} from "@/contexts/CartContextProvider";
 
 interface Props {
   product: Product;
@@ -29,7 +29,7 @@ export default function AddToButtons({ product }: Props) {
 
   const { cartItems, handleAddToCart } = useContext(CartContext);
   const { favorites, handleFavorites } = useContext(FavoritesContext);
-  const isAddedInCart = cartItems.some((item: CartObject) => item.id === id);
+  const isAddedInCart =  cartItems.some((item : CartObject) => item.id === id);
 
   const handleAddCartItem = () => {
     const productToAdd: CartObject = {
@@ -37,7 +37,7 @@ export default function AddToButtons({ product }: Props) {
       name,
       price,
       image,
-      count: 1,
+      count: 1
     };
 
     handleAddToCart(productToAdd);

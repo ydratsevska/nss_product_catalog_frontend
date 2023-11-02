@@ -7,6 +7,7 @@ import {
   useEffect,
   useState,
 } from 'react';
+import {toast} from "react-toastify";
 
 type CartContextType = {
   cartItems: CartObject[];
@@ -44,6 +45,7 @@ export function CartContextProvider({ children }: { children: any }) {
 
     setCartItems(tempCart);
     localStorage.setItem('cart', JSON.stringify(tempCart));
+    toast.success(`Successfully added to cart`, { toastId: `addCart${cartObject.id}`})
   };
 
   const handleDeleteFromCart = (itemId: number) => {
@@ -51,6 +53,7 @@ export function CartContextProvider({ children }: { children: any }) {
 
     setCartItems(tempCart);
     localStorage.setItem('cart', JSON.stringify(tempCart));
+    toast.error(`Successfully deleted from cart`, { toastId: `removeCart${itemId}`})
   }
 
   const changeCount = (itemId: number,side: number ) => {
