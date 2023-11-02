@@ -1,14 +1,28 @@
-import { redirect } from "next/navigation";
-import getData from "@/utils/getData";
+import grid from 'src/styles/modules/grid.module.scss';
+import titles from 'src/styles/modules/titles.module.scss';
+import paragraphs from 'src/styles/modules/paragraphs.module.scss';
+import BreadCrumbs from '../../components/BreadCrumbs/BreadCrumbs';
+import accessories from '../../styles/modules/page.module.scss';
+import ProductList from '@/components/ProductList/ProductList';
+import Dropdown from '@/components/Dropdown/Dropdown';
+import { sortOptions, limitOptions, optionsType } from '@/utils/constants';
+import getSortedData from '@/api/products'
+import CustomPagination from '@/components/CastomPagination/CastomPagination';
+import {redirect} from "next/navigation";
 import classNames from "classnames";
-import grid from "@/styles/modules/grid.module.scss";
-import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
-import titles from "@/styles/modules/titles.module.scss"
-import style from "./page.module.scss"
-import Dropdown from "@/components/Dropdown/Dropdown";
-import ProductList from "@/components/ProductList/ProductList";
 
-export default async function Page({params}: { params: { category: string }}) {
+interface Props {
+  params: {
+    category: string;
+  },
+  searchParams: {
+    sort: string;
+    limit: string;
+    offset: string;
+  }
+}
+
+export default async function Page({params, searchParams}: Props) {
   if (
     params.category !== 'phones'
     && params.category !== 'accessories'
@@ -16,27 +30,45 @@ export default async function Page({params}: { params: { category: string }}) {
   ) {
     redirect('unknown')
   }
-  const data = await getData(params.category);
+
+  const sort = searchParams.sort || 'age';
+  const limit = searchParams.limit || '8';
+  const offset = searchParams.offset || '1';
+
+  const data = await getSortedData(params.category, sort, limit, offset);
 
   return (
-    <div className={classNames(grid.template, 'animate__animated', 'animate__fadeInLeft')}>
-      <BreadCrumbs category={params.category}/>
-      <h1 className={titles.main}>{params.category}</h1>
-      <p className={style.title_sub}>95 Models</p>
+    <div className={classNames(grid.template, 'animate__animated', 'animate__fadeInLeftBig')}>
+      <BreadCrumbs category={'accessories'} />
+      <h1 className={titles.main}>Accessories</h1>
+      <p className={accessories.title_sub}>{data.count} Models</p>
 
-      <div className={style.sort}>
-        <p className={style.sort__parameter}>Sort by</p>
+      <div className={accessories.sort}>
+        <p className={paragraphs.parameter}>Sort by</p>
 
-        <Dropdown options={[{value: 'newest', text: 'Newest'}]} />
+        <Dropdown
+          options={sortOptions}
+          optionsType={optionsType.sort}
+        />
       </div>
 
-      <div className={style.pagination}>
-        <p className={style.pagination__parameter}>Items on page</p>
+      <div className={accessories.pagination}>
+        <p className={paragraphs.parameter}>Items on page</p>
 
-        <Dropdown options={[{value: 16, text: '16'}]} />
+        <Dropdown
+          options={limitOptions}
+          optionsType={optionsType.limit}
+        />
       </div>
 
       <ProductList products={data.products} />
+
+      <div className={accessories.pagination_box}>
+        <CustomPagination
+          resPerPage={limit}
+          productsCount={data.count}
+        />
+      </div>
     </div>
-  )
+  );
 }

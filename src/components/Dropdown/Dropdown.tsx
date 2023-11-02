@@ -7,12 +7,12 @@ import classNames from 'classnames';
 
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
-export default function Dropdown(
-  {
-    options, optionsType,
-  } : {
-    options: Option[], optionsType: string
-  }) {
+interface Props {
+  options: Option[],
+  optionsType: string
+}
+
+export default function Dropdown({ options, optionsType }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
