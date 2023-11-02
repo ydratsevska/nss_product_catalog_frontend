@@ -31,21 +31,11 @@ export default async function Page({params, searchParams}: Props) {
     redirect('unknown')
   }
 
-  const sort = searchParams.sort || 'age';
+  const sort = searchParams.sort || 'title';
   const limit = searchParams.limit || '8';
   const offset = searchParams.offset || '1';
 
-  let data;
-
-  if (searchParams.limit) {
-    data = await getSortedData(params.category, sort, limit, '1');
-  } else {
-    data = await getSortedData(params.category, sort, limit, offset);
-  }
-
-
-
-
+  let data = await getSortedData(params.category, sort, limit, offset);
 
   return (
     <div className={classNames(grid.template, 'animate__animated', 'animate__fadeInLeftBig')}>
@@ -59,6 +49,7 @@ export default async function Page({params, searchParams}: Props) {
         <Dropdown
           options={sortOptions}
           optionsType={optionsType.sort}
+          currentValue={sort}
         />
       </div>
 
@@ -68,6 +59,7 @@ export default async function Page({params, searchParams}: Props) {
         <Dropdown
           options={limitOptions}
           optionsType={optionsType.limit}
+          currentValue={limit}
         />
       </div>
 
