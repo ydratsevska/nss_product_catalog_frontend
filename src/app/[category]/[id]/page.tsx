@@ -6,10 +6,11 @@ import ProductPage from "@/components/ProductPage/ProductPage";
 interface Props {
   params: {
     id: string
+    category: string
   }
 }
 
-export default function Page({ params }: { params: {id: string}}) {
+export default function Page({ params }: Props) {
   return (
     <ProductPageContextProvider params={params}>
       <ProductPage />
