@@ -18,12 +18,10 @@ export default async function Page({params}: { params: { category: string }}) {
   }
   const data = await getData(params.category);
 
-  const formattedHeader = params.category.charAt(0).toUpperCase() + params.category.slice(1);
-
   return (
     <div className={classNames(grid.template, 'animate__animated', 'animate__fadeInLeft')}>
-      <BreadCrumbs category={formattedHeader}/>
-      <h1 className={titles.main}>{formattedHeader}</h1>
+      <BreadCrumbs category={params.category}/>
+      <h1 className={titles.main}>{params.category}</h1>
       <p className={style.title_sub}>95 Models</p>
 
       <div className={style.sort}>
