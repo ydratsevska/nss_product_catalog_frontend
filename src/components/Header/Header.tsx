@@ -133,6 +133,11 @@ export default function Header() {
                 height={16}
                 alt='Shopping Bag icon'
               />
+              {!!cartItems.length && (
+                <span className='header__burger-menu-icon-bottom__amount header__burger-menu-icon-bottom__amount_cart'>
+                  {cartItems.length}
+                </span>
+              )}
             </Link>
           </div>
         </div>
