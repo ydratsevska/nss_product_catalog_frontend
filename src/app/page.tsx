@@ -60,7 +60,7 @@ export default async function Home() {
                   {title}
                 </h3>
                 <p className={styles.category__description}>
-                  95 {description}
+                  {description}
                 </p>
               </Link>
             </div>
