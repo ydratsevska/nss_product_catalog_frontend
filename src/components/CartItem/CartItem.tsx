@@ -16,6 +16,7 @@ export const CartItem: React.FC<Props> = ({ cartObject }) => {
     image,
     name,
     price,
+    category,
     count,
   } = cartObject;
 
@@ -28,7 +29,7 @@ export const CartItem: React.FC<Props> = ({ cartObject }) => {
           onClick={() => handleDeleteFromCart(itemId)}
           className={`${styles.item__icon} ${styles.item__icon_close}`}
         ></span>
-        <Link href={`phones/${itemId}`} className={styles.item__link}>
+        <Link href={`/${category}/${itemId}`} className={styles.item__link}>
         <Image
           alt='Phone Image'
           src={`https://nss-product-catalog-api.onrender.com/${image}`}

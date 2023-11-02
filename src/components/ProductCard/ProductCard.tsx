@@ -13,14 +13,14 @@ type Props = {
 };
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
-  const { id, name, category, fullPrice, price, screen, capacity, ram, image } =
+  const { id, name, itemId, category, fullPrice, price, screen, capacity, ram, image } =
     product;
 
   return (
     <div className={styles.card}>
       <Link
         href={`/${category}/[id]`}
-        as={`/${category}/${id}`}
+        as={`/${category}/${itemId}`}
         className={classNames(styles.card__link_wrapper,'animate__animated', 'animate__fadeIn')}
       >
         <Image

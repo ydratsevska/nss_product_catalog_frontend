@@ -1,8 +1,7 @@
-export interface CartObject {
+export interface ProductToAdd {
   itemId: string;
   image: string;
   name: string;
   price: number;
-  count: number;
   category: string;
 }
