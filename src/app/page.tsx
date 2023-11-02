@@ -48,7 +48,7 @@ export default async function Home() {
         <div className={styles.category__cards}>
           {categories.map(({ image, title, description, id, link }) => (
             <div key={id} className={styles.category_card}>
-              <Link href={link}>
+              <Link href={link} >
                 <div className={styles.category_img_box}>
                   <Image
                     src={image}
@@ -56,15 +56,13 @@ export default async function Home() {
                     className={styles.category_img}
                   />
                 </div>
+                <h3 className={styles.category__title}>
+                  {title}
+                </h3>
+                <p className={styles.category__description}>
+                  95 {description}
+                </p>
               </Link>
-
-              <Link href={link} className={styles.category__title}>
-                {title}
-              </Link>
-
-              <p className={styles.category__description}>
-                95 {description}
-              </p>
             </div>
           ))}
         </div>
