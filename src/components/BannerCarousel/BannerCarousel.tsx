@@ -1,7 +1,7 @@
 'use client';
 
-import 'react-multi-carousel/lib/styles.css';
 import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 import style from './BannerCarousel.module.scss';
 import Link from 'next/link';
