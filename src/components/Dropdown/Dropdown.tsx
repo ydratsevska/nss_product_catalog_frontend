@@ -54,7 +54,7 @@ export default function Dropdown({ options, optionsType }: Props) {
         onClick={handleOpen}
         ref={dropdownRef}
       >
-        {currentText}
+        {currentText} 
         <div
           className={classNames('dropdown__trigger__arrow', {
             dropdown__trigger__arrow_active: open,

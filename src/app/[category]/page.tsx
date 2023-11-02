@@ -35,7 +35,17 @@ export default async function Page({params, searchParams}: Props) {
   const limit = searchParams.limit || '4';
   const offset = searchParams.offset || '1';
 
-  const data = await getSortedData(params.category, sort, limit, offset);
+  let data;
+
+  if (searchParams.limit) {
+    data = await getSortedData(params.category, sort, limit, '1');
+  } else {
+    data = await getSortedData(params.category, sort, limit, offset);
+  }
+
+
+
+
 
   return (
     <div className={classNames(grid.template, 'animate__animated', 'animate__fadeInLeftBig')}>
@@ -67,6 +77,7 @@ export default async function Page({params, searchParams}: Props) {
         <CustomPagination
           resPerPage={limit}
           productsCount={data.count}
+          offset={searchParams.offset}
         />
       </div>
     </div>
