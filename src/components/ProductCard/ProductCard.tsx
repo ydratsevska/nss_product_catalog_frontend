@@ -5,6 +5,8 @@ import Link from 'next/link';
 import styles from './ProductCard.module.scss';
 import { Product } from '@/types/Product';
 import AddToButtons from '@/components/AddToButtons/AddToButtons';
+import classNames from "classnames";
+import {URL_BASE} from "@/utils/constants";
 
 type Props = {
   product: Product;
@@ -19,11 +21,11 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       <Link
         href={`/${category}/[id]`}
         as={`/${category}/${id}`}
-        className={styles.card__link_wrapper}
+        className={classNames(styles.card__link_wrapper,'animate__animated', 'animate__fadeIn')}
       >
         <Image
           alt='Phone Image'
-          src={`https://nss-product-catalog-api.onrender.com/${image}`}
+          src={`${URL_BASE}/${image}`}
           className={styles.card__image}
           width={250}
           height={250}

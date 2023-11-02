@@ -2,7 +2,7 @@ import { Description } from "@/types/Description";
 
 export interface ProductDescriptive {
   id: string,
-    namespaceId: string,
+  namespaceId: string,
   name: string,
   capacityAvailable: string[],
   capacity: string,

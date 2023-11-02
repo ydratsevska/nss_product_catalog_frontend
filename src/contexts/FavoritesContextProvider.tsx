@@ -39,12 +39,12 @@ export function FavouritesContextProvider({ children }: { children: any }) {
     setFavorites(newFavorites);
     localStorage.setItem('favorites', JSON.stringify(newFavorites));
     if (exists) {
-      toast.error('Successfully removed from favorites')
+      toast.error('Successfully removed from favorites', { toastId: `remove${id}`})
 
       return;
     }
 
-    toast.success('Successfully added to favorites')
+    toast.success('Successfully added to favorites', { toastId: `add${id}`})
   };
 
   return (

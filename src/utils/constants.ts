@@ -48,3 +48,28 @@ export const limitOptions = [
 ]
 
 export const optionsType = {sort: 'sort', limit: 'limit'}
+
+export const colors: {
+  [key: string]: string;
+} = {
+  black: '#000000',
+  blue: '#0000FF',
+  coral: '#FF7F50',
+  gold: '#FFD700',
+  graphite: '#251607',
+  green: '#008000',
+  midnight: '#191970',
+  midnightgreen: '#004953' ,
+  pink: '#FFC0CB',
+  purple: '#800080',
+  red: '#FF0000',
+  rosegold: '#b76e79',
+  sierrablue: '#69abce',
+  silver: '#c0c0c0',
+  skyblue: '#87CEEB',
+  spacegray: '#717378',
+  spaceblack: '#505150',
+  starlight: '#F8F9EC',
+  white: '#FFFFFF',
+  yellow: '#FFFF00',
+}

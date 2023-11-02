@@ -7,6 +7,7 @@ import {
   useEffect,
   useState,
 } from 'react';
+import {toast} from "react-toastify";
 
 type CartContextType = {
   cartItems: CartObject[];
@@ -26,7 +27,6 @@ export const CartContext = createContext<CartContextType>({
 
 export function CartContextProvider({ children }: { children: any }) {
   const [cartItems, setCartItems] = useState([] as CartObject[]);
-
   useEffect(() => {
     if (!localStorage.getItem('cart')) {
       localStorage.setItem('cart', '[]');
@@ -35,29 +35,32 @@ export function CartContextProvider({ children }: { children: any }) {
   }, []);
 
   const handleAddToCart = (cartObject: CartObject) => {
+
     const tempCart = [...cartItems];
     const existingProductIndex = tempCart.findIndex((item: CartObject) => item.id === cartObject.id);
-
     if (existingProductIndex === -1) {
+
       tempCart.push(cartObject);
     }
-
     setCartItems(tempCart);
+
     localStorage.setItem('cart', JSON.stringify(tempCart));
+    toast.success(`Successfully added to cart`, { toastId: `addCart${cartObject.id}`})
   };
-
   const handleDeleteFromCart = (itemId: number) => {
+
     const tempCart = [...cartItems].filter((item) => item.id !== itemId);
-
     setCartItems(tempCart);
-    localStorage.setItem('cart', JSON.stringify(tempCart));
-  }
 
+    localStorage.setItem('cart', JSON.stringify(tempCart));
+    toast.error(`Successfully deleted from cart`, { toastId: `removeCart${itemId}`})
+  }
   const changeCount = (itemId: number,side: number ) => {
+
     const tempCart = [...cartItems];
     const existingProduct = tempCart.find((item: CartObject) => item.id === itemId);
     if (existingProduct && existingProduct.count + side > 0) {
-    existingProduct.count += side;
+      existingProduct.count += side;
     }
 
     setCartItems(tempCart);

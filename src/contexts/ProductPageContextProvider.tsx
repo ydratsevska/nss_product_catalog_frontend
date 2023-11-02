@@ -21,7 +21,9 @@ interface ProductContext {
 	onColorChange: (color: string) => void;
   onCapacityChange: (capacity: string) => void;
   preferences: Product[] | null;
-};
+  productToAdd: { itemId: string | undefined, name: string | undefined, price: number | undefined, img: string | undefined }
+  category: string;
+}
 
 export const ProductContext = createContext<ProductContext>({
 	selectedImg: '',
@@ -31,6 +33,13 @@ export const ProductContext = createContext<ProductContext>({
   onColorChange: () => {},
   onCapacityChange: () => {},
   preferences: null,
+  category: '',
+  productToAdd: {
+    itemId: '',
+    name: '',
+    price: 0,
+    img: '',
+  }
 });
 
 interface Data extends GetByIdResponse {
@@ -41,6 +50,7 @@ interface Props {
   children: ReactNode,
   params: {
     id: string
+    category: string
   }
 }
 
@@ -64,7 +74,7 @@ export function ProductPageContextProvider({ children, params }: Props) {
       try {
         data.current = await fetchData(params.id);
         const descriptiveProduct = data.current.variants.find(
-          (variant) => data.current?.product.name === variant.name
+          (variant) => data.current?.product.itemId === variant.id
         ) as ProductDescriptive;
         setSelectedProduct(descriptiveProduct);
         setSelectedImg(descriptiveProduct.images[0]);
@@ -91,11 +101,19 @@ export function ProductPageContextProvider({ children, params }: Props) {
 		setIsLoading,
 	] = useState(true);
 
+  const productToAdd = {
+    itemId: selectedProduct?.id,
+    name: selectedProduct?.name,
+    price: selectedProduct?.priceDiscount,
+    img: selectedProduct?.images[0],
+  }
+
 	const onColorChange = (newColor: string) => {
 		const product = data
 			.current
 			?.variants
 			.find(({ color, capacity}) => color === newColor && capacity === selectedProduct?.capacity) || null;
+    console.log(product);
 
 		setSelectedProduct(product);
 		setSelectedImg(product?.images[0])
@@ -106,9 +124,11 @@ export function ProductPageContextProvider({ children, params }: Props) {
 			.current
 			?.variants
 			.find(({ color, capacity}) => (color === selectedProduct?.color && capacity === newCapacity)) || null
+    console.log(product);
 
 		setSelectedProduct(product);
 	}
+
 
   return (
     isLoading
@@ -123,6 +143,8 @@ export function ProductPageContextProvider({ children, params }: Props) {
             onColorChange,
             onCapacityChange,
             setSelectedImg,
+            productToAdd,
+            category: params.category,
             preferences: data.current?.preferences as Product[],
 			    }}
 		    >
