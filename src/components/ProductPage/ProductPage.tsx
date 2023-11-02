@@ -247,25 +247,29 @@ export default function ProductPage() {
                 </span>
 							</p>
 
-							<p className={style.pair}>
+              {selectedProduct.camera && (
+                <p className={style.pair}>
                 <span className={style.pair__label}>
                   Camera
                 </span>
 
-								<span className={style.lable__value}>
+                  <span className={style.lable__value}>
                   {selectedProduct.camera}
                 </span>
-							</p>
+                </p>
+              )}
 
-							<p className={style.pair}>
+              {selectedProduct.zoom && (
+                <p className={style.pair}>
                 <span className={style.pair__label}>
                   Zoom
                 </span>
 
-								<span className={style.lable__value}>
+                  <span className={style.lable__value}>
                   {selectedProduct.zoom}
                 </span>
-							</p>
+                </p>
+              )}
 
 							<p className={style.pair}>
                 <span className={style.pair__label}>
