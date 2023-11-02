@@ -6,12 +6,12 @@ import {
   useRef,
   ReactNode,
 } from 'react';
-import {ProductDescriptive} from "@/types/ProductDescriptive";
-import {GetByIdResponse} from "@/types/GetByIdResponse";
-import {getAllVariants, getPreferences} from "@/api/products";
+import { ProductDescriptive } from "@/types/ProductDescriptive";
+import { GetByIdResponse } from "@/types/GetByIdResponse";
+import { getAllVariants, getPreferences } from "@/api/products";
 import Loader from "@/components/Loader/Loader";
-import {Product} from "@/types/Product";
-import {redirect} from "next/navigation";
+import { Product } from "@/types/Product";
+import { ProductToAdd } from "@/types/ProductToAdd";
 
 interface ProductContext {
   selectedImg: string | undefined;
@@ -21,7 +21,7 @@ interface ProductContext {
 	onColorChange: (color: string) => void;
   onCapacityChange: (capacity: string) => void;
   preferences: Product[] | null;
-  productToAdd: { itemId: string | undefined, name: string | undefined, price: number | undefined, img: string | undefined }
+  productToAdd: ProductToAdd;
   category: string;
 }
 
@@ -34,12 +34,7 @@ export const ProductContext = createContext<ProductContext>({
   onCapacityChange: () => {},
   preferences: null,
   category: '',
-  productToAdd: {
-    itemId: '',
-    name: '',
-    price: 0,
-    img: '',
-  }
+  productToAdd: { itemId: '', name: '', price: 0, image: '', category: ''},
 });
 
 interface Data extends GetByIdResponse {
@@ -102,11 +97,12 @@ export function ProductPageContextProvider({ children, params }: Props) {
 	] = useState(true);
 
   const productToAdd = {
+    category: data.current?.product.category,
     itemId: selectedProduct?.id,
     name: selectedProduct?.name,
     price: selectedProduct?.priceDiscount,
-    img: selectedProduct?.images[0],
-  }
+    image: selectedProduct?.images[0],
+  } as ProductToAdd
 
 	const onColorChange = (newColor: string) => {
 		const product = data

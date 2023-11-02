@@ -1,29 +1,23 @@
 import styles from './AddToButtons.module.scss';
 import button from '@/styles/modules/buttons.module.scss';
+import 'animate.css';
 import classNames from 'classnames';
 import { useContext } from 'react';
 import { FavoritesContext } from '@/contexts/FavoritesContextProvider';
 import { CartObject } from '@/types/CartObject';
-import { Product } from '@/types/Product';
-import 'animate.css';
-import { toast } from "react-toastify";
-import {CartContext} from "@/contexts/CartContextProvider";
+import { CartContext } from "@/contexts/CartContextProvider";
+import { ProductToAdd } from "@/types/ProductToAdd";
 
 interface Props {
-  product: Product;
+  product: ProductToAdd;
 }
 
 export default function AddToButtons({ product }: Props) {
   const {
-    id,
     itemId,
     name,
-    category,
-    fullPrice,
     price,
-    screen,
-    capacity,
-    ram,
+    category,
     image,
   } = product;
 
@@ -37,6 +31,7 @@ export default function AddToButtons({ product }: Props) {
       name,
       price,
       image,
+      category,
       count: 1
     };
     console.log(productToAdd);
