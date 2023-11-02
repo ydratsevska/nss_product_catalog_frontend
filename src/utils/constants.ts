@@ -15,21 +15,21 @@ export const categories = [
   {
     image: phoneImg,
     title: 'Mobile phones',
-    description: 'models',
+    description: '95 models',
     link: '/phones',
     id: 1,
   },
   {
     image: tabletImg,
     title: 'Tablets',
-    description: 'models',
+    description: '36 models',
     link: '/tablets',
     id: 2,
   },
   {
     image: accessoriesImg,
     title: 'Accessories',
-    description: 'models',
+    description: '34 models',
     link: '/accessories',
     id: 3
   }

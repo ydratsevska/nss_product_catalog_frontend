@@ -133,18 +133,20 @@
     position: relative;
     display: flex;
     margin-bottom: 24px;
-    width: 288px;
-    height: 288px;
+    max-width: 288px;
+    max-height: 288px;
     overflow: hidden;
 
     @include onTablet {
-      width: 187px;
-      height: 187px;
+      min-width: 187px;
+      min-height: 187px;
     }
 
     @include onDesktop {
       width: 368px;
       height: 368px;
+      max-width: 368px;
+      max-height: 368px;
     }
   }
 }
