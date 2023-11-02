@@ -28,18 +28,18 @@ export default function RootLayout({
         <FavouritesContextProvider>
           <CartContextProvider>
           <Header />
-            <ToastContainer
-              position="top-right"
-              autoClose={false}
-              hideProgressBar={false}
-              newestOnTop={false}
-              closeOnClick
-              rtl={false}
-              pauseOnFocusLoss
-              draggable
-              pauseOnHover
-              theme="light"
-            />
+          <ToastContainer
+            position="top-right"
+            autoClose={false}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+          />
           <main className={layout.main}>
             {children}
           </main>
