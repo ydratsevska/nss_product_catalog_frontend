@@ -114,6 +114,11 @@
   justify-content: center;
   gap: 8px;
 
+  @include onTablet {
+    justify-content: start;
+    flex-direction: column;
+  }
+
   &__button {
     position: relative;
     background-color: $white_color;
@@ -146,9 +151,6 @@
     }
   }
 
-  @include onTablet {
-    flex-direction: column;
-  }
 }
 
 .pairs {
