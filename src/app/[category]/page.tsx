@@ -39,8 +39,8 @@ export default async function Page({params, searchParams}: Props) {
 
   return (
     <div className={classNames(grid.template, 'animate__animated', 'animate__fadeInLeftBig')}>
-      <BreadCrumbs category={'accessories'} />
-      <h1 className={titles.main}>Accessories</h1>
+      <BreadCrumbs category={params.category} />
+      <h1 className={titles.main}>{params.category}</h1>
       <p className={accessories.title_sub}>{data.count} Models</p>
 
       <div className={accessories.sort}>

@@ -9,9 +9,9 @@ import {
 import {toast} from "react-toastify";
 
 type FavContext = {
-  favorites: number[];
-  setFavorites: Dispatch<SetStateAction<number[]>>;
-  handleFavorites: (id: number) => void;
+  favorites: string[];
+  setFavorites: Dispatch<SetStateAction<string[]>>;
+  handleFavorites: (id: string) => void;
 };
 
 export const FavoritesContext = createContext<FavContext>({
@@ -21,7 +21,7 @@ export const FavoritesContext = createContext<FavContext>({
 });
 
 export function FavouritesContextProvider({ children }: { children: any }) {
-  const [favorites, setFavorites] = useState([] as number[]);
+  const [favorites, setFavorites] = useState([] as string[]);
 
   useEffect(() => {
     if (!localStorage.getItem('favorites')) {
@@ -30,7 +30,7 @@ export function FavouritesContextProvider({ children }: { children: any }) {
     setFavorites(JSON.parse(localStorage.getItem('favorites') || '[]'));
   }, []);
 
-  const handleFavorites = (id: number) => {
+  const handleFavorites = (id: string) => {
     const exists = favorites.includes(id)
     const newFavorites = exists
       ? favorites.filter((fav) => fav !== id)

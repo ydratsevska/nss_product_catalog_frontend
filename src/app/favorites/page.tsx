@@ -10,7 +10,7 @@ import { ProductsList } from '@/types/ProductsList';
 import Loader from '@/components/Loader/Loader';
 
 export default function Favorites() {
-  const [favoriteIds, setFavoriteIds] = useState<number[]>([]);
+  const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [data, setData] = useState<ProductsList>();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,8 +25,8 @@ export default function Favorites() {
     });
   }, []);
 
-  const favoritesList = data?.products.filter(({ id }: { id: number }) =>
-    favoriteIds.includes(id),
+  const favoritesList = data?.products.filter(({ itemId }: { itemId: string }) =>
+    favoriteIds.includes(itemId),
   );
 
   return (

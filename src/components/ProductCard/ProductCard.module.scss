@@ -2,9 +2,9 @@
 @import '../../utils/mixins.scss';
 
 .card {
-  display: grid;
-  grid-row: span 6;
-  grid-template-rows: subgrid;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   padding: 32px;
   background-color: #fff;
   border: 1px solid $elements-color;
@@ -35,8 +35,12 @@
     }
   }
 
+  &__container_name {
+    height: 58px;
+  }
+
   &__name {
-    padding-top: 16px;
+    margin-top: 16px;
     font-size: 14px;
     font-weight: 600;
     line-height: 21px;
