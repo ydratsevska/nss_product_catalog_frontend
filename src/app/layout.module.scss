@@ -1,9 +1,9 @@
 @import '../utils/mixins.scss';
 
 .main {
-  padding-block: calc(48px + 24px) 64px;
+  padding-block: 24px 64px;
 
   @include onDesktop {
-    padding-block: calc(65px + 24px) 80px;
+    padding-block: 24px 80px;
   }
 }
