@@ -1,9 +1,9 @@
 'use client';
 
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Carousel from 'react-multi-carousel';
 
-import './BannerCarousel.scss';
+import style from './BannerCarousel.module.scss';
 import Link from 'next/link';
 
 export default function BannerCarousel() {
@@ -29,7 +29,7 @@ export default function BannerCarousel() {
   const CustomDot = ({ onClick, active }:any) => {
     return (
       <li
-        className={active ? "dot-active" : "dot"}
+        className={active ? style['dot-active'] : style['dot']}
         onClick={() => onClick()}
       >
       </li>
@@ -41,62 +41,62 @@ export default function BannerCarousel() {
       carouselState: { currentSlide },
     } = rest;
     return (
-      <div className='banner-buttons'>
+      <div className={style['banner-buttons']}>
         <button
           className={
             currentSlide === 0
-              ? 'banner-buttons__left--disable'
-              : 'banner-buttons__left'
+              ? style['banner-buttons__left--disable']
+              : style['banner-buttons__left']
           }
           onClick={() => previous()}
         />
-        <button className='banner-buttons__right' onClick={() => next()} />
+        <button className={style['banner-buttons__right']} onClick={() => next()} />
       </div>
     );
   };
 
   return (
-    <div className='banner__container'>
-      <Link href={'/phones'} className='banner__link'>Order now</Link>
-
+    <div className={style['banner__container']}>
       <Carousel
+        itemClass={style['carousel_item']}
+        containerClass={style['banner__carousel-container']}
+        sliderClass={style['banner__carousel-trak']}
+        dotListClass={style['custom-dot-list-style']}
         responsive={responsive}
         infinite={true}
         autoPlay={true}
+        arrows={false}
+        showDots
+        renderDotsOutside={true}
         autoPlaySpeed={5000}
         transitionDuration={500}
         renderArrowsWhenDisabled={true}
-        arrows={false}
         renderButtonGroupOutside={true}
         customButtonGroup={<BannerButtonGroup />}
-        itemClass="carousel_item"
-        containerClass="banner__carousel-container"
-        sliderClass="banner__carousel-trak"
-        dotListClass="custom-dot-list-style"
-        showDots
         customDot={<CustomDot />}
-        renderDotsOutside={true}
 
       >
-        <div className='banner_content banner_content--phone'>
-          <div className='text'>
-            <h2 className='item__title'>Now avaliable in our store!</h2>
-            <p className='item__text'>be first!</p>
-          </div>
-
-        </div>
-
-        <div className='banner_content banner_content--tablet'>
-          <div className='text'>
-            <h2 className='item__title'>Now avaliable in our store!</h2>
-            <p className='item__text'>be first!</p>
+        <div className={`${style['banner_content']} ${style['banner_content--phone']}`}>
+          <Link href={'/phones'} className={style['banner__link']}>Order now</Link>
+          <div className={style['text']}>
+            <h2 className={style['item__title']}>Now avaliable in our store!</h2>
+            <p className={style['item__text']}>be first!</p>
           </div>
         </div>
 
-        <div className='banner_content banner_content--watch'>
-          <div className='text'>
-            <h2 className='item__title'>Now avaliable in our store!</h2>
-            <p className='item__text'>be first!</p>
+        <div className={`${style['banner_content']} ${style['banner_content--tablet']}`}>
+          <Link href={'/tablets'} className={style['banner__link']}>Order now</Link>
+          <div className={style['text']}>
+            <h2 className={style['item__title']}>Now avaliable in our store!</h2>
+            <p className={style['item__text']}>be first!</p>
+          </div>
+        </div>
+
+        <div className={`${style['banner_content']} ${style['banner_content--watch']}`}>
+          <Link href={'/accessories'} className={style['banner__link']}>Order now</Link>
+          <div className={style['text']}>
+            <h2 className={style['item__title']}>Now avaliable in our store!</h2>
+            <p className={style['item__text']}>be first!</p>
           </div>
         </div>
       </Carousel>

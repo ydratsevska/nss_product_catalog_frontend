@@ -36,9 +36,9 @@ export const categories = [
 ]
 
 export const sortOptions = [
+  { value: 'title', text: 'Alphabetically '},
   { value: 'age', text: 'Newest'},
   { value: 'price', text: 'Cheapest'},
-  { value: 'title', text: 'Alphabetically '},
 ]
 
 export const limitOptions = [
