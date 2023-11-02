@@ -109,7 +109,6 @@ export function ProductPageContextProvider({ children, params }: Props) {
 			.current
 			?.variants
 			.find(({ color, capacity}) => color === newColor && capacity === selectedProduct?.capacity) || null;
-    console.log(product);
 
 		setSelectedProduct(product);
 		setSelectedImg(product?.images[0])
@@ -120,7 +119,6 @@ export function ProductPageContextProvider({ children, params }: Props) {
 			.current
 			?.variants
 			.find(({ color, capacity}) => (color === selectedProduct?.color && capacity === newCapacity)) || null
-    console.log(product);
 
 		setSelectedProduct(product);
 	}

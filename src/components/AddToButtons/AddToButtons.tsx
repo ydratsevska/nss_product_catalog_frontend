@@ -34,7 +34,6 @@ export default function AddToButtons({ product }: Props) {
       category,
       count: 1
     };
-    console.log(productToAdd);
 
     handleAddToCart(productToAdd);
   };
