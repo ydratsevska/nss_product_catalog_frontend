@@ -31,7 +31,7 @@ export default async function Page({params, searchParams}: Props) {
     redirect('unknown')
   }
 
-  const sort = searchParams.sort || 'title';
+  const sort = searchParams.sort || 'age';
   const limit = searchParams.limit || '8';
   const offset = searchParams.offset || '1';
 

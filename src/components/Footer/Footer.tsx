@@ -29,24 +29,19 @@ export default function Footer() {
 
       <div className='footer__links'>
         <a
-          href='https://github.com/Koliras/nss_product_catalog_frontend'
+          href='https://github.com/NekoScript-Solutions/nss_product_catalog_frontend'
           className='footer__links__element'
+          target='_blank'
         >
           Github
         </a>
 
         <a
-          href=''
+          href='https://github.com/NekoScript-Solutions'
           className='footer__links__element'
+          target='_blank'
         >
           Contacts
-        </a>
-
-        <a
-          href=''
-          className='footer__links__element'
-        >
-          Rights
         </a>
       </div>
 
