@@ -11,6 +11,7 @@ import button from '@/styles/modules/buttons.module.scss';
 import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '@/contexts/CartContextProvider';
 import CheckoutModal from '@/components/CheckoutModal/CheckoutModal';
+import BreadCrumbs from "@/components/BreadCrumbs/BreadCrumbs";
 
 export default function Cart() {
   const { cartItems } = useContext(CartContext);
@@ -32,15 +33,8 @@ export default function Cart() {
 
   return (
     <div className={grid.template}>
-      <div className={style.wrapper}>
-        <div
-          className={cart.back}
-         onClick={() =>  window.history.back()}
-        >
-          <Image src={arrowLeft} alt={'back link'} />
-          Back
-        </div>
-      </div>
+      <BreadCrumbs category={'cart'} />
+
       <h1 className={titles.main}>Cart</h1>
       <CartList products={cartItems} />
 
