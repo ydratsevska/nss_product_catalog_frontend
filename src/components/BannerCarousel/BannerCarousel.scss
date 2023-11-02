@@ -19,13 +19,12 @@
 
 .banner__link {
   position: absolute;
-  z-index: 3;
   text-transform: uppercase;
-  display: block;
   background: linear-gradient(to right, #6B06CF 0%, #FF4ABD 50%, #5B3ECF 100%);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: $bold-weight;
+  pointer-events: auto;
 
   padding-inline: 20px;
   padding-block: 10px;
@@ -49,7 +48,6 @@
   &:hover {
     box-shadow: inset -3px 0px 13px 0px rgba(207, 34, 234, 1);
   }
-
 }
 
 .text {
@@ -81,7 +79,6 @@
 .banner_content {
   position: relative;
   box-sizing: border-box;
-  width: 320;
   min-height: 320px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -145,6 +142,7 @@
 }
 
 .banner-buttons {
+  pointer-events: none;
   position: absolute;
   width: 100%;
   min-height: 320px;
@@ -162,6 +160,7 @@
   }
 
   &__left {
+    pointer-events: auto;
     display: none;
 
     @include onDesktop {
@@ -209,6 +208,7 @@
   }
 
   &__right {
+    pointer-events: auto;
     display: none;
 
     @include onTablet {
