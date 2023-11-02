@@ -108,8 +108,13 @@
         }
 
         &_favorite {
-          bottom: 34px;
+          bottom: 32px;
           left: 25%;
+        }
+
+        &_cart {
+          bottom: 32px;
+          left: 75%;
         }
       }
     }

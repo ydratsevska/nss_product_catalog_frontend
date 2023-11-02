@@ -102,6 +102,10 @@
   }
 }
 
+.category_card {
+  width: clamp(187px, 35%, 450px);
+}
+
 .category__cards {
   display: flex;
   flex-direction: column;

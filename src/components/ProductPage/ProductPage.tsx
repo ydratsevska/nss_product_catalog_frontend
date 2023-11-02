@@ -12,6 +12,7 @@ import AddToButtons from "@/components/AddToButtons/AddToButtons";
 import { Product } from "@/types/Product";
 import ProductsCarousel from "@/components/ProdactsCarouselHome/ProdactCarouselHome";
 import 'animate.css';
+import { useParams } from "next/navigation";
 
 export default function ProductPage() {
 	const {
@@ -24,13 +25,15 @@ export default function ProductPage() {
     preferences,
 	} = useContext(ProductContext);
 
+  const { category }: { category: string } = useParams();
+
 	return (
 		!selectedProduct
 			? (
 				<h1 style={{ textAlign: 'center'}}>Unable to load the product, try again later</h1>
 			) : (
 				<div className={`${style.page} ${grid.template} animate__animated animate__fadeInLeft`}>
-					<BreadCrumbs category={'accessories'} productName={selectedProduct.name} />
+					<BreadCrumbs category={category} productName={selectedProduct.name} />
 
 					<h1 className={`${style.page__title} ${style.title}`}>{selectedProduct.name}</h1>
 
