@@ -4,15 +4,12 @@ import cart from './page.module.scss';
 import grid from 'src/styles/modules/grid.module.scss';
 import titles from 'src/styles/modules/titles.module.scss';
 import style from '../../components/BreadCrumbs/BreadCrumbs.module.scss';
-import Link from 'next/link';
 import Image from 'next/image';
-import arrowLeft from '../../../public/icons/Arrow-left.svg';
+import arrowLeft from 'public/icons/Arrow-left.svg';
 import CartList from '@/components/CartList/CartList';
-import { CartObject } from '@/types/CartObject';
-import button from '../../styles/modules/buttons.module.scss';
+import button from '@/styles/modules/buttons.module.scss';
 import { useContext, useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { CartContext } from '../contexts/CartContextProvider';
+import { CartContext } from '@/contexts/CartContextProvider';
 import CheckoutModal from '@/components/CheckoutModal/CheckoutModal';
 
 export default function Cart() {

@@ -1,4 +1,5 @@
 @import 'variables';
+@import '@/utils/mixins';
 
 * {
   font-weight: $regular-weight;
@@ -8,8 +9,12 @@
   margin: 0;
 }
 
-button {
-  border: 1px solid;
+.Toastify__toast-container--top-right {
+  top: 50px;
+
+  @include onDesktop {
+    top: 65px;
+  }
 }
 
 a {
@@ -48,7 +53,9 @@ body {
 }
 
 button {
+  cursor: pointer;
   font-weight: $semi-accent-weight;
   font-size: 14px;
   line-height: 21px;
+  border: 1px solid;
 }

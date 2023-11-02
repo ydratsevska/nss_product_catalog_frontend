@@ -6,6 +6,7 @@ import {
   useEffect,
   useState,
 } from 'react';
+import {toast} from "react-toastify";
 
 type FavContext = {
   favorites: number[];
@@ -30,12 +31,20 @@ export function FavouritesContextProvider({ children }: { children: any }) {
   }, []);
 
   const handleFavorites = (id: number) => {
-    const newFavorites = favorites.includes(id)
+    const exists = favorites.includes(id)
+    const newFavorites = exists
       ? favorites.filter((fav) => fav !== id)
       : [...favorites, id];
 
     setFavorites(newFavorites);
     localStorage.setItem('favorites', JSON.stringify(newFavorites));
+    if (exists) {
+      toast.error('Successfully removed from favorites')
+
+      return;
+    }
+
+    toast.success('Successfully added to favorites')
   };
 
   return (

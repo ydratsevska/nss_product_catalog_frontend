@@ -11,6 +11,7 @@ import getNewData from '@/utils/getNewData';
 import getDiscountData from '@/utils/getDiscountData';
 
 import { categories } from '@/utils/constants';
+import classNames from "classnames";
 
 
 export default async function Home() {
@@ -20,7 +21,7 @@ export default async function Home() {
 
   return (
 
-    <div className={grid.template}>
+    <div className={classNames(grid.template, 'animate__animated', 'animate__fadeInLeftBig')}>
       <h1 className={styles.main_title}>
         Welcome to Nice Gadgets store!
       </h1>
@@ -52,7 +53,6 @@ export default async function Home() {
                   <Image
                     src={image}
                     alt={'category image'}
-                    fill
                     className={styles.category_img}
                   />
                 </div>

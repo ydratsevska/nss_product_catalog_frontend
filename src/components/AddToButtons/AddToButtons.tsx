@@ -2,33 +2,26 @@ import styles from './AddToButtons.module.scss'
 import button from "@/styles/modules/buttons.module.scss";
 import classNames from "classnames";
 import {useContext} from "react";
-import {FavoritesContext} from "@/app/contexts/FavoritesContextProvider";
+import {FavoritesContext} from "@/contexts/FavoritesContextProvider";
 import {CartObject} from "@/types/CartObject";
 import {Product} from "@/types/Product";
-import {ProductDescriptive} from "@/types/ProductDescriptive";
+import 'animate.css';
+import { toast } from "react-toastify";
+import {CartContext} from "@/contexts/CartContextProvider";
 
 interface Props {
   product: Product
 }
 
 export default function AddToButtons({ product }: Props) {
-  const { id, name, fullPrice, price, screen, capacity, ram, image } = product;
-  const { favorites: favorites, setFavorites } = useContext(FavoritesContext);
+  const { id, name, category, fullPrice, price, screen, capacity, ram, image } = product;
 
-  const handleFavorites = (id: number) => {
-    const newFavourites = favorites.includes(id)
-      ? favorites.filter((fav) => fav !== id)
-      : [...favorites, id];
+  const { cartItems, handleAddToCart } = useContext(CartContext);
+  const { favorites, handleFavorites } = useContext(FavoritesContext);
+  const isAddedInCart =  cartItems.some((item : CartObject) => item.id === id);
 
-    setFavorites(newFavourites);
-    localStorage.setItem('favorites', JSON.stringify(newFavourites));
-  };
-
-  const handleAddToCart = () => {
-    const cartDataString = localStorage.getItem('cart');
-    const existingCart = cartDataString ? JSON.parse(cartDataString) : [];
-
-    const productToAdd = {
+  const handleAddCartItem = () => {
+    const productToAdd: CartObject = {
       id,
       name,
       price,
@@ -36,33 +29,29 @@ export default function AddToButtons({ product }: Props) {
       count: 1
     };
 
-    const existingProductIndex = existingCart.findIndex((item: CartObject) => item.id === id);
-
-    if (existingProductIndex !== -1) {
-      existingCart[existingProductIndex].quantity++;
-    } else {
-      existingCart.push(productToAdd);
-    }
-
-    localStorage.setItem('cart', JSON.stringify(existingCart));
-
+    handleAddToCart(productToAdd);
   };
 
   return (
     <div className={styles.wrapper}>
       <button
-        className={button.primary}
-        onClick={handleAddToCart}
+        className={classNames(button.primary, {
+          [button.primary_selected]: isAddedInCart
+        })}
+        onClick={handleAddCartItem}
       >
-        Add to cart
+        {isAddedInCart
+          ? 'Added'
+          : 'Add to cart'
+        }
       </button>
 
       <button
-        className={classNames(button.favorite, {
-          [button.favorite_selected]: favorites.includes(id),
+        className={classNames(button.favorite, 'animate__animated', {
+          [button.favorite_selected + ' animate__heartBeat']: favorites.includes(id),
         })}
         onClick={() => handleFavorites(id)}
-      ></button>
+      />
     </div>
   )
 }

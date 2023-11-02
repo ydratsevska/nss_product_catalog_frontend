@@ -22,8 +22,9 @@ export default function BreadCrumbs({ category, productName }: Props) {
       <Link
         href={`/${category}`}
         className={classNames({
-          [`${style.link_category}`]: category && !productName,
+          [style.link_category]: category && !productName,
         })}
+        style={{ textTransform: "capitalize"}}
       >
         {category}
       </Link>

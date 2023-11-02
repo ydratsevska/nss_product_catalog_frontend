@@ -6,10 +6,11 @@ import styles from './ProductCard.module.scss';
 import button from '../../styles/modules/buttons.module.scss';
 import { Product } from '@/types/Product';
 import { useContext } from 'react';
-import { FavoritesContext } from '@/app/contexts/FavoritesContextProvider';
+import { FavoritesContext } from '@/contexts/FavoritesContextProvider';
 import classNames from 'classnames';
 import { CartObject } from '@/types/CartObject';
-import { CartContext } from '@/app/contexts/CartContextProvider';
+import { CartContext } from '@/contexts/CartContextProvider';
+import AddToButtons from "@/components/AddToButtons/AddToButtons";
 
 type Props = {
   product: Product;
@@ -17,23 +18,6 @@ type Props = {
 
 export const ProductCard: React.FC<Props> = ({ product }) => {
   const { id, name, category, fullPrice, price, screen, capacity, ram, image } = product;
-
-  const { cartItems, handleAddToCart } = useContext(CartContext);
-  const { favorites, handleFavorites } = useContext(FavoritesContext);
-
-  const handleAddItem = () => {
-    const productToAdd: CartObject = {
-      id,
-      name,
-      price,
-      image,
-      count: 1
-    };
-
-    handleAddToCart(productToAdd);
-  };
-
-  const isAddedInCart =  cartItems.some((item : CartObject) => item.id === id);
 
   return (
     <div className={styles.card}>
@@ -93,26 +77,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
         </div>
       </div>
 
-      <div className={styles.card__buttons}>
-      <button
-          className={classNames(button.primary, {
-            [button.primary_selected]: isAddedInCart
-          })}
-          onClick={handleAddItem}
-        >
-          {isAddedInCart
-            ? 'Added'
-            : 'Add to cart'
-          }
-        </button>
-
-        <button
-          className={classNames(button.favorite, {
-            [button.favorite_selected]: favorites.includes(id),
-          })}
-          onClick={() => handleFavorites(id)}
-        ></button>
-      </div>
+      <AddToButtons product={product} />
     </div>
   );
 };

@@ -7,6 +7,7 @@
   font-size: 32px;
   font-weight: 800;
   padding-bottom: 8px;
+  text-transform: capitalize;
 
   @include onTablet {
     font-size: 48px;
