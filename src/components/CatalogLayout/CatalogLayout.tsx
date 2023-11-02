@@ -22,13 +22,13 @@ export default function CatalogLayout({ category }: Props) {
       <div className={phones.sort}>
         <p className={phones.sort__parameter}>Sort by</p>
 
-        <Dropdown options={[{value: 'newest', text: 'Newest'}]} />
+        {/* <Dropdown options={[{value: 'newest', text: 'Newest'}]} /> */}
       </div>
 
       <div className={phones.pagination}>
         <p className={phones.pagination__parameter}>Items on page</p>
 
-        <Dropdown options={[{value: 16, text: '16'}]} />
+        {/* <Dropdown options={[{value: 16, text: '16'}]} /> */}
       </div>
 
       <div className={phones.products}>
