@@ -17,26 +17,116 @@
   }
 }
 
+.banner__link {
+  position: absolute;
+  z-index: 3;
+  text-transform: uppercase;
+  display: block;
+  background: linear-gradient(to right, #6B06CF 0%, #FF4ABD 50%, #5B3ECF 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: $bold-weight;
+
+  padding-inline: 20px;
+  padding-block: 10px;
+  border-radius: 50px;
+
+  border: 3px solid #6B06CF;
+
+  font-size: 10px;
+
+  top: 10%;
+  left: 30%;
+
+  @include onTablet {
+    top: 60%;
+    left: 15%;
+    font-size: 20px;
+    padding-inline: 30px;
+    padding-block: 20px;
+  }
+
+  &:hover {
+      box-shadow: inset -3px 0px 13px 0px rgba(207, 34, 234, 1);
+  }
+
+}
+
+.text {
+  position: absolute;
+  display: none;
+
+
+  @include onTablet {
+    display: inline;
+    color: white;
+    top: 10%;
+    left: 10%;
+  }
+}
+
+.item__title {
+  padding-bottom: 10px;
+  font-size: 40px;
+  background: #6B06CF;
+  background: linear-gradient(to right, #6B06CF 0%, #FF4ABD 50%, #5B3ECF 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.item__text {
+  font-size: 20px;
+}
+
 .banner_content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
   box-sizing: border-box;
   width: 320;
   min-height: 320px;
-  background-image: url('./../../../public/Banner-mobile.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-origin: border-box;
-  background-position: center;
+  background-position: center ;
 
-  @include onDesktop {
-    background-image: url('./../../../public/Banner.png');
-    min-height: 400px;
+  &--phone {
+    background-image: url('./../../../public/Slice1.png');
+
+    @include onTablet {
+      background-image: url('./../../../public/GroupDesc.png');
+      background-position: 75% 25%;
+    }
+
+    @include onDesktop {
+      min-height: 400px;
+      background-position: 75% 25%;
+    }
   }
 
-  @include onTablet {
-    background-image: url('./../../../public/Banner.png');
+  &--tablet {
+    background-image: url('./../../../public/SliceTabletBanner.png');
+
+    @include onTablet {
+      background-image: url('./../../../public/TabletBanner.png');
+      background-position: 75% 25%;
+    }
+
+    @include onDesktop {
+      min-height: 400px;
+      background-position: 75% 25%;
+    }
+  }
+  &--watch {
+    background-image: url('./../../../public/SliceWatch.png');
+
+    @include onTablet {
+      background-image: url('./../../../public/WatchDesc.png');
+      background-position: 75% 25%;
+    }
+
+    @include onDesktop {
+      min-height: 400px;
+      background-position: 75% 25%;
+    }
   }
 }
 

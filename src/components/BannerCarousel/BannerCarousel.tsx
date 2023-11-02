@@ -4,6 +4,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 import './BannerCarousel.scss';
+import Link from 'next/link';
 
 export default function BannerCarousel() {
   const responsive = {
@@ -25,7 +26,7 @@ export default function BannerCarousel() {
     },
   };
 
-  const CustomDot = ({...rest }) => {
+  const CustomDot = ({ ...rest }) => {
     const {
       active
     } = rest;
@@ -58,6 +59,8 @@ export default function BannerCarousel() {
 
   return (
     <div className='banner__container'>
+      <Link href={'/phones'} className='banner__link'>Order now</Link>
+
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -75,10 +78,29 @@ export default function BannerCarousel() {
         showDots
         customDot={<CustomDot />}
         renderDotsOutside={true}
+        ssr={true}
       >
-        <div className='banner_content'></div>
-        <div className='banner_content'></div>
-        <div className='banner_content'></div>
+        <div className='banner_content banner_content--phone'>
+          <div className='text'>
+            <h2 className='item__title'>Now avaliable in our store!</h2>
+            <p className='item__text'>be first!</p>
+          </div>
+
+        </div>
+
+        <div className='banner_content banner_content--tablet'>
+          <div className='text'>
+            <h2 className='item__title'>Now avaliable in our store!</h2>
+            <p className='item__text'>be first!</p>
+          </div>
+        </div>
+
+        <div className='banner_content banner_content--watch'>
+          <div className='text'>
+            <h2 className='item__title'>Now avaliable in our store!</h2>
+            <p className='item__text'>be first!</p>
+          </div>
+        </div>
       </Carousel>
     </div>
   );
