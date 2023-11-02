@@ -57,8 +57,6 @@ export default function BannerCarousel() {
 
   return (
     <div className='banner__container'>
-      <Link href={'/phones'} className='banner__link'>Order now</Link>
-
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -79,14 +77,15 @@ export default function BannerCarousel() {
 
       >
         <div className='banner_content banner_content--phone'>
+          <Link href={'/phones'} className='banner__link'>Order now</Link>
           <div className='text'>
             <h2 className='item__title'>Now avaliable in our store!</h2>
             <p className='item__text'>be first!</p>
           </div>
-
         </div>
 
         <div className='banner_content banner_content--tablet'>
+          <Link href={'/phones'} className='banner__link'>Order now</Link>
           <div className='text'>
             <h2 className='item__title'>Now avaliable in our store!</h2>
             <p className='item__text'>be first!</p>
@@ -94,6 +93,7 @@ export default function BannerCarousel() {
         </div>
 
         <div className='banner_content banner_content--watch'>
+          <Link href={'/phones'} className='banner__link'>Order now</Link>
           <div className='text'>
             <h2 className='item__title'>Now avaliable in our store!</h2>
             <p className='item__text'>be first!</p>
