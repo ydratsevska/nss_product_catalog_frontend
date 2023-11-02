@@ -85,7 +85,7 @@ export default function BannerCarousel() {
         </div>
 
         <div className='banner_content banner_content--tablet'>
-          <Link href={'/phones'} className='banner__link'>Order now</Link>
+          <Link href={'/tablets'} className='banner__link'>Order now</Link>
           <div className='text'>
             <h2 className='item__title'>Now avaliable in our store!</h2>
             <p className='item__text'>be first!</p>
@@ -93,7 +93,7 @@ export default function BannerCarousel() {
         </div>
 
         <div className='banner_content banner_content--watch'>
-          <Link href={'/phones'} className='banner__link'>Order now</Link>
+          <Link href={'/accessories'} className='banner__link'>Order now</Link>
           <div className='text'>
             <h2 className='item__title'>Now avaliable in our store!</h2>
             <p className='item__text'>be first!</p>
