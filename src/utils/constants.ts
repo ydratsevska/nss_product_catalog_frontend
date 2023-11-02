@@ -15,7 +15,7 @@ export const categories = [
   {
     image: phoneImg,
     title: 'Mobile phones',
-    description: '95 models',
+    description: '124 models',
     link: '/phones',
     id: 1,
   },
