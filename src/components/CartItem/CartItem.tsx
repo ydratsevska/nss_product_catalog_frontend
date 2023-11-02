@@ -4,6 +4,7 @@ import phoneImage from '../ProductCard/phoneImage.png';
 import { CartObject } from '@/types/CartObject';
 import { useContext } from 'react';
 import { CartContext } from '@/contexts/CartContextProvider';
+import Link from 'next/link';
 
 type Props = {
   cartObject: CartObject;
@@ -11,7 +12,7 @@ type Props = {
 
 export const CartItem: React.FC<Props> = ({ cartObject }) => {
   const {
-    id,
+    itemId,
     image,
     name,
     price,
@@ -24,9 +25,10 @@ export const CartItem: React.FC<Props> = ({ cartObject }) => {
     <div className={styles.item}>
       <div className={styles.item__group}>
         <span
-          onClick={() => handleDeleteFromCart(id)}
+          onClick={() => handleDeleteFromCart(itemId)}
           className={`${styles.item__icon} ${styles.item__icon_close}`}
         ></span>
+        <Link href={`phones/${itemId}`} className={styles.item__link}>
         <Image
           alt='Phone Image'
           src={`https://nss-product-catalog-api.onrender.com/${image}`}
@@ -37,24 +39,25 @@ export const CartItem: React.FC<Props> = ({ cartObject }) => {
         <span className={styles.item__text}>
           {name}
         </span>
+        </Link>
       </div>
 
       <div className={styles.item__pair}>
         <div className={styles.item__group}>
           <span
-          onClick={() => changeCount(id, -1)}
+          onClick={() => changeCount(itemId, -1)}
             className={`${styles.item__icon} ${styles.item__icon_minus} ${styles.item__icon_border}`}
           ></span>
-          <span className={styles.item__text}>
+          <span className={`${styles.item__text} ${styles.item__text_count}`}>
             {count}
           </span>
           <span
-            onClick={() => changeCount(id, 1)}
+            onClick={() => changeCount(itemId, 1)}
             className={`${styles.item__icon} ${styles.item__icon_plus} ${styles.item__icon_border}`}
           ></span>
+         <span className={styles.item__price}>${price * count}</span>
         </div>
 
-        <span className={styles.item__price}>${price}</span>
       </div>
     </div>
   );
