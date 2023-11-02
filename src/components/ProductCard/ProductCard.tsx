@@ -21,7 +21,7 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       <Link
         href={`/${category}/[id]`}
         as={`/${category}/${id}`}
-        className={styles.card__link_wrapper}
+        className={classNames(styles.card__link_wrapper,'animate__animated', 'animate__fadeIn')}
       >
         <Image
           alt='Phone Image'

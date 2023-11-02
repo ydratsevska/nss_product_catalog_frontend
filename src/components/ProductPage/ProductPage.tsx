@@ -20,6 +20,7 @@ export default function ProductPage() {
 		onColorChange,
 		onCapacityChange,
 		setSelectedImg,
+    productToAdd,
     preferences,
 	} = useContext(ProductContext);
 
@@ -57,7 +58,7 @@ export default function ProductPage() {
 									src={`${URL_BASE}/${image}`}
 									alt={'phone image'}
 									fill={true}
-									className={classNames(style.images__button__image, 'animate__animated', 'animate__fadeIn')}
+									className={style.images__button__image}
 								/>
 							</button>
 						))}
@@ -123,7 +124,7 @@ export default function ProductPage() {
 						</p>
 
 						<div className={style.options__buttons_buy}>
-							<AddToButtons product={selectedProduct.id}/>
+							<AddToButtons product={productToAdd}/>
 						</div>
 
 						<div className={style.pairs}>

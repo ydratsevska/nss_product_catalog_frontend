@@ -21,7 +21,8 @@ interface ProductContext {
 	onColorChange: (color: string) => void;
   onCapacityChange: (capacity: string) => void;
   preferences: Product[] | null;
-};
+  productToAdd: { itemId: string | undefined, name: string | undefined, price: number | undefined, img: string | undefined }
+}
 
 export const ProductContext = createContext<ProductContext>({
 	selectedImg: '',
@@ -31,6 +32,12 @@ export const ProductContext = createContext<ProductContext>({
   onColorChange: () => {},
   onCapacityChange: () => {},
   preferences: null,
+  productToAdd: {
+    itemId: '',
+    name: '',
+    price: 0,
+    img: '',
+  }
 });
 
 interface Data extends GetByIdResponse {
@@ -91,6 +98,13 @@ export function ProductPageContextProvider({ children, params }: Props) {
 		setIsLoading,
 	] = useState(true);
 
+  const productToAdd = {
+    itemId: selectedProduct?.id,
+    name: selectedProduct?.name,
+    price: selectedProduct?.priceDiscount,
+    img: selectedProduct?.images[0],
+  }
+
 	const onColorChange = (newColor: string) => {
 		const product = data
 			.current
@@ -126,6 +140,7 @@ export function ProductPageContextProvider({ children, params }: Props) {
             onColorChange,
             onCapacityChange,
             setSelectedImg,
+            productToAdd,
             preferences: data.current?.preferences as Product[],
 			    }}
 		    >
