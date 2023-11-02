@@ -3,17 +3,18 @@ import styles from '../../styles/modules/page.module.scss';
 import { Product } from '@/types/Product';
 
 export default function ProductList({ products }: { products: Product[] }) {
-  return !!products.length
-    ? (
+  return (
     <div className={styles.products}>
-      {products.map((product) => (
+      {!!products.length ? (
+        products.map((product) => (
           <ProductCard
-            product={product}
             key={product.id}
+            product={product}
           />
-      ))}
+        ))
+      ) : (
+        <div className={styles.no_products_message}>It seems, there are no products</div>
+      )}
     </div>
-    ) : (
-      <div className={styles.no_products_message}>It seems, there is no products</div>
-    );
-}
+  );
+};

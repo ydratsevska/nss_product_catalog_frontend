@@ -5,9 +5,20 @@ import { CartItem } from '../CartItem/CartItem';
 export default function CartList({ products }: { products: CartObject[] }) {
   return (
     <div className={styles.cart}>
-      {products.map((product) => (
-        <CartItem cartObject={product} key={product.itemId} />
-      ))}
+      {!!products.length ? (
+        products.map((product) => (
+          <CartItem cartObject={product} key={product.itemId} />
+        ))
+      ) : (
+        <div
+          className={styles.no_products_message}
+          style={{
+            marginTop: '32px',
+          }}
+        >
+          It seems, there are no products
+        </div>
+      )}
     </div>
   );
-}
+};
