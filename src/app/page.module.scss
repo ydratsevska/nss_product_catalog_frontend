@@ -117,14 +117,16 @@
   }
 }
 
+.category_card {
+  &:hover .category_img {
+    scale: 1.05;
+  }
+}
+
 .category_img {
   transition-duration: $button-hover-effect-duration;
   transform-origin: bottom right;
   margin: 0;
-
-  &:hover {
-    scale: 1.05;
-  }
 
   &_box {
     position: relative;
@@ -152,11 +154,8 @@
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-
-  &:hover {
-    color: violet;
-  }
 }
+
 .category__description {
   font-size: 14px;
   font-style: normal;
