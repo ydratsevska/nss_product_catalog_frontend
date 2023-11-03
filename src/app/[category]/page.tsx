@@ -34,7 +34,7 @@ export default async function Page({params, searchParams}: Props) {
 
   const sort = searchParams.sort || 'age';
   const limit = searchParams.limit || '8';
-  let offset = searchParams.offset || '1';
+  const offset = searchParams.offset || '1';
 
 
   let data = await getSortedData(params.category, sort, limit, offset);
