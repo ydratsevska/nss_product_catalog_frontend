@@ -77,7 +77,7 @@ export default async function Page({params, searchParams}: Props) {
         <CustomPagination
           resPerPage={limit}
           productsCount={data.count}
-          offset={searchParams.offset}
+          offset={offset}
         />
       </div>
     </div>
