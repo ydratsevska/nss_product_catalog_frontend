@@ -11,16 +11,23 @@ const CustomPagination = (
   const router = useRouter();
   const searchParams = useSearchParams();
 
+
+
+  React.useEffect(() => {
+    const test = new URLSearchParams(window.location.search);
+    test.set("offset", '1');
+  }, [resPerPage])
+
+
   let page = searchParams.get("offset") || 1;
 
   const pageAmount = Math.ceil(productsCount / resPerPage);
 
   if (pageAmount < Number(offset)) {
     page = 1;
-  } else {
-    page = Number(page);
+    router.push(window.location.pathname + "?" + "offset=1");
   }
-
+    page = Number(page);
 
   let queryParams;
 
