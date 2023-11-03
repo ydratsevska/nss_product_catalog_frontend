@@ -32,7 +32,7 @@ export default function Favorites() {
   return (
     <div className={grid.template}>
       <BreadCrumbs category={'favorites'} />
-      <h1 className={titles.main}>Favourites</h1>
+      <h1 className={titles.main}>Favorites</h1>
       <p className={favorites.title_sub}>{favoritesList?.length} Models</p>
 
       {isLoading ? <Loader /> : <ProductList products={favoritesList || []} />}
