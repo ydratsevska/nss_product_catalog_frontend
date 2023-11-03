@@ -38,7 +38,7 @@ export default async function Page({params, searchParams}: Props) {
   let data = await getSortedData(params.category, sort, limit, offset);
 
   return (
-    <div className={classNames(grid.template, 'animate__animated', 'animate__fadeInLeftBig')}>
+    <div className={classNames(grid.template, 'animate__animated', 'animate__fadeInDownBig')}>
       <BreadCrumbs category={params.category} />
       <h1 className={titles.main}>{params.category}</h1>
       <p className={accessories.title_sub}>{data.count} Models</p>

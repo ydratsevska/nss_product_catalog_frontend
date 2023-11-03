@@ -21,7 +21,7 @@ export default async function Home() {
 
   return (
 
-    <div className={classNames(grid.template, 'animate__animated', 'animate__fadeInLeftBig')}>
+    <div className={classNames(grid.template, 'animate__animated', 'animate__fadeInDownBig')}>
       <h1 className={styles.main_title}>
         Welcome to Nice Gadgets store!
       </h1>

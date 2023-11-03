@@ -12,7 +12,7 @@ An in-depth paragraph about this project.
 ## Tech stack
 
 ### Frontend
-* Next.js
+* Next.js 13
 * React
 * Typescript
 * Sass
